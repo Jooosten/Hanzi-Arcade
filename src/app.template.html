@@ -178,6 +178,7 @@ svg.s{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke
 .pyl{display:none;font-family:var(--f-body);font-size:13px;font-weight:600;line-height:1.2;color:var(--muted)}
 .py-on .pyl{display:block}
 .hero .pyl{font-size:22px;font-weight:700;color:var(--jade-t)}
+.hero .sent+.pyl{font-size:16px;font-weight:600;line-height:1.3}
 .opt>span{display:grid;gap:2px}
 .m-btn.h{gap:2px}.m-btn .pyl{font-size:12px;font-family:var(--f-body)}
 .otile{display:inline-flex;flex-direction:column;align-items:center;justify-content:center}
@@ -429,7 +430,7 @@ function buildQ(kind,wi){
   }else{
     const [a,b]=w.cloze.split('[ ]');
     q.label='Fill the gap';
-    q.hero=`<div class="sent">${esc(a)}<span class="blank" id="blank">&nbsp;</span>${esc(b)}</div><p class="en">${esc(w.sen)}</p>`;
+    q.hero=`<div class="sent">${esc(a)}<span class="blank" id="blank">&nbsp;</span>${esc(b)}</div>${pyl(w.spy)}<p class="en">${esc(w.sen)}</p>`;
     q.opts=shuffle([{t:`${ho(w)}`,ok:1},...distract(w,3,'diff').map(d=>({t:`${ho(d)}`}))]);
   }
   return q;
