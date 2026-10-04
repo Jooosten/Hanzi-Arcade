@@ -1,0 +1,62 @@
+{
+  "name": "hanzi-arcade",
+  "productName": "Hanzi Arcade",
+  "version": "1.0.0",
+  "description": "Hanzi Arcade - Chinese vocabulary games (desktop + Android)",
+  "main": "desktop/main.js",
+  "scripts": {
+    "build:web": "python3 tools/build_web.py",
+    "desktop": "electron .",
+    "dist:desktop": "electron-builder",
+    "android:sync": "python3 tools/build_web.py && cap sync android",
+    "android:apk": "npm run android:sync && cd android && ./gradlew assembleDebug"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/core": "^6.1.2"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^6.1.2",
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "app.hanziarcade",
+    "productName": "Hanzi Arcade",
+    "files": [
+      "desktop/**",
+      "www/**",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis"
+        },
+        {
+          "target": "portable"
+        },
+        {
+          "target": "zip"
+        }
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.education"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Education"
+    },
+    "icon": "assets/icon.png"
+  }
+}

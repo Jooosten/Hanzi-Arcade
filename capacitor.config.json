@@ -1,0 +1,6 @@
+{
+  "appId": "app.hanziarcade",
+  "appName": "Hanzi Arcade",
+  "webDir": "www",
+  "android": { "allowMixedContent": false }
+}
