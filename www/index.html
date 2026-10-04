@@ -179,6 +179,7 @@ svg.s{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke
 .py-on .pyl{display:block}
 .hero .pyl{font-size:22px;font-weight:700;color:var(--jade-t)}
 .hero .sent+.pyl{font-size:16px;font-weight:600;line-height:1.3}
+.pygap{display:inline-block;min-width:2.2em;border-bottom:2px solid var(--jade);margin-inline:3px;text-align:center;color:var(--jade-t);font-weight:800}
 .opt>span{display:grid;gap:2px}
 .m-btn.h{gap:2px}.m-btn .pyl{font-size:12px;font-family:var(--f-body)}
 .otile{display:inline-flex;flex-direction:column;align-items:center;justify-content:center}
@@ -334,6 +335,29 @@ const sylStr=syl=>syl.map(([s,t])=>mark(s,t)).join('');
 const wpy=w=>w.syl?sylStr(w.syl):w.py;
 const pyl=s=>`<span class="pyl">${esc(s)}</span>`;
 const ho=x=>`<span class="han-o">${esc(x.h)}</span>${pyl(wpy(x))}`;
+/* Fill-the-gap sentence pinyin: same as w.spy but the answer's syllables are replaced by a gap (nothing shown if it can't be located safely) */
+const PYBASE={};for(const b in MARKS)for(const c of MARKS[b])PYBASE[c]=b;
+const pyBase=s=>[...s.toLowerCase().replace(/v/g,'ü')].map(c=>PYBASE[c]||c).join('');
+const PYSYL=/(?:zh|ch|sh|[bpmfdtnlgkhjqxrzcsyw])?[aeiouü]+(?:(?:ng|n)(?![aeiouü]))?(?:r(?![aeiouü]))?/g;
+const isHan=c=>/[\u4e00-\u9fff]/.test(c);
+function gapPy(w){
+  const spy=w.spy;if(!spy)return '';
+  const syl=[];
+  for(const m of spy.matchAll(/\p{L}+/gu)){
+    const b=pyBase(m[0]);let p=0;
+    for(const x of b.matchAll(PYSYL)){if(x.index!==p)return '';syl.push([m.index+x.index,m.index+x.index+x[0].length]);p=x.index+x[0].length}
+    if(p!==b.length)return '';
+  }
+  const han=[...w.sh].filter(isHan),keep=han.map(()=>true);
+  if(syl.length!==han.length){han.forEach((c,i)=>{if(c==='儿'&&i>0)keep[i]=false});if(keep.filter(Boolean).length!==syl.length)return ''}
+  const pre=[...w.cloze.split('[ ]')[0]].filter(isHan).length,len=[...w.h].filter(isHan).length;
+  let k=0,n=0;for(let i=0;i<pre;i++)if(keep[i])k++;for(let i=pre;i<pre+len;i++)if(keep[i])n++;
+  if(!n||k+n>syl.length)return '';
+  const a=syl[k][0],b=syl[k+n-1][1];
+  const got=pyBase(spy.slice(a,b)),exp=pyBase(w.syl?w.syl.map(x=>x[0]).join(''):w.py).replace(/[^a-zü]/g,'');
+  if(got.replace(/[^a-zü]/g,'')!==exp)return '';
+  return `<span class="pyl">${esc(spy.slice(0,a))}<span class="pygap" id="pygap" data-a="${esc(spy.slice(a,b))}"></span>${esc(spy.slice(b))}</span>`;
+}
 
 WORDS.forEach((w,i)=>{
   w.i=i; w.syl=parsePn(w.pn);
@@ -435,7 +459,7 @@ function buildQ(kind,wi){
   }else{
     const [a,b]=w.cloze.split('[ ]');
     q.label='Fill the gap';
-    q.hero=`<div class="sent">${esc(a)}<span class="blank" id="blank">&nbsp;</span>${esc(b)}</div>${pyl(w.spy)}<p class="en">${esc(w.sen)}</p>`;
+    q.hero=`<div class="sent">${esc(a)}<span class="blank" id="blank">&nbsp;</span>${esc(b)}</div>${gapPy(w)}<p class="en">${esc(w.sen)}</p>`;
     q.opts=shuffle([{t:`${ho(w)}`,ok:1},...distract(w,3,'diff').map(d=>({t:`${ho(d)}`}))]);
   }
   return q;
@@ -622,6 +646,7 @@ function answer(i){
   const q=L.q,w=WORDS[q.wi],ok=!!q.opts[i].ok;
   document.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(q.opts[j].ok)b.classList.add('ok');else if(j===i)b.classList.add('no')});
   const bl=document.getElementById('blank');if(bl)bl.textContent=w.h;
+  const pg=document.getElementById('pygap');if(pg)pg.textContent=pg.dataset.a;
   grade(q,ok);
 }
 function grade(q,ok){
