@@ -234,6 +234,58 @@ button{touch-action:manipulation}
 .grow .gm b{font-family:var(--f-display)}
 .grow .gm span{font-size:13px;color:var(--muted);font-weight:600}
 .gsec{display:grid;gap:10px}
+/* desktop app (Electron) on a wide window: use the width instead of one narrow column. Phones and small windows are unchanged. */
+@media (min-width:1000px){
+  .desk body{font-size:18px;padding-inline:36px}
+  .desk .wrap{max-width:1040px;padding-block:24px 56px}
+  .desk .wrap.home{max-width:1500px}
+  .desk .hcols{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:0 56px;align-items:start}
+  .desk .hr>.sec:first-child{margin-top:8px}
+  .desk .brand h1{font-size:30px}.desk .brand p{font-size:15px}
+  .desk .seal{width:52px;height:52px;font-size:30px}
+  .desk .stat{font-size:18px;padding:8px 14px}
+  .desk .sec>h2{font-size:24px}
+  .desk .cta{font-size:20px;padding:16px 22px}
+  .desk .games{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .desk .game{padding:16px}.desk .game .g{font-size:46px}.desk .game b{font-size:19px}.desk .game span{font-size:14px}
+  .desk .tiles{grid-template-columns:repeat(auto-fill,minmax(64px,1fr))}.desk .tile{font-size:25px;padding:10px 0}
+  .desk .bhz{font-size:23px}.desk .bst{font-size:14px}.desk .mini{font-size:15px;padding:7px 14px}
+  .desk .dex .big .hz{font-size:56px}.desk .dex .py{font-size:24px}.desk .dex .sm{font-size:16px}
+  .desk .lvl>summary{font-size:19px}.desk .lvl>summary small{font-size:14px}
+  .desk .foot{font-size:16px;gap:10px 24px;justify-content:flex-start}
+  /* lessons */
+  .desk .lesson{max-width:1040px}.desk .fb-in{max-width:1040px}
+  .desk .lhead{padding-block:22px}.desk .icon-btn{width:46px;height:46px}.desk .pbar{height:18px}.desk .hud{font-size:20px}
+  .desk .qmain{gap:18px;padding-block:8px 250px}
+  .desk .eyebrow{font-size:14px}
+  .desk .hanzi-xl{font-size:clamp(84px,13vh,116px)}
+  .desk .sent{font-size:clamp(32px,5vh,44px)}
+  .desk .hero .pyl{font-size:26px}.desk .hero .sent+.pyl{font-size:19px}
+  .desk .hero .en{font-size:20px}
+  .desk .opts{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .desk .opt{padding:18px 20px;min-height:76px;font-size:20px}.desk .opt kbd{width:30px;height:30px;font-size:14px}
+  .desk .opt .han-o{font-size:36px}.desk .opt .py-o{font-size:26px}
+  .desk .mgrid,.desk .mcol{gap:16px}.desk .m-btn{min-height:78px;font-size:20px}.desk .m-btn.h{font-size:36px}
+  .desk .otile{font-size:32px;min-height:62px;padding:10px 20px}.desk .line{min-height:96px}
+  .desk .fb-t{font-size:26px}.desk .fb-w .hz{font-size:34px}.desk .fb-w .sm{font-size:16px}.desk .fb-w{font-size:18px}
+  .desk .speak{font-size:18px;padding:10px 18px}.desk .speak.big{width:132px;height:132px;font-size:52px}
+  .desk .pinyin-line{font-size:18px}
+  /* meeting words, grammar, results */
+  .desk .icard{padding:30px 28px;gap:12px}
+  .desk .ipy{font-size:40px}.desk .ien{font-size:26px}.desk .tag{font-size:13px}
+  .desk .sent2{font-size:34px}
+  .desk .icard{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);column-gap:40px;margin-block:8px 18px}
+  .desk .icard>*{grid-column:1}
+  .desk .icard>.isent{grid-column:2;grid-row:1/span 8;align-self:center;margin-top:0;padding:0 0 0 40px;border-top:0;border-left:2px dashed var(--line)}
+  .desk .gcard{grid-template-columns:minmax(0,1fr)}.desk .gcard>*{grid-column:auto}
+  .desk .gex{grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:0 28px}
+  .desk .gcard h2{font-size:30px}.desk .gpat{font-size:32px}.desk .gnote{font-size:20px}
+  .desk .gex .ex .hz{font-size:34px}
+  .desk .grow .gm b{font-size:19px}.desk .grow .gm span{font-size:15px}
+  .desk .res h1{font-size:56px}.desk .res .hz-big{font-size:110px}.desk .rs b{font-size:32px}.desk .rs span{font-size:13px}
+  .desk .rev h2{font-size:22px}.desk .rev-i .hz{font-size:30px}.desk .rev-i span:last-child{font-size:16px}
+  .desk .toast{font-size:16px;padding:10px 18px}
+}
 </style>
 </head><body>
 
@@ -272,6 +324,19 @@ document.body.classList.toggle('py-on',PY);
 const applyTheme=()=>{if(THEME==='light'||THEME==='dark')document.documentElement.setAttribute('data-theme',THEME);else document.documentElement.removeAttribute('data-theme')};
 const effTheme=()=>THEME||((window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');
 applyTheme();
+/* the Windows/desktop app (Electron) gets a wider layout on large windows */
+if(/Electron/i.test(navigator.userAgent))document.documentElement.classList.add('desk');
+/* screen history: every screen except Home sits one step above Home in the browser history, so the phone's back button
+   (Android's WebView walks this history) steps back a screen instead of closing the app. Back on Home still exits. */
+let SCREEN='home',SKIPPOP=0;
+function scr(name){
+  SCREEN=name;
+  try{
+    const d=!!(history.state&&history.state.d);
+    if(name==='home'){if(d){SKIPPOP++;history.back()}}
+    else if(!d)history.pushState({d:1},'');
+  }catch(e){}
+}
 if(store.get('ha_v',0)<2){P={};store.set('ha_p',P);store.set('ha_v',2)}
 if(DAY.d!==today())DAY={d:today(),xp:0};
 const GOAL=50, BATCH=10;
@@ -315,6 +380,7 @@ async function syncNow(){
 }
 const syncSoon=()=>{if(SYNC_ON&&SS){clearTimeout(syncT);syncT=setTimeout(syncNow,1500)}};
 function viewSync(msg){
+  scr('sync');
   const f='border:2px solid var(--line);border-radius:12px;padding:12px;background:var(--surface);color:var(--ink);font:inherit;width:100%';
   $app.innerHTML=`<div class="wrap"><header class="lhead" style="padding-inline:0"><button class="icon-btn" data-act="home" aria-label="Back to home">${I.close}</button><h2>Cloud sync</h2></header><section class="card" style="padding:16px;display:grid;gap:12px">`+(SS
     ?`<p style="margin:0">Signed in as <b>${esc(SS.email)}</b>. Progress syncs after each lesson and when the app opens.</p><p class="meta" id="sst">${esc(SYNC_ST)}</p><button class="cta" data-act="syncnow">Sync now</button><button class="cta ghost" data-act="syncout">Sign out</button>`
@@ -561,7 +627,7 @@ const GAMES=[
 let dexI=null, resetArm=0;
 
 function viewHome(){
-  L&&L.timer&&clearInterval(L.timer);L=null;
+  L&&L.timer&&clearInterval(L.timer);L=null;scr('home');
   const lv=levelOf(XP),lvPct=(XP%150)/150*100,gp=Math.min(100,DAY.xp/GOAL*100);
   const mastered=WORDS.slice(0,LEARNED).filter(w=>level(w.i)===3).length;
   const nb=nbOf(),latest=nb-1,hasNext=LEARNED<WORDS.length;
@@ -582,7 +648,7 @@ function viewHome(){
       ${done?`<div class="meter j"><i style="width:${pct}%"></i></div><div class="bst">${pct>=80?'Secure':pct+'% secure'}</div>`:`<div class="bst">${LEARNED===0||b===nb?(lockedNext?'Unlocks at 80% on batch '+nb:'Ready to learn'):''}</div>`}</div>
       <div class="bbtn">${done?`<button class="mini" data-act="pracv" data-b="${b}">Practise</button><button class="mini" data-act="review" data-b="${b}">Words</button>`:`<button class="mini" data-act="learn" data-b="${b}">${lockedNext?'Skip ahead':'Learn'}</button>`}</div></div>`};
   const shown=Math.min(NB,nb+(hasNext?1:0));
-  $app.innerHTML=`<div class="wrap">
+  $app.innerHTML=`<div class="wrap home"><div class="hcols"><div class="hl">
   <header class="top">
     <div class="brand"><div class="seal" aria-hidden="true">字</div><div><h1>Hanzi Arcade</h1><p>${LEARNED} of ${WORDS.length} words learned</p></div></div>
     <div class="stats" aria-label="Your stats">
@@ -603,6 +669,7 @@ function viewHome(){
     <div class="games">${GAMES.filter(g=>!(SKIPL&&g.m==='listen')).map(g=>`<button class="game" data-act="start" data-mode="${g.m}"><span class="g" aria-hidden="true">${g.g}</span><b>${g.n}</b><span>${g.m==='blitz'?g.d+(BEST?`. Best: ${BEST}`:''):g.d}</span></button>`).join('')}</div><p class="meta" style="margin:0;font-size:14px;color:var(--muted)">Practice uses the ${scopeIds(scopeNow()).length} words you have learned in ${scopeName(scopeNow())}, and favours the ones you find hard.</p>`
     :`<div class="card dex"><p class="eyebrow">Locked</p><p>Learn your first ${BATCH} words and all six games open up, plus sentence ordering.</p></div>`}
   </section>
+  </div><div class="hr">
   <section class="sec"><h2>Your path</h2>
     ${LEVELS.map((lw,li)=>{const lv=li+1,bs=BATCHES.map((b,k)=>k).filter(k=>BATCHES[k].lv===lv),vis=bs.filter(k=>k<shown),first=lw[0].i,got=Math.max(0,Math.min(lw.length,LEARNED-first)),pc=Math.round(got/lw.length*100);
       if(!vis.length)return `<div class="lvl locked"><span>Level ${lv}</span><small>${lw.length} words · finish level ${lv-1} to unlock</small></div>`;
@@ -613,6 +680,7 @@ function viewHome(){
     <div class="tiles">${WORDS.slice(0,LEARNED).map(w=>`<button class="tile lv${level(w.i)}" data-act="dex" data-wi="${w.i}" aria-pressed="${dexI===w.i}" aria-label="${esc(w.h)}, ${esc(w.en)}">${esc(w.h)}</button>`).join('')}</div>
     <div class="legend"><span><i></i>New</span><span><i class="l1"></i>Seen</span><span><i class="l2"></i>Getting there</span><span><i class="l3"></i>Mastered</span></div>
   </section>`:''}
+  </div></div>
   <footer class="foot">
     <button class="link pylink" data-act="py" aria-pressed="${PY}">Pinyin under characters: ${PY?'on':'off'}</button>
     <button class="link" data-act="snd">Sound effects: ${SOUND?'on':'off'}</button>
@@ -650,6 +718,7 @@ function drawGram(){
   window.scrollTo(0,0);
 }
 function drawIntro(){
+  scr('intro');
   if(IN.gk>=0)return drawGram();
   const w=WORDS[IN.ids[IN.k]],n=IN.ids.length,last=IN.k===n-1;
   $app.innerHTML=`<div class="wrap"><header class="lhead" style="padding-inline:0">
@@ -702,7 +771,7 @@ function renderDex(){
 /* ---------- practice screen: choose how to practise one batch of ten words ---------- */
 let PRB=0;
 function viewPrac(b){
-  L&&L.timer&&clearInterval(L.timer);L=null;PRB=b;
+  L&&L.timer&&clearInterval(L.timer);L=null;PRB=b;scr('prac');
   const lv=BATCHES[b].lv,ids=batchIds(b),gs=gramOf(b),gl=gramSoFar(b);
   const games=GAMES.filter(g=>g.m!=='blitz'&&!(SKIPL&&g.m==='listen'));
   const tn=['New','Seen','Getting there','Mastered'];
@@ -752,6 +821,7 @@ function startLesson(mode,opts={}){
   if(L.blitz)L.timer=setInterval(tick,100);
 }
 function shell(){
+  scr('lesson');
   $app.innerHTML=`<div class="lesson"><header class="lhead" style="padding-inline:0">
     <button class="icon-btn" data-act="quit" aria-label="Quit lesson">${I.close}</button>
     <div class="pbar ${L.blitz?'t':''}"><i id="pbar"></i></div>
@@ -895,6 +965,7 @@ function matchPick(side,i,btn){
 
 /* ---------- results ---------- */
 function finish(win){
+  scr('res');
   if(!L||L.done)return;L.done=true;clearInterval(L.timer);
   const gained=L.blitz?L.xp:L.xp+(win&&!L.wrong?5:0);
   if(gained>0){addXP(gained);touchStreak()}syncSoon();
@@ -978,6 +1049,17 @@ document.addEventListener('click',e=>{
     if(Date.now()-resetArm<3000){P={};GP={};store.set('ha_g',GP);XP=0;DAY={d:today(),xp:0};STREAK={last:'',n:0};BEST=0;LEARNED=0;FOCUS=0;SCOPE='all';store.set('ha_scope','all');store.set('ha_p',P);store.set('ha_xp',0);store.set('ha_day',DAY);store.set('ha_streak',STREAK);store.set('ha_blitz',0);store.set('ha_learned',0);store.set('ha_focus',0);dexI=null;viewHome();toast('Progress reset');if(SYNC_ON&&SS)pushOnly().catch(()=>{})}
     else{resetArm=Date.now();b.textContent='Tap again to erase all progress'}
   }
+});
+/* phone back button: one screen back. In a lesson it asks twice (like the close button) so progress isn't lost by accident. */
+window.addEventListener('popstate',()=>{
+  if(SKIPPOP>0){SKIPPOP--;try{if(SCREEN!=='home'&&!(history.state&&history.state.d))history.pushState({d:1},'')}catch(e){}return}
+  if(SCREEN==='home')return;
+  if(SCREEN==='lesson'){
+    if(Date.now()-quitArm<2500){if(L&&L.timer)clearInterval(L.timer);viewHome()}
+    else{quitArm=Date.now();toast('Press back again to quit. Progress in this lesson is lost.');try{history.pushState({d:1},'')}catch(e){}}
+  }
+  else if(SCREEN==='intro'&&IN&&IN.solo)viewPrac(IN.b);
+  else viewHome();
 });
 document.addEventListener('keydown',e=>{
   if(!L||e.metaKey||e.ctrlKey)return;
