@@ -441,7 +441,7 @@
    },
    {
     "h": "这个苹果很大。",
-    "py": "Zhè gè píngguǒ hěn dà.",
+    "py": "Zhè ge píngguǒ hěn dà.",
     "en": "This apple is big.",
     "ch": [
      "这",
@@ -452,7 +452,7 @@
     ],
     "chp": [
      "zhè",
-     "gè",
+     "ge",
      "píngguǒ",
      "hěn",
      "dà"
@@ -1039,7 +1039,7 @@
   "x": [
    {
     "h": "这个太贵了！",
-    "py": "Zhè gè tài guì le!",
+    "py": "Zhè ge tài guì le!",
     "en": "This is too expensive!",
     "ch": [
      "这",
@@ -1050,7 +1050,7 @@
     ],
     "chp": [
      "zhè",
-     "gè",
+     "ge",
      "tài",
      "guì",
      "le"
@@ -1247,7 +1247,7 @@
    },
    {
     "h": "他没看过这个电影。",
-    "py": "Tā méi kàn guò zhè gè diànyǐng.",
+    "py": "Tā méi kàn guò zhè ge diànyǐng.",
     "en": "He has not seen this film.",
     "ch": [
      "他",
@@ -1264,7 +1264,7 @@
      "kàn",
      "guò",
      "zhè",
-     "gè",
+     "ge",
      "diànyǐng"
     ],
     "g": "过",
@@ -1518,7 +1518,7 @@
    },
    {
     "h": "这个比那个贵。",
-    "py": "Zhè gè bǐ nà gè guì.",
+    "py": "Zhè ge bǐ nà ge guì.",
     "en": "This one is more expensive than that one.",
     "ch": [
      "这",
@@ -1530,10 +1530,10 @@
     ],
     "chp": [
      "zhè",
-     "gè",
+     "ge",
      "bǐ",
      "nà",
-     "gè",
+     "ge",
      "guì"
     ],
     "g": "比",
@@ -1689,7 +1689,7 @@
    },
    {
     "h": "虽然这个贵，但是很好。",
-    "py": "Suīrán zhè gè guì, dànshì hěn hǎo.",
+    "py": "Suīrán zhè ge guì, dànshì hěn hǎo.",
     "en": "Although this is expensive, it is good.",
     "ch": [
      "虽然",
@@ -1703,7 +1703,7 @@
     "chp": [
      "suīrán",
      "zhè",
-     "gè",
+     "ge",
      "guì",
      "dànshì",
      "hěn",
@@ -2843,7 +2843,7 @@
   "x": [
    {
     "h": "这个菜又便宜又好吃。",
-    "py": "Zhè gè cài yòu piányi yòu hǎochī.",
+    "py": "Zhè ge cài yòu piányi yòu hǎochī.",
     "en": "This dish is both cheap and tasty.",
     "ch": [
      "这",
@@ -2856,7 +2856,7 @@
     ],
     "chp": [
      "zhè",
-     "gè",
+     "ge",
      "cài",
      "yòu",
      "piányi",
@@ -2942,7 +2942,7 @@
   "x": [
    {
     "h": "这个比那个更好。",
-    "py": "Zhè gè bǐ nà gè gèng hǎo.",
+    "py": "Zhè ge bǐ nà ge gèng hǎo.",
     "en": "This one is even better than that one.",
     "ch": [
      "这",
@@ -2955,10 +2955,10 @@
     ],
     "chp": [
      "zhè",
-     "gè",
+     "ge",
      "bǐ",
      "nà",
-     "gè",
+     "ge",
      "gèng",
      "hǎo"
     ],
@@ -3056,7 +3056,7 @@
    },
    {
     "h": "这个和那个一样贵。",
-    "py": "Zhè gè hé nà gè yíyàng guì.",
+    "py": "Zhè ge hé nà ge yíyàng guì.",
     "en": "This one is as expensive as that one.",
     "ch": [
      "这",
@@ -3069,10 +3069,10 @@
     ],
     "chp": [
      "zhè",
-     "gè",
+     "ge",
      "hé",
      "nà",
-     "gè",
+     "ge",
      "yíyàng",
      "guì"
     ],
@@ -3628,7 +3628,7 @@
    },
    {
     "h": "这个地方不但漂亮，而且很安静。",
-    "py": "Zhè gè dìfang bùdàn piàoliang, érqiě hěn ānjìng.",
+    "py": "Zhè ge dìfang bùdàn piàoliang, érqiě hěn ānjìng.",
     "en": "This place is not only pretty but also quiet.",
     "ch": [
      "这",
@@ -3642,7 +3642,7 @@
     ],
     "chp": [
      "zhè",
-     "gè",
+     "ge",
      "dìfang",
      "bùdàn",
      "piàoliang",
@@ -4182,7 +4182,7 @@
    },
    {
     "h": "这个菜看起来很好吃。",
-    "py": "Zhè gè cài kàn qǐlái hěn hǎochī.",
+    "py": "Zhè ge cài kàn qǐlái hěn hǎochī.",
     "en": "This dish looks delicious.",
     "ch": [
      "这",
@@ -4195,7 +4195,7 @@
     ],
     "chp": [
      "zhè",
-     "gè",
+     "ge",
      "cài",
      "kàn",
      "qǐlái",
@@ -4546,7 +4546,7 @@
    },
    {
     "h": "关于这个问题，我不知道。",
-    "py": "Guānyú zhè gè wèntí, wǒ bù zhīdao.",
+    "py": "Guānyú zhè ge wèntí, wǒ bù zhīdao.",
     "en": "About this question, I don't know.",
     "ch": [
      "关于",
@@ -4560,7 +4560,7 @@
     "chp": [
      "guānyú",
      "zhè",
-     "gè",
+     "ge",
      "wèntí",
      "wǒ",
      "bù",
@@ -4680,7 +4680,7 @@
    },
    {
     "h": "这个问题其实很简单。",
-    "py": "Zhè gè wèntí qíshí hěn jiǎndān.",
+    "py": "Zhè ge wèntí qíshí hěn jiǎndān.",
     "en": "This question is actually very simple.",
     "ch": [
      "这",
@@ -4692,7 +4692,7 @@
     ],
     "chp": [
      "zhè",
-     "gè",
+     "ge",
      "wèntí",
      "qíshí",
      "hěn",
@@ -5012,7 +5012,7 @@
   "x": [
    {
     "h": "这个菜比较好吃。",
-    "py": "Zhè gè cài bǐjiào hǎochī.",
+    "py": "Zhè ge cài bǐjiào hǎochī.",
     "en": "This dish is fairly tasty.",
     "ch": [
      "这",
@@ -5023,7 +5023,7 @@
     ],
     "chp": [
      "zhè",
-     "gè",
+     "ge",
      "cài",
      "bǐjiào",
      "hǎochī"
@@ -5033,7 +5033,7 @@
    },
    {
     "h": "我比较喜欢这个。",
-    "py": "Wǒ bǐjiào xǐhuan zhè gè.",
+    "py": "Wǒ bǐjiào xǐhuan zhè ge.",
     "en": "I rather like this one.",
     "ch": [
      "我",
@@ -5047,7 +5047,7 @@
      "bǐjiào",
      "xǐhuan",
      "zhè",
-     "gè"
+     "ge"
     ],
     "g": "比较",
     "gp": "bǐjiào"
