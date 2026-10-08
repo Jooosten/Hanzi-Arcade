@@ -16,6 +16,7 @@ Then rebuild the apps below.
 ## Desktop (Windows / macOS / Linux)
 `npm install` then `npm run desktop` to run, or `npm run dist:desktop` to build an installer into `dist/`
 (build on the OS you are targeting, or use the GitHub workflow).
+Zoom in the desktop app with `Ctrl +`, `Ctrl -`, `Ctrl 0` (reset) or `Ctrl` + mouse wheel; the level is remembered.
 
 ## Android APK
 Easiest: push this folder to a GitHub repo; the **Build apps** workflow produces the APK plus Windows/Mac/Linux installers
