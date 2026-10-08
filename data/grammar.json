@@ -1,0 +1,5648 @@
+[
+ {
+  "id": "h1-shi",
+  "lv": 1,
+  "k": [
+   "是"
+  ],
+  "t": "Naming things with 是",
+  "p": "A 是 B",
+  "n": "Use 是 to say that A is B. There is no \"to be\" for adjectives (see the 很 lesson), and the verb never changes form.",
+  "x": [
+   {
+    "h": "我是学生。",
+    "py": "Wǒ shì xuésheng.",
+    "en": "I am a student.",
+    "ch": [
+     "我",
+     "是",
+     "学生。"
+    ],
+    "chp": [
+     "wǒ",
+     "shì",
+     "xuésheng"
+    ],
+    "g": "是",
+    "gp": "shì"
+   },
+   {
+    "h": "他是我朋友。",
+    "py": "Tā shì wǒ péngyou.",
+    "en": "He is my friend.",
+    "ch": [
+     "他",
+     "是",
+     "我",
+     "朋友。"
+    ],
+    "chp": [
+     "tā",
+     "shì",
+     "wǒ",
+     "péngyou"
+    ],
+    "g": "是",
+    "gp": "shì"
+   },
+   {
+    "h": "这是什么？",
+    "py": "Zhè shì shénme?",
+    "en": "What is this?",
+    "ch": [
+     "这",
+     "是",
+     "什么？"
+    ],
+    "chp": [
+     "zhè",
+     "shì",
+     "shénme"
+    ],
+    "g": "是",
+    "gp": "shì"
+   }
+  ],
+  "d": [
+   [
+    "有",
+    "yǒu"
+   ],
+   [
+    "在",
+    "zài"
+   ],
+   [
+    "叫",
+    "jiào"
+   ]
+  ]
+ },
+ {
+  "id": "h1-ma",
+  "lv": 1,
+  "k": [
+   "吗"
+  ],
+  "t": "Yes/no questions with 吗",
+  "p": "Statement + 吗？",
+  "n": "Add 吗 to the end of a statement to turn it into a yes/no question. The word order does not change. Answer with the verb: 是, 不是, 有, 没有...",
+  "x": [
+   {
+    "h": "你是学生吗？",
+    "py": "Nǐ shì xuésheng ma?",
+    "en": "Are you a student?",
+    "ch": [
+     "你",
+     "是",
+     "学生",
+     "吗？"
+    ],
+    "chp": [
+     "nǐ",
+     "shì",
+     "xuésheng",
+     "ma"
+    ],
+    "g": "吗",
+    "gp": "ma"
+   },
+   {
+    "h": "你喜欢喝茶吗？",
+    "py": "Nǐ xǐhuan hēchá ma?",
+    "en": "Do you like drinking tea?",
+    "ch": [
+     "你",
+     "喜欢",
+     "喝茶",
+     "吗？"
+    ],
+    "chp": [
+     "nǐ",
+     "xǐhuan",
+     "hēchá",
+     "ma"
+    ],
+    "g": "吗",
+    "gp": "ma"
+   },
+   {
+    "h": "他在家吗？",
+    "py": "Tā zài jiā ma?",
+    "en": "Is he at home?",
+    "ch": [
+     "他",
+     "在",
+     "家",
+     "吗？"
+    ],
+    "chp": [
+     "tā",
+     "zài",
+     "jiā",
+     "ma"
+    ],
+    "g": "吗",
+    "gp": "ma"
+   }
+  ],
+  "d": [
+   [
+    "呢",
+    "ne"
+   ],
+   [
+    "吧",
+    "ba"
+   ],
+   [
+    "啊",
+    "a"
+   ]
+  ]
+ },
+ {
+  "id": "h1-de",
+  "lv": 1,
+  "k": [
+   "的"
+  ],
+  "t": "Possession with 的",
+  "p": "Owner + 的 + thing",
+  "n": "Put 的 between the owner and the thing owned. With close family and friends, 的 is often dropped: 我妈妈, 我朋友.",
+  "x": [
+   {
+    "h": "这是我的书。",
+    "py": "Zhè shì wǒ de shū.",
+    "en": "This is my book.",
+    "ch": [
+     "这",
+     "是",
+     "我",
+     "的",
+     "书。"
+    ],
+    "chp": [
+     "zhè",
+     "shì",
+     "wǒ",
+     "de",
+     "shū"
+    ],
+    "g": "的",
+    "gp": "de"
+   },
+   {
+    "h": "她是我的老师。",
+    "py": "Tā shì wǒ de lǎoshī.",
+    "en": "She is my teacher.",
+    "ch": [
+     "她",
+     "是",
+     "我",
+     "的",
+     "老师。"
+    ],
+    "chp": [
+     "tā",
+     "shì",
+     "wǒ",
+     "de",
+     "lǎoshī"
+    ],
+    "g": "的",
+    "gp": "de"
+   },
+   {
+    "h": "那是谁的狗？",
+    "py": "Nà shì shéi de gǒu?",
+    "en": "Whose dog is that?",
+    "ch": [
+     "那",
+     "是",
+     "谁",
+     "的",
+     "狗？"
+    ],
+    "chp": [
+     "nà",
+     "shì",
+     "shéi",
+     "de",
+     "gǒu"
+    ],
+    "g": "的",
+    "gp": "de"
+   }
+  ],
+  "d": [
+   [
+    "了",
+    "le"
+   ],
+   [
+    "吗",
+    "ma"
+   ],
+   [
+    "呢",
+    "ne"
+   ]
+  ]
+ },
+ {
+  "id": "h1-bu",
+  "lv": 1,
+  "k": [
+   "不"
+  ],
+  "t": "Saying \"not\" with 不",
+  "p": "不 + verb / adjective",
+  "n": "Put 不 directly before a verb or adjective to negate it. 不 becomes bù→bú before another fourth tone (不是 bú shì). For 有, use 没有 instead.",
+  "x": [
+   {
+    "h": "我不是老师。",
+    "py": "Wǒ bú shì lǎoshī.",
+    "en": "I am not a teacher.",
+    "ch": [
+     "我",
+     "不",
+     "是",
+     "老师。"
+    ],
+    "chp": [
+     "wǒ",
+     "bú",
+     "shì",
+     "lǎoshī"
+    ],
+    "g": "不",
+    "gp": "bú"
+   },
+   {
+    "h": "他不喝咖啡。",
+    "py": "Tā bù hē kāfēi.",
+    "en": "He does not drink coffee.",
+    "ch": [
+     "他",
+     "不",
+     "喝",
+     "咖啡。"
+    ],
+    "chp": [
+     "tā",
+     "bù",
+     "hē",
+     "kāfēi"
+    ],
+    "g": "不",
+    "gp": "bù"
+   },
+   {
+    "h": "今天不冷。",
+    "py": "Jīntiān bù lěng.",
+    "en": "It is not cold today.",
+    "ch": [
+     "今天",
+     "不",
+     "冷。"
+    ],
+    "chp": [
+     "jīntiān",
+     "bù",
+     "lěng"
+    ],
+    "g": "不",
+    "gp": "bù"
+   }
+  ],
+  "d": [
+   [
+    "没",
+    "méi"
+   ],
+   [
+    "别",
+    "bié"
+   ],
+   [
+    "很",
+    "hěn"
+   ]
+  ]
+ },
+ {
+  "id": "h1-zai",
+  "lv": 1,
+  "k": [
+   "在"
+  ],
+  "t": "Where things are with 在",
+  "p": "Subject + 在 + place",
+  "n": "在 means \"to be at\". It can be the main verb (我在家) or come before another verb to say where the action happens (我在家吃饭).",
+  "x": [
+   {
+    "h": "我在家。",
+    "py": "Wǒ zài jiā.",
+    "en": "I am at home.",
+    "ch": [
+     "我",
+     "在",
+     "家。"
+    ],
+    "chp": [
+     "wǒ",
+     "zài",
+     "jiā"
+    ],
+    "g": "在",
+    "gp": "zài"
+   },
+   {
+    "h": "妈妈在学校工作。",
+    "py": "Māma zài xuéxiào gōngzuò.",
+    "en": "Mom works at school.",
+    "ch": [
+     "妈妈",
+     "在",
+     "学校",
+     "工作。"
+    ],
+    "chp": [
+     "māma",
+     "zài",
+     "xuéxiào",
+     "gōngzuò"
+    ],
+    "g": "在",
+    "gp": "zài"
+   },
+   {
+    "h": "他不在北京。",
+    "py": "Tā bù zài Běijīng.",
+    "en": "He is not in Beijing.",
+    "ch": [
+     "他",
+     "不",
+     "在",
+     "北京。"
+    ],
+    "chp": [
+     "tā",
+     "bù",
+     "zài",
+     "Běijīng"
+    ],
+    "g": "在",
+    "gp": "zài"
+   }
+  ],
+  "d": [
+   [
+    "是",
+    "shì"
+   ],
+   [
+    "有",
+    "yǒu"
+   ],
+   [
+    "到",
+    "dào"
+   ]
+  ]
+ },
+ {
+  "id": "h1-hen",
+  "lv": 1,
+  "k": [
+   "很"
+  ],
+  "t": "Adjectives with 很",
+  "p": "Subject + 很 + adjective",
+  "n": "A descriptive adjective normally takes a degree word such as 很 before it, with no 是. Here 很 is often weak and simply means \"is\".",
+  "x": [
+   {
+    "h": "我很高兴。",
+    "py": "Wǒ hěn gāoxìng.",
+    "en": "I am happy.",
+    "ch": [
+     "我",
+     "很",
+     "高兴。"
+    ],
+    "chp": [
+     "wǒ",
+     "hěn",
+     "gāoxìng"
+    ],
+    "g": "很",
+    "gp": "hěn"
+   },
+   {
+    "h": "这个苹果很大。",
+    "py": "Zhè ge píngguǒ hěn dà.",
+    "en": "This apple is big.",
+    "ch": [
+     "这",
+     "个",
+     "苹果",
+     "很",
+     "大。"
+    ],
+    "chp": [
+     "zhè",
+     "ge",
+     "píngguǒ",
+     "hěn",
+     "dà"
+    ],
+    "g": "很",
+    "gp": "hěn"
+   },
+   {
+    "h": "今天天气很热。",
+    "py": "Jīntiān tiānqì hěn rè.",
+    "en": "The weather is hot today.",
+    "ch": [
+     "今天",
+     "天气",
+     "很",
+     "热。"
+    ],
+    "chp": [
+     "jīntiān",
+     "tiānqì",
+     "hěn",
+     "rè"
+    ],
+    "g": "很",
+    "gp": "hěn"
+   }
+  ],
+  "d": [
+   [
+    "都",
+    "dōu"
+   ],
+   [
+    "也",
+    "yě"
+   ],
+   [
+    "不",
+    "bù"
+   ]
+  ]
+ },
+ {
+  "id": "h1-you",
+  "lv": 1,
+  "k": [
+   "有"
+  ],
+  "t": "Having and 没有",
+  "p": "Subject + 有 / 没有 + thing",
+  "n": "有 means \"to have\" and also \"there is\". Its negative is 没有, never 不有.",
+  "x": [
+   {
+    "h": "我有三个朋友。",
+    "py": "Wǒ yǒu sān gè péngyou.",
+    "en": "I have three friends.",
+    "ch": [
+     "我",
+     "有",
+     "三",
+     "个",
+     "朋友。"
+    ],
+    "chp": [
+     "wǒ",
+     "yǒu",
+     "sān",
+     "gè",
+     "péngyou"
+    ],
+    "g": "有",
+    "gp": "yǒu"
+   },
+   {
+    "h": "他没有钱。",
+    "py": "Tā méi yǒu qián.",
+    "en": "He has no money.",
+    "ch": [
+     "他",
+     "没",
+     "有",
+     "钱。"
+    ],
+    "chp": [
+     "tā",
+     "méi",
+     "yǒu",
+     "qián"
+    ],
+    "g": "有",
+    "gp": "yǒu"
+   },
+   {
+    "h": "你有哥哥吗？",
+    "py": "Nǐ yǒu gēge ma?",
+    "en": "Do you have an older brother?",
+    "ch": [
+     "你",
+     "有",
+     "哥哥",
+     "吗？"
+    ],
+    "chp": [
+     "nǐ",
+     "yǒu",
+     "gēge",
+     "ma"
+    ],
+    "g": "有",
+    "gp": "yǒu"
+   }
+  ],
+  "d": [
+   [
+    "是",
+    "shì"
+   ],
+   [
+    "在",
+    "zài"
+   ],
+   [
+    "会",
+    "huì"
+   ]
+  ]
+ },
+ {
+  "id": "h1-nar",
+  "lv": 1,
+  "k": [
+   "什么"
+  ],
+  "t": "Question words",
+  "p": "Use the question word where the answer goes",
+  "n": "Chinese question words (什么, 谁, 哪儿, 几, 多少) stay in the same place as the answer in a statement. No word-order change is needed.",
+  "x": [
+   {
+    "h": "你想吃什么？",
+    "py": "Nǐ xiǎng chī shénme?",
+    "en": "What do you want to eat?",
+    "ch": [
+     "你",
+     "想",
+     "吃",
+     "什么？"
+    ],
+    "chp": [
+     "nǐ",
+     "xiǎng",
+     "chī",
+     "shénme"
+    ],
+    "g": "什么",
+    "gp": "shénme"
+   },
+   {
+    "h": "他是谁？",
+    "py": "Tā shì shéi?",
+    "en": "Who is he?",
+    "ch": [
+     "他",
+     "是",
+     "谁？"
+    ],
+    "chp": [
+     "tā",
+     "shì",
+     "shéi"
+    ],
+    "g": "谁",
+    "gp": "shéi"
+   },
+   {
+    "h": "你住在哪儿？",
+    "py": "Nǐ zhù zài nǎr?",
+    "en": "Where do you live?",
+    "ch": [
+     "你",
+     "住",
+     "在",
+     "哪儿？"
+    ],
+    "chp": [
+     "nǐ",
+     "zhù",
+     "zài",
+     "nǎr"
+    ],
+    "g": "哪儿",
+    "gp": "nǎr"
+   }
+  ],
+  "d": [
+   [
+    "什么",
+    "shénme"
+   ],
+   [
+    "谁",
+    "shéi"
+   ],
+   [
+    "哪儿",
+    "nǎr"
+   ],
+   [
+    "几",
+    "jǐ"
+   ]
+  ]
+ },
+ {
+  "id": "h1-ne",
+  "lv": 1,
+  "k": [
+   "呢"
+  ],
+  "t": "Follow-up questions with 呢",
+  "p": "Noun + 呢？",
+  "n": "After a topic has been introduced, 呢 asks \"and what about...?\" without repeating the sentence.",
+  "x": [
+   {
+    "h": "我很好，你呢？",
+    "py": "Wǒ hěn hǎo, nǐ ne?",
+    "en": "I am fine, and you?",
+    "ch": [
+     "我",
+     "很",
+     "好，",
+     "你",
+     "呢？"
+    ],
+    "chp": [
+     "wǒ",
+     "hěn",
+     "hǎo",
+     "nǐ",
+     "ne"
+    ],
+    "g": "呢",
+    "gp": "ne"
+   },
+   {
+    "h": "我喝茶，你呢？",
+    "py": "Wǒ hē chá, nǐ ne?",
+    "en": "I drink tea, and you?",
+    "ch": [
+     "我",
+     "喝",
+     "茶，",
+     "你",
+     "呢？"
+    ],
+    "chp": [
+     "wǒ",
+     "hē",
+     "chá",
+     "nǐ",
+     "ne"
+    ],
+    "g": "呢",
+    "gp": "ne"
+   },
+   {
+    "h": "我是学生，她呢？",
+    "py": "Wǒ shì xuésheng, tā ne?",
+    "en": "I am a student, and her?",
+    "ch": [
+     "我",
+     "是",
+     "学生，",
+     "她",
+     "呢？"
+    ],
+    "chp": [
+     "wǒ",
+     "shì",
+     "xuésheng",
+     "tā",
+     "ne"
+    ],
+    "g": "呢",
+    "gp": "ne"
+   }
+  ],
+  "d": [
+   [
+    "吗",
+    "ma"
+   ],
+   [
+    "吧",
+    "ba"
+   ],
+   [
+    "啊",
+    "a"
+   ]
+  ]
+ },
+ {
+  "id": "h1-xiang",
+  "lv": 1,
+  "k": [
+   "想"
+  ],
+  "t": "Wanting and being able to",
+  "p": "Subject + 想 / 会 / 能 + verb",
+  "n": "想 (want to), 会 (know how to) and 能 (be able to) go right before the main verb.",
+  "x": [
+   {
+    "h": "我想喝水。",
+    "py": "Wǒ xiǎng hē shuǐ.",
+    "en": "I want to drink water.",
+    "ch": [
+     "我",
+     "想",
+     "喝",
+     "水。"
+    ],
+    "chp": [
+     "wǒ",
+     "xiǎng",
+     "hē",
+     "shuǐ"
+    ],
+    "g": "想",
+    "gp": "xiǎng"
+   },
+   {
+    "h": "她会说汉语。",
+    "py": "Tā huì shuō hànyǔ.",
+    "en": "She can speak Chinese.",
+    "ch": [
+     "她",
+     "会",
+     "说",
+     "汉语。"
+    ],
+    "chp": [
+     "tā",
+     "huì",
+     "shuō",
+     "hànyǔ"
+    ],
+    "g": "会",
+    "gp": "huì"
+   },
+   {
+    "h": "你能来吗？",
+    "py": "Nǐ néng lái ma?",
+    "en": "Can you come?",
+    "ch": [
+     "你",
+     "能",
+     "来",
+     "吗？"
+    ],
+    "chp": [
+     "nǐ",
+     "néng",
+     "lái",
+     "ma"
+    ],
+    "g": "能",
+    "gp": "néng"
+   }
+  ],
+  "d": [
+   [
+    "想",
+    "xiǎng"
+   ],
+   [
+    "会",
+    "huì"
+   ],
+   [
+    "能",
+    "néng"
+   ],
+   [
+    "要",
+    "yào"
+   ]
+  ]
+ },
+ {
+  "id": "h1-dou",
+  "lv": 1,
+  "k": [
+   "都"
+  ],
+  "t": "都 and 和",
+  "p": "A 和 B 都 + verb",
+  "n": "和 joins nouns (\"and\"). 都 means \"all\" and comes before the verb, never before the subject.",
+  "x": [
+   {
+    "h": "我和你都是学生。",
+    "py": "Wǒ hé nǐ dōu shì xuésheng.",
+    "en": "You and I are both students.",
+    "ch": [
+     "我",
+     "和",
+     "你",
+     "都",
+     "是",
+     "学生。"
+    ],
+    "chp": [
+     "wǒ",
+     "hé",
+     "nǐ",
+     "dōu",
+     "shì",
+     "xuésheng"
+    ],
+    "g": "和",
+    "gp": "hé"
+   },
+   {
+    "h": "我们都喜欢她。",
+    "py": "Wǒmen dōu xǐhuan tā.",
+    "en": "We all like her.",
+    "ch": [
+     "我们",
+     "都",
+     "喜欢",
+     "她。"
+    ],
+    "chp": [
+     "wǒmen",
+     "dōu",
+     "xǐhuan",
+     "tā"
+    ],
+    "g": "都",
+    "gp": "dōu"
+   },
+   {
+    "h": "爸爸和妈妈都工作。",
+    "py": "Bàba hé māma dōu gōngzuò.",
+    "en": "Dad and Mom both work.",
+    "ch": [
+     "爸爸",
+     "和",
+     "妈妈",
+     "都",
+     "工作。"
+    ],
+    "chp": [
+     "bàba",
+     "hé",
+     "māma",
+     "dōu",
+     "gōngzuò"
+    ],
+    "g": "都",
+    "gp": "dōu"
+   }
+  ],
+  "d": [
+   [
+    "和",
+    "hé"
+   ],
+   [
+    "都",
+    "dōu"
+   ],
+   [
+    "也",
+    "yě"
+   ],
+   [
+    "不",
+    "bù"
+   ]
+  ]
+ },
+ {
+  "id": "h1-ge",
+  "lv": 1,
+  "k": [
+   "个"
+  ],
+  "t": "Numbers and measure words",
+  "p": "Number + measure word + noun",
+  "n": "Between a number (or 这/那) and a noun, Chinese needs a measure word. 个 is the most common one; 本 is used for books.",
+  "x": [
+   {
+    "h": "我有一个朋友。",
+    "py": "Wǒ yǒu yí gè péngyou.",
+    "en": "I have one friend.",
+    "ch": [
+     "我",
+     "有",
+     "一",
+     "个",
+     "朋友。"
+    ],
+    "chp": [
+     "wǒ",
+     "yǒu",
+     "yí",
+     "gè",
+     "péngyou"
+    ],
+    "g": "个",
+    "gp": "gè"
+   },
+   {
+    "h": "这本书很好。",
+    "py": "Zhè běn shū hěn hǎo.",
+    "en": "This book is good.",
+    "ch": [
+     "这",
+     "本",
+     "书",
+     "很",
+     "好。"
+    ],
+    "chp": [
+     "zhè",
+     "běn",
+     "shū",
+     "hěn",
+     "hǎo"
+    ],
+    "g": "本",
+    "gp": "běn"
+   },
+   {
+    "h": "你有几个孩子？",
+    "py": "Nǐ yǒu jǐ gè háizi?",
+    "en": "How many children do you have?",
+    "ch": [
+     "你",
+     "有",
+     "几",
+     "个",
+     "孩子？"
+    ],
+    "chp": [
+     "nǐ",
+     "yǒu",
+     "jǐ",
+     "gè",
+     "háizi"
+    ],
+    "g": "个",
+    "gp": "gè"
+   }
+  ],
+  "d": [
+   [
+    "个",
+    "gè"
+   ],
+   [
+    "本",
+    "běn"
+   ],
+   [
+    "杯",
+    "bēi"
+   ],
+   [
+    "块",
+    "kuài"
+   ]
+  ]
+ },
+ {
+  "id": "h1-tai",
+  "lv": 1,
+  "k": [
+   "太"
+  ],
+  "t": "太...了",
+  "p": "太 + adjective + 了",
+  "n": "太...了 means \"too / so ...\". It is used for strong feelings, good or bad.",
+  "x": [
+   {
+    "h": "这个太贵了！",
+    "py": "Zhè ge tài guì le!",
+    "en": "This is too expensive!",
+    "ch": [
+     "这",
+     "个",
+     "太",
+     "贵",
+     "了！"
+    ],
+    "chp": [
+     "zhè",
+     "ge",
+     "tài",
+     "guì",
+     "le"
+    ],
+    "g": "了",
+    "gp": "le"
+   },
+   {
+    "h": "今天太热了！",
+    "py": "Jīntiān tài rè le!",
+    "en": "It is too hot today!",
+    "ch": [
+     "今天",
+     "太",
+     "热",
+     "了！"
+    ],
+    "chp": [
+     "jīntiān",
+     "tài",
+     "rè",
+     "le"
+    ],
+    "g": "了",
+    "gp": "le"
+   },
+   {
+    "h": "你太好了！",
+    "py": "Nǐ tài hǎo le!",
+    "en": "You are so nice!",
+    "ch": [
+     "你",
+     "太",
+     "好",
+     "了！"
+    ],
+    "chp": [
+     "nǐ",
+     "tài",
+     "hǎo",
+     "le"
+    ],
+    "g": "了",
+    "gp": "le"
+   }
+  ],
+  "d": [
+   [
+    "吗",
+    "ma"
+   ],
+   [
+    "呢",
+    "ne"
+   ],
+   [
+    "的",
+    "de"
+   ]
+  ]
+ },
+ {
+  "id": "h1-le",
+  "lv": 1,
+  "k": [
+   "了"
+  ],
+  "t": "Change and completion with 了",
+  "p": "Verb + 了 / sentence + 了",
+  "n": "了 marks that something has happened or a situation has changed. 我买了书 = I bought books; 下雨了 = It has started raining.",
+  "x": [
+   {
+    "h": "我买了一本书。",
+    "py": "Wǒ mǎi le yì běn shū.",
+    "en": "I bought a book.",
+    "ch": [
+     "我",
+     "买",
+     "了",
+     "一",
+     "本",
+     "书。"
+    ],
+    "chp": [
+     "wǒ",
+     "mǎi",
+     "le",
+     "yì",
+     "běn",
+     "shū"
+    ],
+    "g": "了",
+    "gp": "le"
+   },
+   {
+    "h": "下雨了。",
+    "py": "Xiàyǔ le.",
+    "en": "It is raining now.",
+    "ch": [
+     "下雨",
+     "了。"
+    ],
+    "chp": [
+     "xiàyǔ",
+     "le"
+    ],
+    "g": "了",
+    "gp": "le"
+   },
+   {
+    "h": "他回家了。",
+    "py": "Tā huí jiā le.",
+    "en": "He has gone home.",
+    "ch": [
+     "他",
+     "回",
+     "家",
+     "了。"
+    ],
+    "chp": [
+     "tā",
+     "huí",
+     "jiā",
+     "le"
+    ],
+    "g": "了",
+    "gp": "le"
+   }
+  ],
+  "d": [
+   [
+    "的",
+    "de"
+   ],
+   [
+    "吗",
+    "ma"
+   ],
+   [
+    "呢",
+    "ne"
+   ]
+  ]
+ },
+ {
+  "id": "h2-guo",
+  "lv": 2,
+  "k": [
+   "过"
+  ],
+  "t": "Experiences with 过",
+  "p": "Verb + 过",
+  "n": "Put 过 right after a verb to say you have done it at least once in the past. The negative is 没 + verb + 过.",
+  "x": [
+   {
+    "h": "我去过北京。",
+    "py": "Wǒ qù guò Běijīng.",
+    "en": "I have been to Beijing.",
+    "ch": [
+     "我",
+     "去",
+     "过",
+     "北京。"
+    ],
+    "chp": [
+     "wǒ",
+     "qù",
+     "guò",
+     "Běijīng"
+    ],
+    "g": "过",
+    "gp": "guò"
+   },
+   {
+    "h": "你吃过中国菜吗？",
+    "py": "Nǐ chī guò Zhōngguócài ma?",
+    "en": "Have you eaten Chinese food?",
+    "ch": [
+     "你",
+     "吃",
+     "过",
+     "中国菜",
+     "吗？"
+    ],
+    "chp": [
+     "nǐ",
+     "chī",
+     "guò",
+     "Zhōngguócài",
+     "ma"
+    ],
+    "g": "过",
+    "gp": "guò"
+   },
+   {
+    "h": "他没看过这个电影。",
+    "py": "Tā méi kàn guò zhè ge diànyǐng.",
+    "en": "He has not seen this film.",
+    "ch": [
+     "他",
+     "没",
+     "看",
+     "过",
+     "这",
+     "个",
+     "电影。"
+    ],
+    "chp": [
+     "tā",
+     "méi",
+     "kàn",
+     "guò",
+     "zhè",
+     "ge",
+     "diànyǐng"
+    ],
+    "g": "过",
+    "gp": "guò"
+   }
+  ],
+  "d": [
+   [
+    "了",
+    "le"
+   ],
+   [
+    "着",
+    "zhe"
+   ],
+   [
+    "得",
+    "de"
+   ]
+  ]
+ },
+ {
+  "id": "h2-de",
+  "lv": 2,
+  "k": [
+   "得"
+  ],
+  "t": "Describing how with 得",
+  "p": "Verb + 得 + adjective",
+  "n": "得 links a verb to a description of how well or how fast it is done. Put the verb first, then 得, then the adjective.",
+  "x": [
+   {
+    "h": "他跑得很快。",
+    "py": "Tā pǎo de hěn kuài.",
+    "en": "He runs very fast.",
+    "ch": [
+     "他",
+     "跑",
+     "得",
+     "很",
+     "快。"
+    ],
+    "chp": [
+     "tā",
+     "pǎo",
+     "de",
+     "hěn",
+     "kuài"
+    ],
+    "g": "得",
+    "gp": "de"
+   },
+   {
+    "h": "她说得很好。",
+    "py": "Tā shuō de hěn hǎo.",
+    "en": "She speaks very well.",
+    "ch": [
+     "她",
+     "说",
+     "得",
+     "很",
+     "好。"
+    ],
+    "chp": [
+     "tā",
+     "shuō",
+     "de",
+     "hěn",
+     "hǎo"
+    ],
+    "g": "得",
+    "gp": "de"
+   },
+   {
+    "h": "你写得真漂亮。",
+    "py": "Nǐ xiě de zhēn piàoliang.",
+    "en": "You write really beautifully.",
+    "ch": [
+     "你",
+     "写",
+     "得",
+     "真",
+     "漂亮。"
+    ],
+    "chp": [
+     "nǐ",
+     "xiě",
+     "de",
+     "zhēn",
+     "piàoliang"
+    ],
+    "g": "得",
+    "gp": "de"
+   }
+  ],
+  "d": [
+   [
+    "的",
+    "de"
+   ],
+   [
+    "地",
+    "de"
+   ],
+   [
+    "了",
+    "le"
+   ]
+  ]
+ },
+ {
+  "id": "h2-jiu",
+  "lv": 2,
+  "k": [
+   "就"
+  ],
+  "t": "就 for \"soon\" and \"right away\"",
+  "p": "就 + verb / 就要...了",
+  "n": "就 shows that something happens soon or quickly. 就要...了 means \"about to\".",
+  "x": [
+   {
+    "h": "你等一下，我就来。",
+    "py": "Nǐ děng yíxià, wǒ jiù lái.",
+    "en": "Wait a moment, I will be right there.",
+    "ch": [
+     "你",
+     "等",
+     "一下，",
+     "我",
+     "就",
+     "来。"
+    ],
+    "chp": [
+     "nǐ",
+     "děng",
+     "yíxià",
+     "wǒ",
+     "jiù",
+     "lái"
+    ],
+    "g": "就",
+    "gp": "jiù"
+   },
+   {
+    "h": "他七点就起床了。",
+    "py": "Tā qī diǎn jiù qǐchuáng le.",
+    "en": "He got up at seven already.",
+    "ch": [
+     "他",
+     "七",
+     "点",
+     "就",
+     "起床",
+     "了。"
+    ],
+    "chp": [
+     "tā",
+     "qī",
+     "diǎn",
+     "jiù",
+     "qǐchuáng",
+     "le"
+    ],
+    "g": "就",
+    "gp": "jiù"
+   },
+   {
+    "h": "电影就要开始了。",
+    "py": "Diànyǐng jiù yào kāishǐ le.",
+    "en": "The film is about to start.",
+    "ch": [
+     "电影",
+     "就",
+     "要",
+     "开始",
+     "了。"
+    ],
+    "chp": [
+     "diànyǐng",
+     "jiù",
+     "yào",
+     "kāishǐ",
+     "le"
+    ],
+    "g": "就",
+    "gp": "jiù"
+   }
+  ],
+  "d": [
+   [
+    "才",
+    "cái"
+   ],
+   [
+    "再",
+    "zài"
+   ],
+   [
+    "也",
+    "yě"
+   ]
+  ]
+ },
+ {
+  "id": "h2-bi",
+  "lv": 2,
+  "k": [
+   "比"
+  ],
+  "t": "Comparing with 比",
+  "p": "A 比 B + adjective",
+  "n": "比 puts two things side by side: A 比 B + adjective. Do not add 很 before the adjective. To say \"not as ... as\", use 没有.",
+  "x": [
+   {
+    "h": "我比他高。",
+    "py": "Wǒ bǐ tā gāo.",
+    "en": "I am taller than him.",
+    "ch": [
+     "我",
+     "比",
+     "他",
+     "高。"
+    ],
+    "chp": [
+     "wǒ",
+     "bǐ",
+     "tā",
+     "gāo"
+    ],
+    "g": "比",
+    "gp": "bǐ"
+   },
+   {
+    "h": "今天比昨天冷。",
+    "py": "Jīntiān bǐ zuótiān lěng.",
+    "en": "Today is colder than yesterday.",
+    "ch": [
+     "今天",
+     "比",
+     "昨天",
+     "冷。"
+    ],
+    "chp": [
+     "jīntiān",
+     "bǐ",
+     "zuótiān",
+     "lěng"
+    ],
+    "g": "比",
+    "gp": "bǐ"
+   },
+   {
+    "h": "这个比那个贵。",
+    "py": "Zhè ge bǐ nà ge guì.",
+    "en": "This one is more expensive than that one.",
+    "ch": [
+     "这",
+     "个",
+     "比",
+     "那",
+     "个",
+     "贵。"
+    ],
+    "chp": [
+     "zhè",
+     "ge",
+     "bǐ",
+     "nà",
+     "ge",
+     "guì"
+    ],
+    "g": "比",
+    "gp": "bǐ"
+   }
+  ],
+  "d": [
+   [
+    "跟",
+    "gēn"
+   ],
+   [
+    "和",
+    "hé"
+   ],
+   [
+    "像",
+    "xiàng"
+   ]
+  ]
+ },
+ {
+  "id": "h2-suoyi",
+  "lv": 2,
+  "k": [
+   "所以"
+  ],
+  "t": "因为...所以...",
+  "p": "因为 A，所以 B",
+  "n": "因为 gives the reason and 所以 gives the result. Chinese often uses both, where English uses only one.",
+  "x": [
+   {
+    "h": "因为下雨，所以我不去。",
+    "py": "Yīnwèi xiàyǔ, suǒyǐ wǒ bù qù.",
+    "en": "Because it is raining, I am not going.",
+    "ch": [
+     "因为",
+     "下雨，",
+     "所以",
+     "我",
+     "不",
+     "去。"
+    ],
+    "chp": [
+     "yīnwèi",
+     "xiàyǔ",
+     "suǒyǐ",
+     "wǒ",
+     "bù",
+     "qù"
+    ],
+    "g": "所以",
+    "gp": "suǒyǐ"
+   },
+   {
+    "h": "因为他生病了，所以没来。",
+    "py": "Yīnwèi tā shēngbìng le, suǒyǐ méi lái.",
+    "en": "He was ill, so he did not come.",
+    "ch": [
+     "因为",
+     "他",
+     "生病",
+     "了，",
+     "所以",
+     "没",
+     "来。"
+    ],
+    "chp": [
+     "yīnwèi",
+     "tā",
+     "shēngbìng",
+     "le",
+     "suǒyǐ",
+     "méi",
+     "lái"
+    ],
+    "g": "所以",
+    "gp": "suǒyǐ"
+   },
+   {
+    "h": "因为我很忙，所以没有时间。",
+    "py": "Yīnwèi wǒ hěn máng, suǒyǐ méiyǒu shíjiān.",
+    "en": "I am busy, so I have no time.",
+    "ch": [
+     "因为",
+     "我",
+     "很",
+     "忙，",
+     "所以",
+     "没有",
+     "时间。"
+    ],
+    "chp": [
+     "yīnwèi",
+     "wǒ",
+     "hěn",
+     "máng",
+     "suǒyǐ",
+     "méiyǒu",
+     "shíjiān"
+    ],
+    "g": "所以",
+    "gp": "suǒyǐ"
+   }
+  ],
+  "d": [
+   [
+    "但是",
+    "dànshì"
+   ],
+   [
+    "而且",
+    "érqiě"
+   ],
+   [
+    "如果",
+    "rúguǒ"
+   ]
+  ]
+ },
+ {
+  "id": "h2-suiran",
+  "lv": 2,
+  "k": [
+   "虽然"
+  ],
+  "t": "虽然...但是...",
+  "p": "虽然 A，但是 B",
+  "n": "虽然 means \"although\" and 但是 means \"but\". Chinese uses both together where English uses only one of them.",
+  "x": [
+   {
+    "h": "虽然很累，但是他很高兴。",
+    "py": "Suīrán hěn lèi, dànshì tā hěn gāoxìng.",
+    "en": "Although he is tired, he is happy.",
+    "ch": [
+     "虽然",
+     "很",
+     "累，",
+     "但是",
+     "他",
+     "很",
+     "高兴。"
+    ],
+    "chp": [
+     "suīrán",
+     "hěn",
+     "lèi",
+     "dànshì",
+     "tā",
+     "hěn",
+     "gāoxìng"
+    ]
+   },
+   {
+    "h": "虽然这个贵，但是很好。",
+    "py": "Suīrán zhè ge guì, dànshì hěn hǎo.",
+    "en": "Although this is expensive, it is good.",
+    "ch": [
+     "虽然",
+     "这",
+     "个",
+     "贵，",
+     "但是",
+     "很",
+     "好。"
+    ],
+    "chp": [
+     "suīrán",
+     "zhè",
+     "ge",
+     "guì",
+     "dànshì",
+     "hěn",
+     "hǎo"
+    ],
+    "g": "但是",
+    "gp": "dànshì"
+   },
+   {
+    "h": "虽然天气冷，但是我们还是去。",
+    "py": "Suīrán tiānqì lěng, dànshì wǒmen háishì qù.",
+    "en": "Although it is cold, we are going anyway.",
+    "ch": [
+     "虽然",
+     "天气",
+     "冷，",
+     "但是",
+     "我们",
+     "还是",
+     "去。"
+    ],
+    "chp": [
+     "suīrán",
+     "tiānqì",
+     "lěng",
+     "dànshì",
+     "wǒmen",
+     "háishì",
+     "qù"
+    ],
+    "g": "还是",
+    "gp": "háishì"
+   }
+  ],
+  "d": [
+   [
+    "所以",
+    "suǒyǐ"
+   ],
+   [
+    "因为",
+    "yīnwèi"
+   ],
+   [
+    "而且",
+    "érqiě"
+   ]
+  ]
+ },
+ {
+  "id": "h2-haishi",
+  "lv": 2,
+  "k": [
+   "还是"
+  ],
+  "t": "Either-or questions with 还是",
+  "p": "A 还是 B？",
+  "n": "还是 offers a choice between two options inside one question. Do not add 吗.",
+  "x": [
+   {
+    "h": "你喝茶还是喝咖啡？",
+    "py": "Nǐ hē chá háishì hē kāfēi?",
+    "en": "Do you drink tea or coffee?",
+    "ch": [
+     "你",
+     "喝",
+     "茶",
+     "还是",
+     "喝",
+     "咖啡？"
+    ],
+    "chp": [
+     "nǐ",
+     "hē",
+     "chá",
+     "háishì",
+     "hē",
+     "kāfēi"
+    ],
+    "g": "还是",
+    "gp": "háishì"
+   },
+   {
+    "h": "你去还是我去？",
+    "py": "Nǐ qù háishì wǒ qù?",
+    "en": "Are you going, or am I?",
+    "ch": [
+     "你",
+     "去",
+     "还是",
+     "我",
+     "去？"
+    ],
+    "chp": [
+     "nǐ",
+     "qù",
+     "háishì",
+     "wǒ",
+     "qù"
+    ],
+    "g": "还是",
+    "gp": "háishì"
+   },
+   {
+    "h": "他是老师还是学生？",
+    "py": "Tā shì lǎoshī háishì xuésheng?",
+    "en": "Is he a teacher or a student?",
+    "ch": [
+     "他",
+     "是",
+     "老师",
+     "还是",
+     "学生？"
+    ],
+    "chp": [
+     "tā",
+     "shì",
+     "lǎoshī",
+     "háishì",
+     "xuésheng"
+    ],
+    "g": "还是",
+    "gp": "háishì"
+   }
+  ],
+  "d": [
+   [
+    "或者",
+    "huòzhě"
+   ],
+   [
+    "和",
+    "hé"
+   ],
+   [
+    "也",
+    "yě"
+   ]
+  ]
+ },
+ {
+  "id": "h2-keyi",
+  "lv": 2,
+  "k": [
+   "可以"
+  ],
+  "t": "Permission with 可以",
+  "p": "可以 + verb",
+  "n": "可以 means \"may\" or \"can\" when permission is involved. Use 不可以 (or 不能) to say it is not allowed.",
+  "x": [
+   {
+    "h": "我可以坐这儿吗？",
+    "py": "Wǒ kěyǐ zuò zhèr ma?",
+    "en": "May I sit here?",
+    "ch": [
+     "我",
+     "可以",
+     "坐",
+     "这儿",
+     "吗？"
+    ],
+    "chp": [
+     "wǒ",
+     "kěyǐ",
+     "zuò",
+     "zhèr",
+     "ma"
+    ],
+    "g": "可以",
+    "gp": "kěyǐ"
+   },
+   {
+    "h": "你可以走了。",
+    "py": "Nǐ kěyǐ zǒu le.",
+    "en": "You may go now.",
+    "ch": [
+     "你",
+     "可以",
+     "走",
+     "了。"
+    ],
+    "chp": [
+     "nǐ",
+     "kěyǐ",
+     "zǒu",
+     "le"
+    ],
+    "g": "可以",
+    "gp": "kěyǐ"
+   },
+   {
+    "h": "这里不可以吃东西。",
+    "py": "Zhèlǐ bù kěyǐ chī dōngxi.",
+    "en": "You may not eat here.",
+    "ch": [
+     "这里",
+     "不",
+     "可以",
+     "吃",
+     "东西。"
+    ],
+    "chp": [
+     "zhèlǐ",
+     "bù",
+     "kěyǐ",
+     "chī",
+     "dōngxi"
+    ],
+    "g": "可以",
+    "gp": "kěyǐ"
+   }
+  ],
+  "d": [
+   [
+    "会",
+    "huì"
+   ],
+   [
+    "想",
+    "xiǎng"
+   ],
+   [
+    "要",
+    "yào"
+   ]
+  ]
+ },
+ {
+  "id": "h2-bie",
+  "lv": 2,
+  "k": [
+   "别"
+  ],
+  "t": "Telling someone not to",
+  "p": "别 + verb",
+  "n": "别 before a verb means \"don't\". It is used for commands and requests. Adding 了 softens it or means \"stop\".",
+  "x": [
+   {
+    "h": "你别说话。",
+    "py": "Nǐ bié shuōhuà.",
+    "en": "Don't talk.",
+    "ch": [
+     "你",
+     "别",
+     "说话。"
+    ],
+    "chp": [
+     "nǐ",
+     "bié",
+     "shuōhuà"
+    ],
+    "g": "别",
+    "gp": "bié"
+   },
+   {
+    "h": "别走了。",
+    "py": "Bié zǒu le.",
+    "en": "Don't go.",
+    "ch": [
+     "别",
+     "走",
+     "了。"
+    ],
+    "chp": [
+     "bié",
+     "zǒu",
+     "le"
+    ],
+    "g": "别",
+    "gp": "bié"
+   },
+   {
+    "h": "你别忘了我。",
+    "py": "Nǐ bié wàng le wǒ.",
+    "en": "Don't forget me.",
+    "ch": [
+     "你",
+     "别",
+     "忘",
+     "了",
+     "我。"
+    ],
+    "chp": [
+     "nǐ",
+     "bié",
+     "wàng",
+     "le",
+     "wǒ"
+    ],
+    "g": "别",
+    "gp": "bié"
+   }
+  ],
+  "d": [
+   [
+    "不",
+    "bù"
+   ],
+   [
+    "没",
+    "méi"
+   ],
+   [
+    "都",
+    "dōu"
+   ]
+  ]
+ },
+ {
+  "id": "h2-yijing",
+  "lv": 2,
+  "k": [
+   "已经"
+  ],
+  "t": "已经...了",
+  "p": "已经 + verb + 了",
+  "n": "已经 means \"already\". It comes before the verb, and 了 usually closes the sentence.",
+  "x": [
+   {
+    "h": "我已经吃饭了。",
+    "py": "Wǒ yǐjīng chī fàn le.",
+    "en": "I have already eaten.",
+    "ch": [
+     "我",
+     "已经",
+     "吃",
+     "饭",
+     "了。"
+    ],
+    "chp": [
+     "wǒ",
+     "yǐjīng",
+     "chī",
+     "fàn",
+     "le"
+    ],
+    "g": "已经",
+    "gp": "yǐjīng"
+   },
+   {
+    "h": "他已经走了。",
+    "py": "Tā yǐjīng zǒu le.",
+    "en": "He has already left.",
+    "ch": [
+     "他",
+     "已经",
+     "走",
+     "了。"
+    ],
+    "chp": [
+     "tā",
+     "yǐjīng",
+     "zǒu",
+     "le"
+    ],
+    "g": "已经",
+    "gp": "yǐjīng"
+   },
+   {
+    "h": "现在已经十点了。",
+    "py": "Xiànzài yǐjīng shí diǎn le.",
+    "en": "It is already ten o'clock.",
+    "ch": [
+     "现在",
+     "已经",
+     "十",
+     "点",
+     "了。"
+    ],
+    "chp": [
+     "xiànzài",
+     "yǐjīng",
+     "shí",
+     "diǎn",
+     "le"
+    ],
+    "g": "已经",
+    "gp": "yǐjīng"
+   }
+  ],
+  "d": [
+   [
+    "还",
+    "hái"
+   ],
+   [
+    "就",
+    "jiù"
+   ],
+   [
+    "再",
+    "zài"
+   ]
+  ]
+ },
+ {
+  "id": "h2-zhengzai",
+  "lv": 2,
+  "k": [
+   "正在"
+  ],
+  "t": "Actions in progress with 正在",
+  "p": "正在 + verb",
+  "n": "正在 (or 在) before a verb shows that an action is happening right now. 呢 can be added at the end.",
+  "x": [
+   {
+    "h": "他正在看书。",
+    "py": "Tā zhèngzài kàn shū.",
+    "en": "He is reading a book.",
+    "ch": [
+     "他",
+     "正在",
+     "看",
+     "书。"
+    ],
+    "chp": [
+     "tā",
+     "zhèngzài",
+     "kàn",
+     "shū"
+    ],
+    "g": "正在",
+    "gp": "zhèngzài"
+   },
+   {
+    "h": "我正在做饭。",
+    "py": "Wǒ zhèngzài zuò fàn.",
+    "en": "I am cooking.",
+    "ch": [
+     "我",
+     "正在",
+     "做",
+     "饭。"
+    ],
+    "chp": [
+     "wǒ",
+     "zhèngzài",
+     "zuò",
+     "fàn"
+    ],
+    "g": "正在",
+    "gp": "zhèngzài"
+   },
+   {
+    "h": "妈妈正在打电话。",
+    "py": "Māma zhèngzài dǎdiànhuà.",
+    "en": "Mom is on the phone.",
+    "ch": [
+     "妈妈",
+     "正在",
+     "打电话。"
+    ],
+    "chp": [
+     "māma",
+     "zhèngzài",
+     "dǎdiànhuà"
+    ],
+    "g": "正在",
+    "gp": "zhèngzài"
+   }
+  ],
+  "d": [
+   [
+    "已经",
+    "yǐjīng"
+   ],
+   [
+    "才",
+    "cái"
+   ],
+   [
+    "还",
+    "hái"
+   ]
+  ]
+ },
+ {
+  "id": "h2-cong",
+  "lv": 2,
+  "k": [
+   "从"
+  ],
+  "t": "From...to... with 从 and 到",
+  "p": "从 A 到 B",
+  "n": "从 marks the starting point (place or time) and 到 marks the end point.",
+  "x": [
+   {
+    "h": "我从家走到学校。",
+    "py": "Wǒ cóng jiā zǒu dào xuéxiào.",
+    "en": "I walk from home to school.",
+    "ch": [
+     "我",
+     "从",
+     "家",
+     "走",
+     "到",
+     "学校。"
+    ],
+    "chp": [
+     "wǒ",
+     "cóng",
+     "jiā",
+     "zǒu",
+     "dào",
+     "xuéxiào"
+    ],
+    "g": "从",
+    "gp": "cóng"
+   },
+   {
+    "h": "从星期一到星期五我都工作。",
+    "py": "Cóng xīngqīyī dào xīngqīwǔ wǒ dōu gōngzuò.",
+    "en": "I work from Monday to Friday.",
+    "ch": [
+     "从",
+     "星期一",
+     "到",
+     "星期五",
+     "我",
+     "都",
+     "工作。"
+    ],
+    "chp": [
+     "cóng",
+     "xīngqīyī",
+     "dào",
+     "xīngqīwǔ",
+     "wǒ",
+     "dōu",
+     "gōngzuò"
+    ],
+    "g": "从",
+    "gp": "cóng"
+   },
+   {
+    "h": "他从北京来。",
+    "py": "Tā cóng Běijīng lái.",
+    "en": "He comes from Beijing.",
+    "ch": [
+     "他",
+     "从",
+     "北京",
+     "来。"
+    ],
+    "chp": [
+     "tā",
+     "cóng",
+     "Běijīng",
+     "lái"
+    ],
+    "g": "从",
+    "gp": "cóng"
+   }
+  ],
+  "d": [
+   [
+    "在",
+    "zài"
+   ],
+   [
+    "到",
+    "dào"
+   ],
+   [
+    "离",
+    "lí"
+   ]
+  ]
+ },
+ {
+  "id": "h2-li",
+  "lv": 2,
+  "k": [
+   "离"
+  ],
+  "t": "Distance with 离",
+  "p": "A 离 B + 远 / 近",
+  "n": "离 means \"away from\". It tells how far A is from B. 远 means far and 近 means near.",
+  "x": [
+   {
+    "h": "我家离学校很近。",
+    "py": "Wǒ jiā lí xuéxiào hěn jìn.",
+    "en": "My home is close to school.",
+    "ch": [
+     "我",
+     "家",
+     "离",
+     "学校",
+     "很",
+     "近。"
+    ],
+    "chp": [
+     "wǒ",
+     "jiā",
+     "lí",
+     "xuéxiào",
+     "hěn",
+     "jìn"
+    ],
+    "g": "离",
+    "gp": "lí"
+   },
+   {
+    "h": "医院离这儿不远。",
+    "py": "Yīyuàn lí zhèr bù yuǎn.",
+    "en": "The hospital is not far from here.",
+    "ch": [
+     "医院",
+     "离",
+     "这儿",
+     "不",
+     "远。"
+    ],
+    "chp": [
+     "yīyuàn",
+     "lí",
+     "zhèr",
+     "bù",
+     "yuǎn"
+    ],
+    "g": "离",
+    "gp": "lí"
+   },
+   {
+    "h": "学校离你家远吗？",
+    "py": "Xuéxiào lí nǐ jiā yuǎn ma?",
+    "en": "Is the school far from your home?",
+    "ch": [
+     "学校",
+     "离",
+     "你",
+     "家",
+     "远",
+     "吗？"
+    ],
+    "chp": [
+     "xuéxiào",
+     "lí",
+     "nǐ",
+     "jiā",
+     "yuǎn",
+     "ma"
+    ],
+    "g": "离",
+    "gp": "lí"
+   }
+  ],
+  "d": [
+   [
+    "从",
+    "cóng"
+   ],
+   [
+    "在",
+    "zài"
+   ],
+   [
+    "到",
+    "dào"
+   ]
+  ]
+ },
+ {
+  "id": "h2-yixia",
+  "lv": 2,
+  "k": [
+   "一下"
+  ],
+  "t": "A little, briefly with 一下",
+  "p": "Verb + 一下",
+  "n": "一下 after a verb makes the action short and casual, like \"have a go at\". It also softens requests.",
+  "x": [
+   {
+    "h": "你等一下。",
+    "py": "Nǐ děng yíxià.",
+    "en": "Wait a moment.",
+    "ch": [
+     "你",
+     "等",
+     "一下。"
+    ],
+    "chp": [
+     "nǐ",
+     "děng",
+     "yíxià"
+    ],
+    "g": "一下",
+    "gp": "yíxià"
+   },
+   {
+    "h": "请你看一下。",
+    "py": "Qǐng nǐ kàn yíxià.",
+    "en": "Please take a look.",
+    "ch": [
+     "请",
+     "你",
+     "看",
+     "一下。"
+    ],
+    "chp": [
+     "qǐng",
+     "nǐ",
+     "kàn",
+     "yíxià"
+    ],
+    "g": "一下",
+    "gp": "yíxià"
+   },
+   {
+    "h": "我想休息一下。",
+    "py": "Wǒ xiǎng xiūxi yíxià.",
+    "en": "I want to rest a bit.",
+    "ch": [
+     "我",
+     "想",
+     "休息",
+     "一下。"
+    ],
+    "chp": [
+     "wǒ",
+     "xiǎng",
+     "xiūxi",
+     "yíxià"
+    ],
+    "g": "一下",
+    "gp": "yíxià"
+   }
+  ],
+  "d": [
+   [
+    "一点儿",
+    "yìdiǎnr"
+   ],
+   [
+    "一会儿",
+    "yíhuìr"
+   ],
+   [
+    "一起",
+    "yìqǐ"
+   ]
+  ]
+ },
+ {
+  "id": "h2-rang",
+  "lv": 2,
+  "k": [
+   "让"
+  ],
+  "t": "Letting and making with 让",
+  "p": "A 让 B + verb",
+  "n": "让 means \"to let\" or \"to make\". The person after 让 does the next verb.",
+  "x": [
+   {
+    "h": "妈妈不让我喝咖啡。",
+    "py": "Māma bù ràng wǒ hē kāfēi.",
+    "en": "Mom does not let me drink coffee.",
+    "ch": [
+     "妈妈",
+     "不",
+     "让",
+     "我",
+     "喝",
+     "咖啡。"
+    ],
+    "chp": [
+     "māma",
+     "bù",
+     "ràng",
+     "wǒ",
+     "hē",
+     "kāfēi"
+    ],
+    "g": "让",
+    "gp": "ràng"
+   },
+   {
+    "h": "老师让我们写名字。",
+    "py": "Lǎoshī ràng wǒmen xiě míngzi.",
+    "en": "The teacher has us write our names.",
+    "ch": [
+     "老师",
+     "让",
+     "我们",
+     "写",
+     "名字。"
+    ],
+    "chp": [
+     "lǎoshī",
+     "ràng",
+     "wǒmen",
+     "xiě",
+     "míngzi"
+    ],
+    "g": "让",
+    "gp": "ràng"
+   },
+   {
+    "h": "他让我给他打电话。",
+    "py": "Tā ràng wǒ gěi tā dǎdiànhuà.",
+    "en": "He asked me to call him.",
+    "ch": [
+     "他",
+     "让",
+     "我",
+     "给",
+     "他",
+     "打电话。"
+    ],
+    "chp": [
+     "tā",
+     "ràng",
+     "wǒ",
+     "gěi",
+     "tā",
+     "dǎdiànhuà"
+    ],
+    "g": "让",
+    "gp": "ràng"
+   }
+  ],
+  "d": [
+   [
+    "和",
+    "hé"
+   ],
+   [
+    "跟",
+    "gēn"
+   ],
+   [
+    "对",
+    "duì"
+   ]
+  ]
+ },
+ {
+  "id": "h2-gei",
+  "lv": 2,
+  "k": [
+   "给"
+  ],
+  "t": "Doing something for someone with 给",
+  "p": "给 + person + verb",
+  "n": "给 before a person shows who receives or benefits from the action. As a verb it also means \"to give\".",
+  "x": [
+   {
+    "h": "我给妈妈打电话。",
+    "py": "Wǒ gěi māma dǎdiànhuà.",
+    "en": "I call my mother.",
+    "ch": [
+     "我",
+     "给",
+     "妈妈",
+     "打电话。"
+    ],
+    "chp": [
+     "wǒ",
+     "gěi",
+     "māma",
+     "dǎdiànhuà"
+    ],
+    "g": "给",
+    "gp": "gěi"
+   },
+   {
+    "h": "他给我一本书。",
+    "py": "Tā gěi wǒ yì běn shū.",
+    "en": "He gives me a book.",
+    "ch": [
+     "他",
+     "给",
+     "我",
+     "一",
+     "本",
+     "书。"
+    ],
+    "chp": [
+     "tā",
+     "gěi",
+     "wǒ",
+     "yì",
+     "běn",
+     "shū"
+    ],
+    "g": "给",
+    "gp": "gěi"
+   },
+   {
+    "h": "请给我一杯水。",
+    "py": "Qǐng gěi wǒ yì bēi shuǐ.",
+    "en": "Please give me a glass of water.",
+    "ch": [
+     "请",
+     "给",
+     "我",
+     "一",
+     "杯",
+     "水。"
+    ],
+    "chp": [
+     "qǐng",
+     "gěi",
+     "wǒ",
+     "yì",
+     "bēi",
+     "shuǐ"
+    ],
+    "g": "给",
+    "gp": "gěi"
+   }
+  ],
+  "d": [
+   [
+    "和",
+    "hé"
+   ],
+   [
+    "在",
+    "zài"
+   ],
+   [
+    "从",
+    "cóng"
+   ]
+  ]
+ },
+ {
+  "id": "h3-ruguo",
+  "lv": 3,
+  "k": [
+   "如果"
+  ],
+  "t": "如果...就...",
+  "p": "如果 A，(就) B",
+  "n": "如果 means \"if\". The result clause usually has 就 (or 会) before its verb. 要是 can replace 如果 in speech.",
+  "x": [
+   {
+    "h": "如果明天下雨，我就不去。",
+    "py": "Rúguǒ míngtiān xiàyǔ, wǒ jiù bù qù.",
+    "en": "If it rains tomorrow, I won't go.",
+    "ch": [
+     "如果",
+     "明天",
+     "下雨，",
+     "我",
+     "就",
+     "不",
+     "去。"
+    ],
+    "chp": [
+     "rúguǒ",
+     "míngtiān",
+     "xiàyǔ",
+     "wǒ",
+     "jiù",
+     "bù",
+     "qù"
+    ],
+    "g": "如果",
+    "gp": "rúguǒ"
+   },
+   {
+    "h": "如果你累了，就休息吧。",
+    "py": "Rúguǒ nǐ lèi le, jiù xiūxi ba.",
+    "en": "If you are tired, then rest.",
+    "ch": [
+     "如果",
+     "你",
+     "累",
+     "了，",
+     "就",
+     "休息",
+     "吧。"
+    ],
+    "chp": [
+     "rúguǒ",
+     "nǐ",
+     "lèi",
+     "le",
+     "jiù",
+     "xiūxi",
+     "ba"
+    ],
+    "g": "如果",
+    "gp": "rúguǒ"
+   },
+   {
+    "h": "如果你有时间，就来我家玩。",
+    "py": "Rúguǒ nǐ yǒu shíjiān, jiù lái wǒ jiā wán.",
+    "en": "If you have time, come to my place.",
+    "ch": [
+     "如果",
+     "你",
+     "有",
+     "时间，",
+     "就",
+     "来",
+     "我",
+     "家",
+     "玩。"
+    ],
+    "chp": [
+     "rúguǒ",
+     "nǐ",
+     "yǒu",
+     "shíjiān",
+     "jiù",
+     "lái",
+     "wǒ",
+     "jiā",
+     "wán"
+    ],
+    "g": "就",
+    "gp": "jiù"
+   }
+  ],
+  "d": [
+   [
+    "因为",
+    "yīnwèi"
+   ],
+   [
+    "虽然",
+    "suīrán"
+   ],
+   [
+    "所以",
+    "suǒyǐ"
+   ]
+  ]
+ },
+ {
+  "id": "h3-cai",
+  "lv": 3,
+  "k": [
+   "才"
+  ],
+  "t": "才: later than expected",
+  "p": "Time + 才 + verb",
+  "n": "才 after a time word shows that something happened later, or took more effort, than expected. 就 shows the opposite: early or easy.",
+  "x": [
+   {
+    "h": "他九点才起床。",
+    "py": "Tā jiǔ diǎn cái qǐchuáng.",
+    "en": "He only gets up at nine.",
+    "ch": [
+     "他",
+     "九",
+     "点",
+     "才",
+     "起床。"
+    ],
+    "chp": [
+     "tā",
+     "jiǔ",
+     "diǎn",
+     "cái",
+     "qǐchuáng"
+    ],
+    "g": "才",
+    "gp": "cái"
+   },
+   {
+    "h": "现在才七点。",
+    "py": "Xiànzài cái qī diǎn.",
+    "en": "It is only seven o'clock now.",
+    "ch": [
+     "现在",
+     "才",
+     "七",
+     "点。"
+    ],
+    "chp": [
+     "xiànzài",
+     "cái",
+     "qī",
+     "diǎn"
+    ],
+    "g": "才",
+    "gp": "cái"
+   },
+   {
+    "h": "我等了三个小时才看到他。",
+    "py": "Wǒ děng le sān gè xiǎoshí cái kàndào tā.",
+    "en": "I waited three hours before I saw him.",
+    "ch": [
+     "我",
+     "等",
+     "了",
+     "三",
+     "个",
+     "小时",
+     "才",
+     "看到",
+     "他。"
+    ],
+    "chp": [
+     "wǒ",
+     "děng",
+     "le",
+     "sān",
+     "gè",
+     "xiǎoshí",
+     "cái",
+     "kàndào",
+     "tā"
+    ],
+    "g": "才",
+    "gp": "cái"
+   }
+  ],
+  "d": [
+   [
+    "就",
+    "jiù"
+   ],
+   [
+    "又",
+    "yòu"
+   ],
+   [
+    "再",
+    "zài"
+   ]
+  ]
+ },
+ {
+  "id": "h3-you",
+  "lv": 3,
+  "k": [
+   "又"
+  ],
+  "t": "Repeating with 又 and 又...又...",
+  "p": "又 + verb / 又 A 又 B",
+  "n": "又 refers to something that has already happened again. 又 A 又 B joins two qualities: \"both A and B\".",
+  "x": [
+   {
+    "h": "这个菜又便宜又好吃。",
+    "py": "Zhè ge cài yòu piányi yòu hǎochī.",
+    "en": "This dish is both cheap and tasty.",
+    "ch": [
+     "这",
+     "个",
+     "菜",
+     "又",
+     "便宜",
+     "又",
+     "好吃。"
+    ],
+    "chp": [
+     "zhè",
+     "ge",
+     "cài",
+     "yòu",
+     "piányi",
+     "yòu",
+     "hǎochī"
+    ],
+    "g": "又",
+    "gp": "yòu"
+   },
+   {
+    "h": "他昨天来了，今天又来了。",
+    "py": "Tā zuótiān lái le, jīntiān yòu lái le.",
+    "en": "He came yesterday and came again today.",
+    "ch": [
+     "他",
+     "昨天",
+     "来",
+     "了，",
+     "今天",
+     "又",
+     "来",
+     "了。"
+    ],
+    "chp": [
+     "tā",
+     "zuótiān",
+     "lái",
+     "le",
+     "jīntiān",
+     "yòu",
+     "lái",
+     "le"
+    ],
+    "g": "又",
+    "gp": "yòu"
+   },
+   {
+    "h": "她又聪明又漂亮。",
+    "py": "Tā yòu cōngming yòu piàoliang.",
+    "en": "She is both smart and pretty.",
+    "ch": [
+     "她",
+     "又",
+     "聪明",
+     "又",
+     "漂亮。"
+    ],
+    "chp": [
+     "tā",
+     "yòu",
+     "cōngming",
+     "yòu",
+     "piàoliang"
+    ],
+    "g": "又",
+    "gp": "yòu"
+   }
+  ],
+  "d": [
+   [
+    "再",
+    "zài"
+   ],
+   [
+    "也",
+    "yě"
+   ],
+   [
+    "还",
+    "hái"
+   ]
+  ]
+ },
+ {
+  "id": "h3-geng",
+  "lv": 3,
+  "k": [
+   "更"
+  ],
+  "t": "Even more with 更",
+  "p": "更 + adjective",
+  "n": "更 means \"even more\". It is often used after 比 to stress a bigger gap.",
+  "x": [
+   {
+    "h": "这个比那个更好。",
+    "py": "Zhè ge bǐ nà ge gèng hǎo.",
+    "en": "This one is even better than that one.",
+    "ch": [
+     "这",
+     "个",
+     "比",
+     "那",
+     "个",
+     "更",
+     "好。"
+    ],
+    "chp": [
+     "zhè",
+     "ge",
+     "bǐ",
+     "nà",
+     "ge",
+     "gèng",
+     "hǎo"
+    ],
+    "g": "更",
+    "gp": "gèng"
+   },
+   {
+    "h": "今天比昨天更冷。",
+    "py": "Jīntiān bǐ zuótiān gèng lěng.",
+    "en": "Today is even colder than yesterday.",
+    "ch": [
+     "今天",
+     "比",
+     "昨天",
+     "更",
+     "冷。"
+    ],
+    "chp": [
+     "jīntiān",
+     "bǐ",
+     "zuótiān",
+     "gèng",
+     "lěng"
+    ],
+    "g": "更",
+    "gp": "gèng"
+   },
+   {
+    "h": "他比我更忙。",
+    "py": "Tā bǐ wǒ gèng máng.",
+    "en": "He is even busier than me.",
+    "ch": [
+     "他",
+     "比",
+     "我",
+     "更",
+     "忙。"
+    ],
+    "chp": [
+     "tā",
+     "bǐ",
+     "wǒ",
+     "gèng",
+     "máng"
+    ],
+    "g": "更",
+    "gp": "gèng"
+   }
+  ],
+  "d": [
+   [
+    "太",
+    "tài"
+   ],
+   [
+    "很",
+    "hěn"
+   ],
+   [
+    "最",
+    "zuì"
+   ]
+  ]
+ },
+ {
+  "id": "h3-yiyang",
+  "lv": 3,
+  "k": [
+   "一样"
+  ],
+  "t": "Being the same with 一样",
+  "p": "A 跟 B 一样 (+ adjective)",
+  "n": "跟 (or 和) joins the two things being compared and 一样 means \"the same\". Add an adjective at the end to say in what way.",
+  "x": [
+   {
+    "h": "我跟你一样高。",
+    "py": "Wǒ gēn nǐ yíyàng gāo.",
+    "en": "I am as tall as you.",
+    "ch": [
+     "我",
+     "跟",
+     "你",
+     "一样",
+     "高。"
+    ],
+    "chp": [
+     "wǒ",
+     "gēn",
+     "nǐ",
+     "yíyàng",
+     "gāo"
+    ],
+    "g": "一样",
+    "gp": "yíyàng"
+   },
+   {
+    "h": "这个和那个一样贵。",
+    "py": "Zhè ge hé nà ge yíyàng guì.",
+    "en": "This one is as expensive as that one.",
+    "ch": [
+     "这",
+     "个",
+     "和",
+     "那",
+     "个",
+     "一样",
+     "贵。"
+    ],
+    "chp": [
+     "zhè",
+     "ge",
+     "hé",
+     "nà",
+     "ge",
+     "yíyàng",
+     "guì"
+    ],
+    "g": "一样",
+    "gp": "yíyàng"
+   },
+   {
+    "h": "他的书跟我的一样。",
+    "py": "Tā de shū gēn wǒ de yíyàng.",
+    "en": "His book is the same as mine.",
+    "ch": [
+     "他",
+     "的",
+     "书",
+     "跟",
+     "我",
+     "的",
+     "一样。"
+    ],
+    "chp": [
+     "tā",
+     "de",
+     "shū",
+     "gēn",
+     "wǒ",
+     "de",
+     "yíyàng"
+    ],
+    "g": "一样",
+    "gp": "yíyàng"
+   }
+  ],
+  "d": [
+   [
+    "一起",
+    "yìqǐ"
+   ],
+   [
+    "一下",
+    "yíxià"
+   ],
+   [
+    "一直",
+    "yìzhí"
+   ]
+  ]
+ },
+ {
+  "id": "h3-ranhou",
+  "lv": 3,
+  "k": [
+   "然后"
+  ],
+  "t": "First...then... with 先 and 然后",
+  "p": "先 A，然后 B",
+  "n": "先 means \"first\" and 然后 means \"then / after that\". Together they put actions in order.",
+  "x": [
+   {
+    "h": "先洗手，然后吃饭。",
+    "py": "Xiān xǐshǒu, ránhòu chīfàn.",
+    "en": "First wash your hands, then eat.",
+    "ch": [
+     "先",
+     "洗手，",
+     "然后",
+     "吃饭。"
+    ],
+    "chp": [
+     "xiān",
+     "xǐshǒu",
+     "ránhòu",
+     "chīfàn"
+    ],
+    "g": "然后",
+    "gp": "ránhòu"
+   },
+   {
+    "h": "我先写作业，然后看电视。",
+    "py": "Wǒ xiān xiě zuòyè, ránhòu kàn diànshì.",
+    "en": "I do homework first, then watch TV.",
+    "ch": [
+     "我",
+     "先",
+     "写",
+     "作业，",
+     "然后",
+     "看",
+     "电视。"
+    ],
+    "chp": [
+     "wǒ",
+     "xiān",
+     "xiě",
+     "zuòyè",
+     "ránhòu",
+     "kàn",
+     "diànshì"
+    ],
+    "g": "然后",
+    "gp": "ránhòu"
+   },
+   {
+    "h": "我们先吃饭，然后去公园。",
+    "py": "Wǒmen xiān chīfàn, ránhòu qù gōngyuán.",
+    "en": "We eat first, then go to the park.",
+    "ch": [
+     "我们",
+     "先",
+     "吃饭，",
+     "然后",
+     "去",
+     "公园。"
+    ],
+    "chp": [
+     "wǒmen",
+     "xiān",
+     "chīfàn",
+     "ránhòu",
+     "qù",
+     "gōngyuán"
+    ],
+    "g": "然后",
+    "gp": "ránhòu"
+   }
+  ],
+  "d": [
+   [
+    "而且",
+    "érqiě"
+   ],
+   [
+    "因为",
+    "yīnwèi"
+   ],
+   [
+    "但是",
+    "dànshì"
+   ]
+  ]
+ },
+ {
+  "id": "h3-weile",
+  "lv": 3,
+  "k": [
+   "为了"
+  ],
+  "t": "Purpose with 为了",
+  "p": "为了 + goal，+ action",
+  "n": "为了 introduces the goal for which an action is done, like \"in order to / for the sake of\".",
+  "x": [
+   {
+    "h": "为了学习汉语，他去了北京。",
+    "py": "Wèile xuéxí hànyǔ, tā qù le Běijīng.",
+    "en": "To learn Chinese, he went to Beijing.",
+    "ch": [
+     "为了",
+     "学习",
+     "汉语，",
+     "他",
+     "去",
+     "了",
+     "北京。"
+    ],
+    "chp": [
+     "wèile",
+     "xuéxí",
+     "hànyǔ",
+     "tā",
+     "qù",
+     "le",
+     "Běijīng"
+    ],
+    "g": "为了",
+    "gp": "wèile"
+   },
+   {
+    "h": "为了健康，我每天跑步。",
+    "py": "Wèile jiànkāng, wǒ měitiān pǎobù.",
+    "en": "For my health, I run every day.",
+    "ch": [
+     "为了",
+     "健康，",
+     "我",
+     "每天",
+     "跑步。"
+    ],
+    "chp": [
+     "wèile",
+     "jiànkāng",
+     "wǒ",
+     "měitiān",
+     "pǎobù"
+    ],
+    "g": "为了",
+    "gp": "wèile"
+   },
+   {
+    "h": "他为了工作搬到了上海。",
+    "py": "Tā wèile gōngzuò bān dào le Shànghǎi.",
+    "en": "He moved to Shanghai for work.",
+    "ch": [
+     "他",
+     "为了",
+     "工作",
+     "搬",
+     "到",
+     "了",
+     "上海。"
+    ],
+    "chp": [
+     "tā",
+     "wèile",
+     "gōngzuò",
+     "bān",
+     "dào",
+     "le",
+     "Shànghǎi"
+    ],
+    "g": "为了",
+    "gp": "wèile"
+   }
+  ],
+  "d": [
+   [
+    "虽然",
+    "suīrán"
+   ],
+   [
+    "如果",
+    "rúguǒ"
+   ],
+   [
+    "但是",
+    "dànshì"
+   ]
+  ]
+ },
+ {
+  "id": "h3-yinggai",
+  "lv": 3,
+  "k": [
+   "应该"
+  ],
+  "t": "Should with 应该",
+  "p": "应该 + verb",
+  "n": "应该 means \"should\" or \"ought to\". Its negative is 不应该. It goes right before the verb.",
+  "x": [
+   {
+    "h": "你应该早点儿睡觉。",
+    "py": "Nǐ yīnggāi zǎodiǎnr shuìjiào.",
+    "en": "You should go to bed earlier.",
+    "ch": [
+     "你",
+     "应该",
+     "早点儿",
+     "睡觉。"
+    ],
+    "chp": [
+     "nǐ",
+     "yīnggāi",
+     "zǎodiǎnr",
+     "shuìjiào"
+    ],
+    "g": "应该",
+    "gp": "yīnggāi"
+   },
+   {
+    "h": "我们应该帮助他。",
+    "py": "Wǒmen yīnggāi bāngzhu tā.",
+    "en": "We should help him.",
+    "ch": [
+     "我们",
+     "应该",
+     "帮助",
+     "他。"
+    ],
+    "chp": [
+     "wǒmen",
+     "yīnggāi",
+     "bāngzhu",
+     "tā"
+    ],
+    "g": "应该",
+    "gp": "yīnggāi"
+   },
+   {
+    "h": "学生应该努力学习。",
+    "py": "Xuésheng yīnggāi nǔlì xuéxí.",
+    "en": "Students should study hard.",
+    "ch": [
+     "学生",
+     "应该",
+     "努力",
+     "学习。"
+    ],
+    "chp": [
+     "xuésheng",
+     "yīnggāi",
+     "nǔlì",
+     "xuéxí"
+    ],
+    "g": "应该",
+    "gp": "yīnggāi"
+   }
+  ],
+  "d": [
+   [
+    "比",
+    "bǐ"
+   ],
+   [
+    "从",
+    "cóng"
+   ],
+   [
+    "离",
+    "lí"
+   ]
+  ]
+ },
+ {
+  "id": "h3-yibian",
+  "lv": 3,
+  "k": [
+   "一边"
+  ],
+  "t": "Two actions at once with 一边",
+  "p": "一边 A 一边 B",
+  "n": "Put 一边 before each of two verbs to show that one person is doing both at the same time.",
+  "x": [
+   {
+    "h": "他一边吃饭一边看电视。",
+    "py": "Tā yìbiān chīfàn yìbiān kàn diànshì.",
+    "en": "He watches TV while eating.",
+    "ch": [
+     "他",
+     "一边",
+     "吃饭",
+     "一边",
+     "看",
+     "电视。"
+    ],
+    "chp": [
+     "tā",
+     "yìbiān",
+     "chīfàn",
+     "yìbiān",
+     "kàn",
+     "diànshì"
+    ],
+    "g": "一边",
+    "gp": "yìbiān"
+   },
+   {
+    "h": "我一边听音乐，一边做作业。",
+    "py": "Wǒ yìbiān tīng yīnyuè, yìbiān zuò zuòyè.",
+    "en": "I do homework while listening to music.",
+    "ch": [
+     "我",
+     "一边",
+     "听",
+     "音乐，",
+     "一边",
+     "做",
+     "作业。"
+    ],
+    "chp": [
+     "wǒ",
+     "yìbiān",
+     "tīng",
+     "yīnyuè",
+     "yìbiān",
+     "zuò",
+     "zuòyè"
+    ],
+    "g": "一边",
+    "gp": "yìbiān"
+   },
+   {
+    "h": "她一边走一边唱歌。",
+    "py": "Tā yìbiān zǒu yìbiān chànggē.",
+    "en": "She sings as she walks.",
+    "ch": [
+     "她",
+     "一边",
+     "走",
+     "一边",
+     "唱歌。"
+    ],
+    "chp": [
+     "tā",
+     "yìbiān",
+     "zǒu",
+     "yìbiān",
+     "chànggē"
+    ],
+    "g": "一边",
+    "gp": "yìbiān"
+   }
+  ],
+  "d": [
+   [
+    "一起",
+    "yìqǐ"
+   ],
+   [
+    "一样",
+    "yíyàng"
+   ],
+   [
+    "一直",
+    "yìzhí"
+   ]
+  ]
+ },
+ {
+  "id": "h3-zhiyou",
+  "lv": 3,
+  "k": [
+   "只有"
+  ],
+  "t": "只有...才...",
+  "p": "只有 A，才 B",
+  "n": "只有 gives the only condition under which B can happen, and 才 goes before the verb of the result: \"only if A, then B\".",
+  "x": [
+   {
+    "h": "只有努力，才能成功。",
+    "py": "Zhǐyǒu nǔlì, cái néng chénggōng.",
+    "en": "Only by working hard can you succeed.",
+    "ch": [
+     "只有",
+     "努力，",
+     "才",
+     "能",
+     "成功。"
+    ],
+    "chp": [
+     "zhǐyǒu",
+     "nǔlì",
+     "cái",
+     "néng",
+     "chénggōng"
+    ],
+    "g": "只有",
+    "gp": "zhǐyǒu"
+   },
+   {
+    "h": "只有多练习，才能说好汉语。",
+    "py": "Zhǐyǒu duō liànxí, cái néng shuō hǎo hànyǔ.",
+    "en": "Only with lots of practice can you speak Chinese well.",
+    "ch": [
+     "只有",
+     "多",
+     "练习，",
+     "才",
+     "能",
+     "说",
+     "好",
+     "汉语。"
+    ],
+    "chp": [
+     "zhǐyǒu",
+     "duō",
+     "liànxí",
+     "cái",
+     "néng",
+     "shuō",
+     "hǎo",
+     "hànyǔ"
+    ],
+    "g": "才",
+    "gp": "cái"
+   },
+   {
+    "h": "只有你才能帮我。",
+    "py": "Zhǐyǒu nǐ cái néng bāng wǒ.",
+    "en": "Only you can help me.",
+    "ch": [
+     "只有",
+     "你",
+     "才",
+     "能",
+     "帮",
+     "我。"
+    ],
+    "chp": [
+     "zhǐyǒu",
+     "nǐ",
+     "cái",
+     "néng",
+     "bāng",
+     "wǒ"
+    ],
+    "g": "只有",
+    "gp": "zhǐyǒu"
+   }
+  ],
+  "d": [
+   [
+    "只要",
+    "zhǐyào"
+   ],
+   [
+    "就",
+    "jiù"
+   ],
+   [
+    "如果",
+    "rúguǒ"
+   ]
+  ]
+ },
+ {
+  "id": "h3-bandan",
+  "lv": 3,
+  "k": [
+   "不但"
+  ],
+  "t": "不但...而且...",
+  "p": "不但 A，而且 B",
+  "n": "不但 means \"not only\" and 而且 means \"but also\". The second part adds something to the first.",
+  "x": [
+   {
+    "h": "他不但会说汉语，而且说得很好。",
+    "py": "Tā bùdàn huì shuō hànyǔ, érqiě shuō de hěn hǎo.",
+    "en": "He can not only speak Chinese, but speaks it well.",
+    "ch": [
+     "他",
+     "不但",
+     "会",
+     "说",
+     "汉语，",
+     "而且",
+     "说",
+     "得",
+     "很",
+     "好。"
+    ],
+    "chp": [
+     "tā",
+     "bùdàn",
+     "huì",
+     "shuō",
+     "hànyǔ",
+     "érqiě",
+     "shuō",
+     "de",
+     "hěn",
+     "hǎo"
+    ],
+    "g": "不但",
+    "gp": "bùdàn"
+   },
+   {
+    "h": "这个地方不但漂亮，而且很安静。",
+    "py": "Zhè ge dìfang bùdàn piàoliang, érqiě hěn ānjìng.",
+    "en": "This place is not only pretty but also quiet.",
+    "ch": [
+     "这",
+     "个",
+     "地方",
+     "不但",
+     "漂亮，",
+     "而且",
+     "很",
+     "安静。"
+    ],
+    "chp": [
+     "zhè",
+     "ge",
+     "dìfang",
+     "bùdàn",
+     "piàoliang",
+     "érqiě",
+     "hěn",
+     "ānjìng"
+    ],
+    "g": "不但",
+    "gp": "bùdàn"
+   },
+   {
+    "h": "她不但聪明，而且很努力。",
+    "py": "Tā bùdàn cōngming, érqiě hěn nǔlì.",
+    "en": "She is not only smart but also hardworking.",
+    "ch": [
+     "她",
+     "不但",
+     "聪明，",
+     "而且",
+     "很",
+     "努力。"
+    ],
+    "chp": [
+     "tā",
+     "bùdàn",
+     "cōngming",
+     "érqiě",
+     "hěn",
+     "nǔlì"
+    ],
+    "g": "而且",
+    "gp": "érqiě"
+   }
+  ],
+  "d": [
+   [
+    "但是",
+    "dànshì"
+   ],
+   [
+    "虽然",
+    "suīrán"
+   ],
+   [
+    "因为",
+    "yīnwèi"
+   ]
+  ]
+ },
+ {
+  "id": "h3-shide",
+  "lv": 3,
+  "k": [
+   "是的"
+  ],
+  "t": "Giving details with 是...的",
+  "p": "是 + detail + verb + 的",
+  "n": "是...的 puts the focus on how, when, where or by whom a past event happened. The event itself is already known.",
+  "x": [
+   {
+    "h": "我是昨天来的。",
+    "py": "Wǒ shì zuótiān lái de.",
+    "en": "It was yesterday that I came.",
+    "ch": [
+     "我",
+     "是",
+     "昨天",
+     "来",
+     "的。"
+    ],
+    "chp": [
+     "wǒ",
+     "shì",
+     "zuótiān",
+     "lái",
+     "de"
+    ],
+    "g": "的",
+    "gp": "de"
+   },
+   {
+    "h": "他是坐飞机来的。",
+    "py": "Tā shì zuò fēijī lái de.",
+    "en": "He came by plane.",
+    "ch": [
+     "他",
+     "是",
+     "坐",
+     "飞机",
+     "来",
+     "的。"
+    ],
+    "chp": [
+     "tā",
+     "shì",
+     "zuò",
+     "fēijī",
+     "lái",
+     "de"
+    ],
+    "g": "的",
+    "gp": "de"
+   },
+   {
+    "h": "你是在哪儿买的？",
+    "py": "Nǐ shì zài nǎr mǎi de?",
+    "en": "Where did you buy it?",
+    "ch": [
+     "你",
+     "是",
+     "在",
+     "哪儿",
+     "买",
+     "的？"
+    ],
+    "chp": [
+     "nǐ",
+     "shì",
+     "zài",
+     "nǎr",
+     "mǎi",
+     "de"
+    ],
+    "g": "的",
+    "gp": "de"
+   }
+  ],
+  "d": [
+   [
+    "了",
+    "le"
+   ],
+   [
+    "过",
+    "guò"
+   ],
+   [
+    "吗",
+    "ma"
+   ]
+  ]
+ },
+ {
+  "id": "h3-jieguo",
+  "lv": 3,
+  "k": [
+   "完"
+  ],
+  "t": "Result complements",
+  "p": "Verb + result word",
+  "n": "A second word after the verb tells the result of the action: 完 (finished), 懂 (understood), 见 (perceived), 到 (reached). The negative uses 没.",
+  "x": [
+   {
+    "h": "我做完作业了。",
+    "py": "Wǒ zuò wán zuòyè le.",
+    "en": "I have finished my homework.",
+    "ch": [
+     "我",
+     "做",
+     "完",
+     "作业",
+     "了。"
+    ],
+    "chp": [
+     "wǒ",
+     "zuò",
+     "wán",
+     "zuòyè",
+     "le"
+    ],
+    "g": "完",
+    "gp": "wán"
+   },
+   {
+    "h": "你说什么？我没听懂。",
+    "py": "Nǐ shuō shénme? Wǒ méi tīng dǒng.",
+    "en": "What did you say? I didn't understand.",
+    "ch": [
+     "你",
+     "说",
+     "什么？",
+     "我",
+     "没",
+     "听",
+     "懂。"
+    ],
+    "chp": [
+     "nǐ",
+     "shuō",
+     "shénme",
+     "wǒ",
+     "méi",
+     "tīng",
+     "dǒng"
+    ]
+   },
+   {
+    "h": "你看见我的手机了吗？",
+    "py": "Nǐ kàn jiàn wǒ de shǒujī le ma?",
+    "en": "Did you see my phone?",
+    "ch": [
+     "你",
+     "看",
+     "见",
+     "我",
+     "的",
+     "手机",
+     "了",
+     "吗？"
+    ],
+    "chp": [
+     "nǐ",
+     "kàn",
+     "jiàn",
+     "wǒ",
+     "de",
+     "shǒujī",
+     "le",
+     "ma"
+    ]
+   }
+  ],
+  "d": [
+   [
+    "懂",
+    "dǒng"
+   ],
+   [
+    "见",
+    "jiàn"
+   ],
+   [
+    "到",
+    "dào"
+   ]
+  ]
+ },
+ {
+  "id": "h3-chong",
+  "lv": 3,
+  "k": [
+   "动词重叠"
+  ],
+  "t": "Repeating the verb",
+  "p": "Verb + verb (+ 一下)",
+  "n": "Doubling a verb makes the action short, light or tentative: \"have a little ...\" It is often used in suggestions and requests. The second copy is usually in neutral tone.",
+  "x": [
+   {
+    "h": "你看看。",
+    "py": "Nǐ kàn kan.",
+    "en": "Take a look.",
+    "ch": [
+     "你",
+     "看",
+     "看。"
+    ],
+    "chp": [
+     "nǐ",
+     "kàn",
+     "kan"
+    ]
+   },
+   {
+    "h": "我想想，再告诉你。",
+    "py": "Wǒ xiǎng xiang, zài gàosu nǐ.",
+    "en": "Let me think, then I'll tell you.",
+    "ch": [
+     "我",
+     "想",
+     "想，",
+     "再",
+     "告诉",
+     "你。"
+    ],
+    "chp": [
+     "wǒ",
+     "xiǎng",
+     "xiang",
+     "zài",
+     "gàosu",
+     "nǐ"
+    ]
+   },
+   {
+    "h": "我们休息休息吧。",
+    "py": "Wǒmen xiūxi xiūxi ba.",
+    "en": "Let's take a rest.",
+    "ch": [
+     "我们",
+     "休息",
+     "休息",
+     "吧。"
+    ],
+    "chp": [
+     "wǒmen",
+     "xiūxi",
+     "xiūxi",
+     "ba"
+    ]
+   }
+  ],
+  "d": [
+   [
+    "看",
+    "kàn"
+   ],
+   [
+    "想",
+    "xiǎng"
+   ],
+   [
+    "说",
+    "shuō"
+   ]
+  ]
+ },
+ {
+  "id": "h4-ba",
+  "lv": 4,
+  "k": [
+   "把"
+  ],
+  "t": "The 把 construction",
+  "p": "Subject + 把 + object + verb + result",
+  "n": "把 moves the object in front of the verb to show what you do to it. The verb must be followed by a result, a place or 了; a bare verb is not enough.",
+  "x": [
+   {
+    "h": "我把书放在桌子上。",
+    "py": "Wǒ bǎ shū fàng zài zhuōzi shàng.",
+    "en": "I put the book on the table.",
+    "ch": [
+     "我",
+     "把",
+     "书",
+     "放",
+     "在",
+     "桌子",
+     "上。"
+    ],
+    "chp": [
+     "wǒ",
+     "bǎ",
+     "shū",
+     "fàng",
+     "zài",
+     "zhuōzi",
+     "shàng"
+    ],
+    "g": "把",
+    "gp": "bǎ"
+   },
+   {
+    "h": "请把门关上。",
+    "py": "Qǐng bǎ mén guān shàng.",
+    "en": "Please close the door.",
+    "ch": [
+     "请",
+     "把",
+     "门",
+     "关",
+     "上。"
+    ],
+    "chp": [
+     "qǐng",
+     "bǎ",
+     "mén",
+     "guān",
+     "shàng"
+    ],
+    "g": "把",
+    "gp": "bǎ"
+   },
+   {
+    "h": "他把作业做完了。",
+    "py": "Tā bǎ zuòyè zuò wán le.",
+    "en": "He has finished his homework.",
+    "ch": [
+     "他",
+     "把",
+     "作业",
+     "做",
+     "完",
+     "了。"
+    ],
+    "chp": [
+     "tā",
+     "bǎ",
+     "zuòyè",
+     "zuò",
+     "wán",
+     "le"
+    ],
+    "g": "把",
+    "gp": "bǎ"
+   }
+  ],
+  "d": [
+   [
+    "被",
+    "bèi"
+   ],
+   [
+    "给",
+    "gěi"
+   ],
+   [
+    "对",
+    "duì"
+   ]
+  ]
+ },
+ {
+  "id": "h4-bei",
+  "lv": 4,
+  "k": [
+   "被"
+  ],
+  "t": "The passive with 被",
+  "p": "Receiver + 被 + doer + verb + result",
+  "n": "被 marks the doer of an action done to the subject: \"was ...ed by\". The doer can be dropped. In speech 让 and 叫 are also used.",
+  "x": [
+   {
+    "h": "我的手机被弟弟拿走了。",
+    "py": "Wǒ de shǒujī bèi dìdi ná zǒu le.",
+    "en": "My phone was taken away by my younger brother.",
+    "ch": [
+     "我",
+     "的",
+     "手机",
+     "被",
+     "弟弟",
+     "拿",
+     "走",
+     "了。"
+    ],
+    "chp": [
+     "wǒ",
+     "de",
+     "shǒujī",
+     "bèi",
+     "dìdi",
+     "ná",
+     "zǒu",
+     "le"
+    ],
+    "g": "被",
+    "gp": "bèi"
+   },
+   {
+    "h": "杯子被他打破了。",
+    "py": "Bēizi bèi tā dǎ pò le.",
+    "en": "The cup was broken by him.",
+    "ch": [
+     "杯子",
+     "被",
+     "他",
+     "打",
+     "破",
+     "了。"
+    ],
+    "chp": [
+     "bēizi",
+     "bèi",
+     "tā",
+     "dǎ",
+     "pò",
+     "le"
+    ],
+    "g": "被",
+    "gp": "bèi"
+   },
+   {
+    "h": "他被老师批评了。",
+    "py": "Tā bèi lǎoshī pīpíng le.",
+    "en": "He was criticised by the teacher.",
+    "ch": [
+     "他",
+     "被",
+     "老师",
+     "批评",
+     "了。"
+    ],
+    "chp": [
+     "tā",
+     "bèi",
+     "lǎoshī",
+     "pīpíng",
+     "le"
+    ],
+    "g": "被",
+    "gp": "bèi"
+   }
+  ],
+  "d": [
+   [
+    "把",
+    "bǎ"
+   ],
+   [
+    "对",
+    "duì"
+   ],
+   [
+    "从",
+    "cóng"
+   ]
+  ]
+ },
+ {
+  "id": "h4-qilai",
+  "lv": 4,
+  "k": [
+   "起来"
+  ],
+  "t": "起来 after verbs",
+  "p": "Verb / adjective + 起来",
+  "n": "起来 after a verb or adjective can mean \"to begin\" (笑起来 = burst out laughing) or \"when you look at / try it\" (看起来, 听起来).",
+  "x": [
+   {
+    "h": "他笑起来了。",
+    "py": "Tā xiào qǐlái le.",
+    "en": "He started to laugh.",
+    "ch": [
+     "他",
+     "笑",
+     "起来",
+     "了。"
+    ],
+    "chp": [
+     "tā",
+     "xiào",
+     "qǐlái",
+     "le"
+    ],
+    "g": "起来",
+    "gp": "qǐlái"
+   },
+   {
+    "h": "这个菜看起来很好吃。",
+    "py": "Zhè ge cài kàn qǐlái hěn hǎochī.",
+    "en": "This dish looks delicious.",
+    "ch": [
+     "这",
+     "个",
+     "菜",
+     "看",
+     "起来",
+     "很",
+     "好吃。"
+    ],
+    "chp": [
+     "zhè",
+     "ge",
+     "cài",
+     "kàn",
+     "qǐlái",
+     "hěn",
+     "hǎochī"
+    ],
+    "g": "起来",
+    "gp": "qǐlái"
+   },
+   {
+    "h": "天气冷起来了。",
+    "py": "Tiānqì lěng qǐlái le.",
+    "en": "The weather has turned cold.",
+    "ch": [
+     "天气",
+     "冷",
+     "起来",
+     "了。"
+    ],
+    "chp": [
+     "tiānqì",
+     "lěng",
+     "qǐlái",
+     "le"
+    ],
+    "g": "起来",
+    "gp": "qǐlái"
+   }
+  ],
+  "d": [
+   [
+    "出来",
+    "chūlái"
+   ],
+   [
+    "下去",
+    "xiàqù"
+   ],
+   [
+    "过来",
+    "guòlái"
+   ]
+  ]
+ },
+ {
+  "id": "h4-de",
+  "lv": 4,
+  "k": [
+   "地"
+  ],
+  "t": "Doing it in a certain way with 地",
+  "p": "Adjective + 地 + verb",
+  "n": "地 attaches a description to a verb to say how an action is done. It is written 地 but sounds like 的 and 得.",
+  "x": [
+   {
+    "h": "他高兴地说。",
+    "py": "Tā gāoxìng de shuō.",
+    "en": "He says it happily.",
+    "ch": [
+     "他",
+     "高兴",
+     "地",
+     "说。"
+    ],
+    "chp": [
+     "tā",
+     "gāoxìng",
+     "de",
+     "shuō"
+    ],
+    "g": "地",
+    "gp": "de"
+   },
+   {
+    "h": "孩子们快乐地玩。",
+    "py": "Háizimen kuàilè de wán.",
+    "en": "The children play happily.",
+    "ch": [
+     "孩子们",
+     "快乐",
+     "地",
+     "玩。"
+    ],
+    "chp": [
+     "háizimen",
+     "kuàilè",
+     "de",
+     "wán"
+    ],
+    "g": "地",
+    "gp": "de"
+   },
+   {
+    "h": "请你慢慢地说。",
+    "py": "Qǐng nǐ mànmàn de shuō.",
+    "en": "Please speak slowly.",
+    "ch": [
+     "请",
+     "你",
+     "慢慢",
+     "地",
+     "说。"
+    ],
+    "chp": [
+     "qǐng",
+     "nǐ",
+     "mànmàn",
+     "de",
+     "shuō"
+    ],
+    "g": "地",
+    "gp": "de"
+   }
+  ],
+  "d": [
+   [
+    "的",
+    "de"
+   ],
+   [
+    "得",
+    "de"
+   ],
+   [
+    "了",
+    "le"
+   ]
+  ]
+ },
+ {
+  "id": "h4-bixu",
+  "lv": 4,
+  "k": [
+   "必须"
+  ],
+  "t": "Must with 必须",
+  "p": "必须 + verb",
+  "n": "必须 means \"must\" and is stronger than 应该. Its negative is 不用 or 不必 (\"need not\"), not 不必须.",
+  "x": [
+   {
+    "h": "你必须早点来。",
+    "py": "Nǐ bìxū zǎo diǎn lái.",
+    "en": "You must come early.",
+    "ch": [
+     "你",
+     "必须",
+     "早",
+     "点",
+     "来。"
+    ],
+    "chp": [
+     "nǐ",
+     "bìxū",
+     "zǎo",
+     "diǎn",
+     "lái"
+    ],
+    "g": "必须",
+    "gp": "bìxū"
+   },
+   {
+    "h": "学生必须做作业。",
+    "py": "Xuésheng bìxū zuò zuòyè.",
+    "en": "Students must do their homework.",
+    "ch": [
+     "学生",
+     "必须",
+     "做",
+     "作业。"
+    ],
+    "chp": [
+     "xuésheng",
+     "bìxū",
+     "zuò",
+     "zuòyè"
+    ],
+    "g": "必须",
+    "gp": "bìxū"
+   },
+   {
+    "h": "我们必须七点到学校。",
+    "py": "Wǒmen bìxū qī diǎn dào xuéxiào.",
+    "en": "We must be at school by seven.",
+    "ch": [
+     "我们",
+     "必须",
+     "七",
+     "点",
+     "到",
+     "学校。"
+    ],
+    "chp": [
+     "wǒmen",
+     "bìxū",
+     "qī",
+     "diǎn",
+     "dào",
+     "xuéxiào"
+    ],
+    "g": "必须",
+    "gp": "bìxū"
+   }
+  ],
+  "d": [
+   [
+    "已经",
+    "yǐjīng"
+   ],
+   [
+    "正在",
+    "zhèngzài"
+   ],
+   [
+    "终于",
+    "zhōngyú"
+   ]
+  ]
+ },
+ {
+  "id": "h4-huozhe",
+  "lv": 4,
+  "k": [
+   "或者"
+  ],
+  "t": "或者 in statements",
+  "p": "A 或者 B",
+  "n": "或者 means \"or\" in statements and suggestions. In a question that offers a choice, use 还是 instead.",
+  "x": [
+   {
+    "h": "你可以喝茶或者咖啡。",
+    "py": "Nǐ kěyǐ hē chá huòzhě kāfēi.",
+    "en": "You can have tea or coffee.",
+    "ch": [
+     "你",
+     "可以",
+     "喝",
+     "茶",
+     "或者",
+     "咖啡。"
+    ],
+    "chp": [
+     "nǐ",
+     "kěyǐ",
+     "hē",
+     "chá",
+     "huòzhě",
+     "kāfēi"
+    ],
+    "g": "或者",
+    "gp": "huòzhě"
+   },
+   {
+    "h": "星期六或者星期天我都有时间。",
+    "py": "Xīngqīliù huòzhě xīngqītiān wǒ dōu yǒu shíjiān.",
+    "en": "I am free on Saturday or Sunday.",
+    "ch": [
+     "星期六",
+     "或者",
+     "星期天",
+     "我",
+     "都",
+     "有",
+     "时间。"
+    ],
+    "chp": [
+     "xīngqīliù",
+     "huòzhě",
+     "xīngqītiān",
+     "wǒ",
+     "dōu",
+     "yǒu",
+     "shíjiān"
+    ],
+    "g": "或者",
+    "gp": "huòzhě"
+   },
+   {
+    "h": "我想吃面条或者米饭。",
+    "py": "Wǒ xiǎng chī miàntiáo huòzhě mǐfàn.",
+    "en": "I want to eat noodles or rice.",
+    "ch": [
+     "我",
+     "想",
+     "吃",
+     "面条",
+     "或者",
+     "米饭。"
+    ],
+    "chp": [
+     "wǒ",
+     "xiǎng",
+     "chī",
+     "miàntiáo",
+     "huòzhě",
+     "mǐfàn"
+    ],
+    "g": "或者",
+    "gp": "huòzhě"
+   }
+  ],
+  "d": [
+   [
+    "还是",
+    "háishì"
+   ],
+   [
+    "和",
+    "hé"
+   ],
+   [
+    "而且",
+    "érqiě"
+   ]
+  ]
+ },
+ {
+  "id": "h4-guanyu",
+  "lv": 4,
+  "k": [
+   "关于"
+  ],
+  "t": "About with 关于",
+  "p": "关于 + topic",
+  "n": "关于 introduces the topic that something is about. The phrase goes before the noun it describes (with 的) or at the start of the sentence.",
+  "x": [
+   {
+    "h": "这是关于中国的书。",
+    "py": "Zhè shì guānyú Zhōngguó de shū.",
+    "en": "This is a book about China.",
+    "ch": [
+     "这",
+     "是",
+     "关于",
+     "中国",
+     "的",
+     "书。"
+    ],
+    "chp": [
+     "zhè",
+     "shì",
+     "guānyú",
+     "Zhōngguó",
+     "de",
+     "shū"
+    ],
+    "g": "关于",
+    "gp": "guānyú"
+   },
+   {
+    "h": "关于这个问题，我不知道。",
+    "py": "Guānyú zhè ge wèntí, wǒ bù zhīdao.",
+    "en": "About this question, I don't know.",
+    "ch": [
+     "关于",
+     "这",
+     "个",
+     "问题，",
+     "我",
+     "不",
+     "知道。"
+    ],
+    "chp": [
+     "guānyú",
+     "zhè",
+     "ge",
+     "wèntí",
+     "wǒ",
+     "bù",
+     "zhīdao"
+    ],
+    "g": "关于",
+    "gp": "guānyú"
+   },
+   {
+    "h": "他写了一本关于北京的书。",
+    "py": "Tā xiě le yì běn guānyú Běijīng de shū.",
+    "en": "He wrote a book about Beijing.",
+    "ch": [
+     "他",
+     "写",
+     "了",
+     "一",
+     "本",
+     "关于",
+     "北京",
+     "的",
+     "书。"
+    ],
+    "chp": [
+     "tā",
+     "xiě",
+     "le",
+     "yì",
+     "běn",
+     "guānyú",
+     "Běijīng",
+     "de",
+     "shū"
+    ],
+    "g": "关于",
+    "gp": "guānyú"
+   }
+  ],
+  "d": [
+   [
+    "为了",
+    "wèile"
+   ],
+   [
+    "除了",
+    "chúle"
+   ],
+   [
+    "根据",
+    "gēnjù"
+   ]
+  ]
+ },
+ {
+  "id": "h4-qishi",
+  "lv": 4,
+  "k": [
+   "其实"
+  ],
+  "t": "其实: in fact",
+  "p": "其实 + statement",
+  "n": "其实 introduces what is actually true, often against what you might expect or what someone just said.",
+  "x": [
+   {
+    "h": "他看起来很年轻，其实已经四十岁了。",
+    "py": "Tā kàn qǐlái hěn niánqīng, qíshí yǐjīng sìshí suì le.",
+    "en": "He looks young, but is in fact already forty.",
+    "ch": [
+     "他",
+     "看",
+     "起来",
+     "很",
+     "年轻，",
+     "其实",
+     "已经",
+     "四十",
+     "岁",
+     "了。"
+    ],
+    "chp": [
+     "tā",
+     "kàn",
+     "qǐlái",
+     "hěn",
+     "niánqīng",
+     "qíshí",
+     "yǐjīng",
+     "sìshí",
+     "suì",
+     "le"
+    ],
+    "g": "其实",
+    "gp": "qíshí"
+   },
+   {
+    "h": "其实我不喜欢吃鱼。",
+    "py": "Qíshí wǒ bù xǐhuan chī yú.",
+    "en": "Actually, I don't like fish.",
+    "ch": [
+     "其实",
+     "我",
+     "不",
+     "喜欢",
+     "吃",
+     "鱼。"
+    ],
+    "chp": [
+     "qíshí",
+     "wǒ",
+     "bù",
+     "xǐhuan",
+     "chī",
+     "yú"
+    ],
+    "g": "其实",
+    "gp": "qíshí"
+   },
+   {
+    "h": "这个问题其实很简单。",
+    "py": "Zhè ge wèntí qíshí hěn jiǎndān.",
+    "en": "This question is actually very simple.",
+    "ch": [
+     "这",
+     "个",
+     "问题",
+     "其实",
+     "很",
+     "简单。"
+    ],
+    "chp": [
+     "zhè",
+     "ge",
+     "wèntí",
+     "qíshí",
+     "hěn",
+     "jiǎndān"
+    ],
+    "g": "其实",
+    "gp": "qíshí"
+   }
+  ],
+  "d": [
+   [
+    "当然",
+    "dāngrán"
+   ],
+   [
+    "终于",
+    "zhōngyú"
+   ],
+   [
+    "一直",
+    "yìzhí"
+   ]
+  ]
+ },
+ {
+  "id": "h4-chule",
+  "lv": 4,
+  "k": [
+   "除了"
+  ],
+  "t": "除了...以外",
+  "p": "除了 A 以外，B 还 / 都...",
+  "n": "除了 A 以外 followed by 都 means \"except A\"; followed by 还 or 也 it means \"besides A, there is also B\".",
+  "x": [
+   {
+    "h": "除了我以外，大家都来了。",
+    "py": "Chúle wǒ yǐwài, dàjiā dōu lái le.",
+    "en": "Everyone came except me.",
+    "ch": [
+     "除了",
+     "我",
+     "以外，",
+     "大家",
+     "都",
+     "来",
+     "了。"
+    ],
+    "chp": [
+     "chúle",
+     "wǒ",
+     "yǐwài",
+     "dàjiā",
+     "dōu",
+     "lái",
+     "le"
+    ],
+    "g": "除了",
+    "gp": "chúle"
+   },
+   {
+    "h": "除了中文以外，他还会说英语。",
+    "py": "Chúle zhōngwén yǐwài, tā hái huì shuō yīngyǔ.",
+    "en": "Besides Chinese, he also speaks English.",
+    "ch": [
+     "除了",
+     "中文",
+     "以外，",
+     "他",
+     "还",
+     "会",
+     "说",
+     "英语。"
+    ],
+    "chp": [
+     "chúle",
+     "zhōngwén",
+     "yǐwài",
+     "tā",
+     "hái",
+     "huì",
+     "shuō",
+     "yīngyǔ"
+    ],
+    "g": "以外",
+    "gp": "yǐwài"
+   },
+   {
+    "h": "除了周末，我每天都工作。",
+    "py": "Chúle zhōumò, wǒ měitiān dōu gōngzuò.",
+    "en": "Except for weekends, I work every day.",
+    "ch": [
+     "除了",
+     "周末，",
+     "我",
+     "每天",
+     "都",
+     "工作。"
+    ],
+    "chp": [
+     "chúle",
+     "zhōumò",
+     "wǒ",
+     "měitiān",
+     "dōu",
+     "gōngzuò"
+    ]
+   }
+  ],
+  "d": [
+   [
+    "关于",
+    "guānyú"
+   ],
+   [
+    "根据",
+    "gēnjù"
+   ],
+   [
+    "为了",
+    "wèile"
+   ]
+  ]
+ },
+ {
+  "id": "h4-yue",
+  "lv": 4,
+  "k": [
+   "越"
+  ],
+  "t": "越...越...",
+  "p": "越 A 越 B",
+  "n": "越...越... means \"the more ... the more ...\". 越来越 + adjective means \"more and more\".",
+  "x": [
+   {
+    "h": "天气越来越冷了。",
+    "py": "Tiānqì yuè lái yuè lěng le.",
+    "en": "The weather is getting colder and colder.",
+    "ch": [
+     "天气",
+     "越",
+     "来",
+     "越",
+     "冷",
+     "了。"
+    ],
+    "chp": [
+     "tiānqì",
+     "yuè",
+     "lái",
+     "yuè",
+     "lěng",
+     "le"
+    ],
+    "g": "越",
+    "gp": "yuè"
+   },
+   {
+    "h": "你越练习，越会说。",
+    "py": "Nǐ yuè liànxí, yuè huì shuō.",
+    "en": "The more you practise, the better you speak.",
+    "ch": [
+     "你",
+     "越",
+     "练习，",
+     "越",
+     "会",
+     "说。"
+    ],
+    "chp": [
+     "nǐ",
+     "yuè",
+     "liànxí",
+     "yuè",
+     "huì",
+     "shuō"
+    ],
+    "g": "越",
+    "gp": "yuè"
+   },
+   {
+    "h": "我们越聊越高兴。",
+    "py": "Wǒmen yuè liáo yuè gāoxìng.",
+    "en": "The more we chat, the happier we get.",
+    "ch": [
+     "我们",
+     "越",
+     "聊",
+     "越",
+     "高兴。"
+    ],
+    "chp": [
+     "wǒmen",
+     "yuè",
+     "liáo",
+     "yuè",
+     "gāoxìng"
+    ],
+    "g": "越",
+    "gp": "yuè"
+   }
+  ],
+  "d": [
+   [
+    "更",
+    "gèng"
+   ],
+   [
+    "最",
+    "zuì"
+   ],
+   [
+    "太",
+    "tài"
+   ]
+  ]
+ },
+ {
+  "id": "h4-zhongyu",
+  "lv": 4,
+  "k": [
+   "终于"
+  ],
+  "t": "At last with 终于",
+  "p": "终于 + verb (+ 了)",
+  "n": "终于 means \"finally\", after a long wait or lots of effort. It carries a feeling of relief and usually goes with 了.",
+  "x": [
+   {
+    "h": "他终于来了。",
+    "py": "Tā zhōngyú lái le.",
+    "en": "He has finally come.",
+    "ch": [
+     "他",
+     "终于",
+     "来",
+     "了。"
+    ],
+    "chp": [
+     "tā",
+     "zhōngyú",
+     "lái",
+     "le"
+    ],
+    "g": "终于",
+    "gp": "zhōngyú"
+   },
+   {
+    "h": "我终于找到了我的手机。",
+    "py": "Wǒ zhōngyú zhǎo dào le wǒ de shǒujī.",
+    "en": "I finally found my phone.",
+    "ch": [
+     "我",
+     "终于",
+     "找",
+     "到",
+     "了",
+     "我",
+     "的",
+     "手机。"
+    ],
+    "chp": [
+     "wǒ",
+     "zhōngyú",
+     "zhǎo",
+     "dào",
+     "le",
+     "wǒ",
+     "de",
+     "shǒujī"
+    ],
+    "g": "终于",
+    "gp": "zhōngyú"
+   },
+   {
+    "h": "考试终于结束了。",
+    "py": "Kǎoshì zhōngyú jiéshù le.",
+    "en": "The exam is finally over.",
+    "ch": [
+     "考试",
+     "终于",
+     "结束",
+     "了。"
+    ],
+    "chp": [
+     "kǎoshì",
+     "zhōngyú",
+     "jiéshù",
+     "le"
+    ],
+    "g": "终于",
+    "gp": "zhōngyú"
+   }
+  ],
+  "d": [
+   [
+    "一直",
+    "yìzhí"
+   ],
+   [
+    "其实",
+    "qíshí"
+   ],
+   [
+    "已经",
+    "yǐjīng"
+   ]
+  ]
+ },
+ {
+  "id": "h4-bijiao",
+  "lv": 4,
+  "k": [
+   "比较"
+  ],
+  "t": "Fairly with 比较",
+  "p": "比较 + adjective / verb",
+  "n": "比较 before an adjective or a verb of feeling means \"fairly\" or \"relatively\". It is milder than 很.",
+  "x": [
+   {
+    "h": "这个菜比较好吃。",
+    "py": "Zhè ge cài bǐjiào hǎochī.",
+    "en": "This dish is fairly tasty.",
+    "ch": [
+     "这",
+     "个",
+     "菜",
+     "比较",
+     "好吃。"
+    ],
+    "chp": [
+     "zhè",
+     "ge",
+     "cài",
+     "bǐjiào",
+     "hǎochī"
+    ],
+    "g": "比较",
+    "gp": "bǐjiào"
+   },
+   {
+    "h": "我比较喜欢这个。",
+    "py": "Wǒ bǐjiào xǐhuan zhè ge.",
+    "en": "I rather like this one.",
+    "ch": [
+     "我",
+     "比较",
+     "喜欢",
+     "这",
+     "个。"
+    ],
+    "chp": [
+     "wǒ",
+     "bǐjiào",
+     "xǐhuan",
+     "zhè",
+     "ge"
+    ],
+    "g": "比较",
+    "gp": "bǐjiào"
+   },
+   {
+    "h": "今天比较冷。",
+    "py": "Jīntiān bǐjiào lěng.",
+    "en": "It is rather cold today.",
+    "ch": [
+     "今天",
+     "比较",
+     "冷。"
+    ],
+    "chp": [
+     "jīntiān",
+     "bǐjiào",
+     "lěng"
+    ],
+    "g": "比较",
+    "gp": "bǐjiào"
+   }
+  ],
+  "d": [
+   [
+    "越",
+    "yuè"
+   ],
+   [
+    "才",
+    "cái"
+   ],
+   [
+    "又",
+    "yòu"
+   ]
+  ]
+ },
+ {
+  "id": "h4-jihu",
+  "lv": 4,
+  "k": [
+   "几乎"
+  ],
+  "t": "Almost with 几乎",
+  "p": "几乎 + verb / 没有",
+  "n": "几乎 means \"almost\" or \"nearly\". With a negative it means \"hardly any\".",
+  "x": [
+   {
+    "h": "我几乎每天都去公园。",
+    "py": "Wǒ jīhū měitiān dōu qù gōngyuán.",
+    "en": "I go to the park almost every day.",
+    "ch": [
+     "我",
+     "几乎",
+     "每天",
+     "都",
+     "去",
+     "公园。"
+    ],
+    "chp": [
+     "wǒ",
+     "jīhū",
+     "měitiān",
+     "dōu",
+     "qù",
+     "gōngyuán"
+    ],
+    "g": "几乎",
+    "gp": "jīhū"
+   },
+   {
+    "h": "他几乎没吃东西。",
+    "py": "Tā jīhū méi chī dōngxi.",
+    "en": "He hardly ate anything.",
+    "ch": [
+     "他",
+     "几乎",
+     "没",
+     "吃",
+     "东西。"
+    ],
+    "chp": [
+     "tā",
+     "jīhū",
+     "méi",
+     "chī",
+     "dōngxi"
+    ],
+    "g": "几乎",
+    "gp": "jīhū"
+   },
+   {
+    "h": "教室里几乎没有人。",
+    "py": "Jiàoshì lǐ jīhū méiyǒu rén.",
+    "en": "There is almost nobody in the classroom.",
+    "ch": [
+     "教室",
+     "里",
+     "几乎",
+     "没有",
+     "人。"
+    ],
+    "chp": [
+     "jiàoshì",
+     "lǐ",
+     "jīhū",
+     "méiyǒu",
+     "rén"
+    ],
+    "g": "几乎",
+    "gp": "jīhū"
+   }
+  ],
+  "d": [
+   [
+    "已经",
+    "yǐjīng"
+   ],
+   [
+    "马上",
+    "mǎshàng"
+   ],
+   [
+    "终于",
+    "zhōngyú"
+   ]
+  ]
+ },
+ {
+  "id": "h4-gengju",
+  "lv": 4,
+  "k": [
+   "根据"
+  ],
+  "t": "According to with 根据",
+  "p": "根据 + source，+ statement",
+  "n": "根据 introduces the source or evidence behind a statement: \"according to / based on\".",
+  "x": [
+   {
+    "h": "根据天气预报，明天会下雨。",
+    "py": "Gēnjù tiānqì yùbào, míngtiān huì xiàyǔ.",
+    "en": "According to the weather forecast, it will rain tomorrow.",
+    "ch": [
+     "根据",
+     "天气",
+     "预报，",
+     "明天",
+     "会",
+     "下雨。"
+    ],
+    "chp": [
+     "gēnjù",
+     "tiānqì",
+     "yùbào",
+     "míngtiān",
+     "huì",
+     "xiàyǔ"
+    ],
+    "g": "根据",
+    "gp": "gēnjù"
+   },
+   {
+    "h": "根据老师说的，明天考试。",
+    "py": "Gēnjù lǎoshī shuō de, míngtiān kǎoshì.",
+    "en": "According to the teacher, there is an exam tomorrow.",
+    "ch": [
+     "根据",
+     "老师",
+     "说",
+     "的，",
+     "明天",
+     "考试。"
+    ],
+    "chp": [
+     "gēnjù",
+     "lǎoshī",
+     "shuō",
+     "de",
+     "míngtiān",
+     "kǎoshì"
+    ],
+    "g": "根据",
+    "gp": "gēnjù"
+   },
+   {
+    "h": "根据地图，银行在左边。",
+    "py": "Gēnjù dìtú, yínháng zài zuǒbiān.",
+    "en": "According to the map, the bank is on the left.",
+    "ch": [
+     "根据",
+     "地图，",
+     "银行",
+     "在",
+     "左边。"
+    ],
+    "chp": [
+     "gēnjù",
+     "dìtú",
+     "yínháng",
+     "zài",
+     "zuǒbiān"
+    ],
+    "g": "根据",
+    "gp": "gēnjù"
+   }
+  ],
+  "d": [
+   [
+    "关于",
+    "guānyú"
+   ],
+   [
+    "除了",
+    "chúle"
+   ],
+   [
+    "为了",
+    "wèile"
+   ]
+  ]
+ },
+ {
+  "id": "h4-xiang",
+  "lv": 4,
+  "k": [
+   "向"
+  ],
+  "t": "Towards with 向",
+  "p": "向 + person / direction + verb",
+  "n": "向 means \"towards\" for directions, or \"from / to\" for a person you learn from or ask something of: 向他学习, 向左走.",
+  "x": [
+   {
+    "h": "他向我走过来。",
+    "py": "Tā xiàng wǒ zǒu guòlái.",
+    "en": "He walked towards me.",
+    "ch": [
+     "他",
+     "向",
+     "我",
+     "走",
+     "过来。"
+    ],
+    "chp": [
+     "tā",
+     "xiàng",
+     "wǒ",
+     "zǒu",
+     "guòlái"
+    ],
+    "g": "向",
+    "gp": "xiàng"
+   },
+   {
+    "h": "请向左走。",
+    "py": "Qǐng xiàng zuǒ zǒu.",
+    "en": "Please go left.",
+    "ch": [
+     "请",
+     "向",
+     "左",
+     "走。"
+    ],
+    "chp": [
+     "qǐng",
+     "xiàng",
+     "zuǒ",
+     "zǒu"
+    ],
+    "g": "向",
+    "gp": "xiàng"
+   },
+   {
+    "h": "我要向他学习。",
+    "py": "Wǒ yào xiàng tā xuéxí.",
+    "en": "I want to learn from him.",
+    "ch": [
+     "我",
+     "要",
+     "向",
+     "他",
+     "学习。"
+    ],
+    "chp": [
+     "wǒ",
+     "yào",
+     "xiàng",
+     "tā",
+     "xuéxí"
+    ],
+    "g": "向",
+    "gp": "xiàng"
+   }
+  ],
+  "d": [
+   [
+    "从",
+    "cóng"
+   ],
+   [
+    "在",
+    "zài"
+   ],
+   [
+    "对",
+    "duì"
+   ]
+  ]
+ },
+ {
+  "id": "h4-xingqu",
+  "lv": 4,
+  "k": [
+   "感兴趣"
+  ],
+  "t": "Interests with 对...感兴趣",
+  "p": "对 + topic + 感兴趣",
+  "n": "对 introduces the topic and 感兴趣 means \"be interested in\". To intensify, put 很 or 非常 before 感兴趣.",
+  "x": [
+   {
+    "h": "我对音乐感兴趣。",
+    "py": "Wǒ duì yīnyuè gǎnxìngqù.",
+    "en": "I am interested in music.",
+    "ch": [
+     "我",
+     "对",
+     "音乐",
+     "感兴趣。"
+    ],
+    "chp": [
+     "wǒ",
+     "duì",
+     "yīnyuè",
+     "gǎnxìngqù"
+    ],
+    "g": "感兴趣",
+    "gp": "gǎnxìngqù"
+   },
+   {
+    "h": "他对历史很感兴趣。",
+    "py": "Tā duì lìshǐ hěn gǎnxìngqù.",
+    "en": "He is very interested in history.",
+    "ch": [
+     "他",
+     "对",
+     "历史",
+     "很",
+     "感兴趣。"
+    ],
+    "chp": [
+     "tā",
+     "duì",
+     "lìshǐ",
+     "hěn",
+     "gǎnxìngqù"
+    ],
+    "g": "感兴趣",
+    "gp": "gǎnxìngqù"
+   },
+   {
+    "h": "你对什么感兴趣？",
+    "py": "Nǐ duì shénme gǎnxìngqù?",
+    "en": "What are you interested in?",
+    "ch": [
+     "你",
+     "对",
+     "什么",
+     "感兴趣？"
+    ],
+    "chp": [
+     "nǐ",
+     "duì",
+     "shénme",
+     "gǎnxìngqù"
+    ],
+    "g": "感兴趣",
+    "gp": "gǎnxìngqù"
+   }
+  ],
+  "d": [
+   [
+    "喜欢",
+    "xǐhuān"
+   ],
+   [
+    "高兴",
+    "gāoxìng"
+   ],
+   [
+    "关心",
+    "guānxīn"
+   ]
+  ]
+ },
+ {
+  "id": "h4-lian",
+  "lv": 4,
+  "k": [
+   "连"
+  ],
+  "t": "连...都 / 也...",
+  "p": "连 + noun + 都 / 也 + verb",
+  "n": "连...都... means \"even\". It stresses an extreme example to show that everything else is also true (or, with a negative, not true).",
+  "x": [
+   {
+    "h": "他连饭都没吃。",
+    "py": "Tā lián fàn dōu méi chī.",
+    "en": "He did not even eat.",
+    "ch": [
+     "他",
+     "连",
+     "饭",
+     "都",
+     "没",
+     "吃。"
+    ],
+    "chp": [
+     "tā",
+     "lián",
+     "fàn",
+     "dōu",
+     "méi",
+     "chī"
+    ],
+    "g": "连",
+    "gp": "lián"
+   },
+   {
+    "h": "我连他的名字都不知道。",
+    "py": "Wǒ lián tā de míngzi dōu bù zhīdao.",
+    "en": "I don't even know his name.",
+    "ch": [
+     "我",
+     "连",
+     "他",
+     "的",
+     "名字",
+     "都",
+     "不",
+     "知道。"
+    ],
+    "chp": [
+     "wǒ",
+     "lián",
+     "tā",
+     "de",
+     "míngzi",
+     "dōu",
+     "bù",
+     "zhīdao"
+    ],
+    "g": "连",
+    "gp": "lián"
+   },
+   {
+    "h": "连小孩子都知道。",
+    "py": "Lián xiǎo háizi dōu zhīdao.",
+    "en": "Even small children know.",
+    "ch": [
+     "连",
+     "小",
+     "孩子",
+     "都",
+     "知道。"
+    ],
+    "chp": [
+     "lián",
+     "xiǎo",
+     "háizi",
+     "dōu",
+     "zhīdao"
+    ],
+    "g": "连",
+    "gp": "lián"
+   }
+  ],
+  "d": [
+   [
+    "就",
+    "jiù"
+   ],
+   [
+    "才",
+    "cái"
+   ],
+   [
+    "也",
+    "yě"
+   ]
+  ]
+ },
+ {
+  "id": "h4-kenengbuyu",
+  "lv": 4,
+  "k": [
+   "得"
+  ],
+  "t": "Can / cannot: 得 and 不",
+  "p": "Verb + 得 / 不 + result",
+  "n": "Put 得 (can) or 不 (cannot) between a verb and its result word. 听得懂 means \"can understand by listening\" and 听不懂 means \"cannot\".",
+  "x": [
+   {
+    "h": "我听得懂他说的话。",
+    "py": "Wǒ tīng de dǒng tā shuō de huà.",
+    "en": "I can understand what he says.",
+    "ch": [
+     "我",
+     "听",
+     "得",
+     "懂",
+     "他",
+     "说",
+     "的",
+     "话。"
+    ],
+    "chp": [
+     "wǒ",
+     "tīng",
+     "de",
+     "dǒng",
+     "tā",
+     "shuō",
+     "de",
+     "huà"
+    ],
+    "g": "得",
+    "gp": "de"
+   },
+   {
+    "h": "他说得太快，我听不懂。",
+    "py": "Tā shuō de tài kuài, wǒ tīng bù dǒng.",
+    "en": "He speaks too fast, I can't understand.",
+    "ch": [
+     "他",
+     "说",
+     "得",
+     "太",
+     "快，",
+     "我",
+     "听",
+     "不",
+     "懂。"
+    ],
+    "chp": [
+     "tā",
+     "shuō",
+     "de",
+     "tài",
+     "kuài",
+     "wǒ",
+     "tīng",
+     "bù",
+     "dǒng"
+    ],
+    "g": "不",
+    "gp": "bù"
+   },
+   {
+    "h": "这么多菜，我吃不完。",
+    "py": "Zhème duō cài, wǒ chī bù wán.",
+    "en": "There is so much food, I can't finish it.",
+    "ch": [
+     "这么",
+     "多",
+     "菜，",
+     "我",
+     "吃",
+     "不",
+     "完。"
+    ],
+    "chp": [
+     "zhème",
+     "duō",
+     "cài",
+     "wǒ",
+     "chī",
+     "bù",
+     "wán"
+    ],
+    "g": "不",
+    "gp": "bù"
+   }
+  ],
+  "d": [
+   [
+    "没",
+    "méi"
+   ],
+   [
+    "别",
+    "bié"
+   ],
+   [
+    "地",
+    "de"
+   ]
+  ]
+ }
+]
