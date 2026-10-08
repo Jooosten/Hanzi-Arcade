@@ -219,6 +219,21 @@ button{touch-action:manipulation}
 .lvl .path{padding:0 12px 12px}
 .lvl.locked{border-style:dashed;background:transparent;padding:12px 14px;display:grid;gap:2px;font-family:var(--f-display);font-weight:800;font-size:17px;color:var(--muted)}
 .lvl.locked small{font-family:var(--f-body);font-size:13px;font-weight:600}
+/* grammar */
+.gcard{justify-items:stretch;text-align:left}
+.gcard h2{font-size:22px;font-weight:800;text-align:center}
+.gpat{font-family:var(--f-han);font-weight:600;font-size:24px;text-align:center;color:var(--jade-t)}
+.gnote{margin:0;font-size:16px}
+.gex{display:grid;gap:10px;width:100%}
+.gex .ex{display:grid;gap:3px;padding-top:12px;border-top:2px dashed var(--line)}
+.gex .ex .hz{font-size:26px;font-weight:600;line-height:1.4}
+.gk{color:var(--jade-t);font-weight:900}
+.gex .pinyin-line,.gex .en{margin:0}
+.grow{display:flex;align-items:center;gap:12px;padding:12px;border:2px solid var(--line);border-radius:14px;background:var(--surface);flex-wrap:wrap}
+.grow .gm{flex:1 1 150px;min-width:0;display:grid;gap:2px}
+.grow .gm b{font-family:var(--f-display)}
+.grow .gm span{font-size:13px;color:var(--muted);font-weight:600}
+.gsec{display:grid;gap:10px}
 </style>
 </head><body>
 
@@ -244,8 +259,13 @@ const today=()=>new Date().toLocaleDateString('en-CA');
 const yesterday=()=>{const d=new Date();d.setDate(d.getDate()-1);return d.toLocaleDateString('en-CA')};
 let P=store.get('ha_p',{}), XP=store.get('ha_xp',0), DAY=store.get('ha_day',{d:'',xp:0}),
     STREAK=store.get('ha_streak',{last:'',n:0}), BEST=store.get('ha_blitz',0),
-    SOUND=store.get('ha_snd',true), SCOPE=store.get('ha_scope','all'), LEARNED=store.get('ha_learned',0), FOCUS=store.get('ha_focus',0), PY=store.get('ha_py',false);
+    SOUND=store.get('ha_snd',true), SCOPE=store.get('ha_scope','all'), LEARNED=store.get('ha_learned',0), FOCUS=store.get('ha_focus',0), PY=store.get('ha_py',false),
+    GP=store.get('ha_g',{}), SKIPL=store.get('ha_skipl',false), THEME=store.get('ha_theme',null);
 document.body.classList.toggle('py-on',PY);
+/* light/dark: null follows the device setting, 'light' / 'dark' is the person's own choice */
+const applyTheme=()=>{if(THEME==='light'||THEME==='dark')document.documentElement.setAttribute('data-theme',THEME);else document.documentElement.removeAttribute('data-theme')};
+const effTheme=()=>THEME||((window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');
+applyTheme();
 if(store.get('ha_v',0)<2){P={};store.set('ha_p',P);store.set('ha_v',2)}
 if(DAY.d!==today())DAY={d:today(),xp:0};
 const GOAL=50, BATCH=10;
@@ -258,18 +278,19 @@ const sh=t=>{const h={apikey:SYNC_CFG.anonKey,'Content-Type':'application/json'}
 async function authCall(path,body){const r=await fetch(SYNC_CFG.url+'/auth/v1/'+path,{method:'POST',headers:sh(),body:JSON.stringify(body)});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error_description||j.msg||j.message||('Error '+r.status));return j}
 function keep(j,email){SS={email,uid:j.user.id,at:j.access_token,rt:j.refresh_token,exp:Date.now()+(j.expires_in||3600)*1000-60000};store.set('ha_sync',SS)}
 async function token(){if(!SS)throw new Error('signed out');if(Date.now()>SS.exp){const j=await authCall('token?grant_type=refresh_token',{refresh_token:SS.rt});keep(j,SS.email)}return SS.at}
-const snap=()=>({p:P,xp:XP,day:DAY,streak:STREAK,blitz:BEST,learned:LEARNED,focus:FOCUS});
+const snap=()=>({p:P,gp:GP,xp:XP,day:DAY,streak:STREAK,blitz:BEST,learned:LEARNED,focus:FOCUS});
 /* merge rules: never lose progress. per-word record with more practice wins; XP, best blitz, learned = max; newest streak wins */
 function mergeIn(r){
   if(!r||typeof r!=='object')return false;
-  const before=JSON.stringify([P,XP,LEARNED,STREAK,BEST,DAY]);
-  for(const k in (r.p||{})){const a=P[k],b=r.p[k];if(b&&(!a||(b.c+b.w)>(a.c+a.w)))P[k]={c:b.c|0,w:b.w|0}}
+  const before=JSON.stringify([P,GP,XP,LEARNED,STREAK,BEST,DAY]);
+  for(const k in (r.p||{})){const a=P[k],b=r.p[k];if(b&&(!a||(b.c+b.w)>(a.c+a.w)))P[k]=b.f?{c:b.c|0,w:b.w|0,f:1}:{c:b.c|0,w:b.w|0}}
+  for(const k in (r.gp||{})){const a=GP[k],b=r.gp[k];if(b&&(!a||(b.c+b.w)>(a.c+a.w)))GP[k]=b.f?{c:b.c|0,w:b.w|0,f:1}:{c:b.c|0,w:b.w|0}}
   XP=Math.max(XP,r.xp|0);BEST=Math.max(BEST,r.blitz|0);
   const rl=Math.min(WORDS.length,r.learned|0);if(rl>LEARNED){LEARNED=rl;if(r.focus!=null)FOCUS=r.focus}
   const rs=r.streak;if(rs&&rs.last&&(rs.last>STREAK.last||(rs.last===STREAK.last&&rs.n>STREAK.n)))STREAK={last:rs.last,n:rs.n};
   if(r.day&&r.day.d===DAY.d)DAY.xp=Math.max(DAY.xp,r.day.xp|0);
-  store.set('ha_p',P);store.set('ha_xp',XP);store.set('ha_blitz',BEST);store.set('ha_learned',LEARNED);store.set('ha_focus',FOCUS);store.set('ha_streak',STREAK);store.set('ha_day',DAY);
-  return JSON.stringify([P,XP,LEARNED,STREAK,BEST,DAY])!==before;
+  store.set('ha_p',P);store.set('ha_g',GP);store.set('ha_xp',XP);store.set('ha_blitz',BEST);store.set('ha_learned',LEARNED);store.set('ha_focus',FOCUS);store.set('ha_streak',STREAK);store.set('ha_day',DAY);
+  return JSON.stringify([P,GP,XP,LEARNED,STREAK,BEST,DAY])!==before;
 }
 async function pushOnly(){const t=await token();const u=await fetch(SYNC_CFG.url+'/rest/v1/progress?on_conflict=user_id',{method:'POST',headers:{...sh(t),Prefer:'resolution=merge-duplicates'},body:JSON.stringify({user_id:SS.uid,data:snap(),updated_at:new Date().toISOString()})});if(!u.ok)throw new Error('write '+u.status)}
 const sstShow=()=>{const el=document.getElementById('sst');if(el)el.textContent=SYNC_ST};
@@ -369,9 +390,45 @@ const nbOf=()=>BATCHES.filter(b=>b.ids[0]<LEARNED).length;
 const batchPct=b=>{const ids=batchIds(b);return ids.filter(i=>level(i)>=2).length/ids.length};
 const secured=b=>batchPct(b)>=0.8;
 
+/* ---------- grammar: each point is taught in a batch of its own level (anchored to the batch that teaches its key words, about one per batch) ---------- */
+const GR=(typeof GRAMMAR!=='undefined'&&Array.isArray(GRAMMAR))?GRAMMAR:[];
+const GB=BATCHES.map(()=>[]),gById={};
+LEVELS.forEach((lw,li)=>{
+  const pts=GR.filter(p=>p.lv===li+1),bs=BATCHES.map((b,k)=>k).filter(k=>BATCHES[k].lv===li+1);
+  if(!pts.length||!bs.length)return;
+  pts.forEach((p,j)=>{
+    let d=Math.floor(j*bs.length/pts.length);
+    if(p.k&&p.k.length){const hits=p.k.map(k=>bs.findIndex(b=>BATCHES[b].ids.some(i=>WORDS[i].h===k)));if(hits.every(x=>x>=0))d=Math.max(...hits)}
+    p.d0=d;
+  });
+  const cnt=bs.map(()=>0),cap=Math.max(1,Math.ceil(pts.length/bs.length));
+  pts.slice().sort((a,b)=>a.d0-b.d0).forEach(p=>{
+    let x=p.d0;while(x<bs.length&&cnt[x]>=cap)x++;
+    if(x>=bs.length){x=bs.length-1;while(x>0&&cnt[x]>=cap)x--}
+    cnt[x]++;GB[bs[x]].push(p);
+  });
+});
+GB.forEach(a=>a.sort((p,q)=>GR.indexOf(p)-GR.indexOf(q)));
+GR.forEach(p=>{
+  gById[p.id]=p;
+  p.x.forEach(e=>{
+    if(e.g){const at=e.ch.findIndex(c=>c.includes(e.g));e.gi=at;if(at>=0){const c=e.ch[at],a=c.indexOf(e.g);e.pre=e.ch.slice(0,at).join('')+c.slice(0,a);e.post=c.slice(a+e.g.length)+e.ch.slice(at+1).join('')}else delete e.g}
+  });
+});
+const gramOf=b=>GB[b];
+const gramSoFar=b=>BATCHES.map((_,k)=>k).filter(k=>BATCHES[k].lv===BATCHES[b].lv&&k<=b).flatMap(k=>GB[k]);
+
 /* ---------- progress ---------- */
-const level=i=>{const p=P[i];return p?Math.max(0,Math.min(3,p.c-p.w)):0};
-function record(i,ok){const p=P[i]||(P[i]={c:0,w:0});ok?p.c++:p.w++;store.set('ha_p',P)}
+/* tiers: 0 new, 1 seen, 2 getting there, 3 mastered. A wrong answer drops a word one tier, but never back to new (p.f keeps it at "seen"). */
+const tierOf=p=>p?Math.max(p.f?1:0,Math.max(0,Math.min(3,p.c-p.w))):0;
+const level=i=>tierOf(P[i]);
+function bump(o,k,ok){
+  const p=o[k]||(o[k]={c:0,w:0}),before=tierOf(p);
+  if(ok)p.c++;
+  else{p.w++;if(before>=1){const t=Math.max(1,before-1);if(p.c-p.w>t)p.w=p.c-t;p.f=1}}
+}
+function record(i,ok){bump(P,i,ok);store.set('ha_p',P)}
+function recordG(id,ok){bump(GP,id,ok);store.set('ha_g',GP)}
 const levelOf=xp=>Math.floor(xp/150)+1;
 const pool=()=>WORDS.slice(0,LEARNED).map(w=>w.i);
 /* practice scope: 'all' = every learned word, N = learned words of level N only */
@@ -381,7 +438,7 @@ const scopeNow=()=>(SCOPE==='all'||learnedLevels().includes(SCOPE))?SCOPE:'all';
 const scopeName=sc=>sc==='all'?'all levels':'level '+sc;
 function pickKind(wi,noOrder){
   const lv=level(wi),ks=lv===0?['meaning','listen']:lv===1?['meaning','listen','tones']:lv===2?['listen','tones','gap','order']:['tones','gap','order','listen'];
-  return pick(ks.filter(k=>!(noOrder&&k==='order')));
+  return pick(ks.filter(k=>!(noOrder&&k==='order')&&!(SKIPL&&k==='listen')));
 }
 function sample(n,ids){
   ids=ids.slice();const out=[];
@@ -436,6 +493,7 @@ function buildQ(kind,wi){
   if(kind==='tones'&&!(w.syl&&w.syl.length<=4))kind='meaning';
   if(kind==='order'&&!w.ordOK)kind='gap';
   if(kind==='gap'&&!w.gapOK)kind='listen';
+  if(kind==='listen'&&SKIPL)kind='meaning';
   const q={kind,wi,auto:null};
   if(kind==='meaning'){
     q.label='What does this mean?';
@@ -458,6 +516,28 @@ function buildQ(kind,wi){
     q.opts=shuffle([{t:`${ho(w)}`,ok:1},...distract(w,3,'diff').map(d=>({t:`${ho(d)}`}))]);
   }
   return q;
+}
+/* grammar questions: fill the grammar word (gfill) or put the sentence in order (gorder) */
+function buildG(cur){
+  const p=gById[cur.gid],e=p.x[cur.e];
+  const others=shuffle(p.d.filter(d=>d[0]!==e.g)).slice(0,3);
+  return {kind:'gfill',gid:p.id,e:cur.e,core:e.g,label:'Complete the sentence',
+    hero:`<div class="sent">${esc(e.pre)}<span class="blank" id="blank">&nbsp;</span>${esc(e.post)}</div><p class="en">${esc(e.en)}</p>`,
+    opts:shuffle([{t:`<span class="han-o">${esc(e.g)}</span>${pyl(e.gp||'')}`,ok:1},...others.map(d=>({t:`<span class="han-o">${esc(d[0])}</span>${pyl(d[1])}`}))])};
+}
+const gHasGap=(p,k)=>!!p.x[k].g, gHasOrder=(p,k)=>p.x[k].ch.length>=3;
+/* every example gives up to one fill and one order question */
+function gItems(p){const out=[];p.x.forEach((e,k)=>{if(gHasGap(p,k))out.push({kind:'gfill',gid:p.id,e:k});if(gHasOrder(p,k))out.push({kind:'gorder',gid:p.id,e:k})});return out}
+/* practice: a mix across the chosen points */
+function gQueue(points,max){
+  const lists=points.map(p=>shuffle(gItems(p))),out=[];
+  while(out.length<max&&lists.some(l=>l.length))lists.forEach(l=>{if(l.length&&out.length<max)out.push(l.shift())});
+  return shuffle(out);
+}
+/* right after teaching: one fill and one order question from different examples */
+function gPair(p){
+  const it=shuffle(gItems(p)),a=it.find(x=>x.kind==='gfill')||it[0],b=it.find(x=>x!==a&&x.e!==a.e&&x.kind==='gorder')||it.find(x=>x!==a&&x.e!==a.e)||it.find(x=>x!==a);
+  return [a,b].filter(Boolean);
 }
 const KINDS=['meaning','listen','tones','gap'];
 
@@ -483,7 +563,7 @@ function viewHome(){
   const nextN=hasNext?BATCHES[nb].ids.length:0;
   let cta;
   if(LEARNED===0)cta=`<button class="cta" data-act="learn" data-b="0">Learn your first ${BATCH} words</button><div class="meta">You meet each word, then practise it right away. Games unlock after this.</div>`;
-  else if(lockedNext)cta=`<button class="cta" data-act="prac" data-b="${latest}">Practise batch ${nb}</button>
+  else if(lockedNext)cta=`<button class="cta" data-act="pracv" data-b="${latest}">Practise batch ${nb}</button>
     <div class="meta">${Math.round(batchPct(latest)*100)}% of batch ${nb} is secure. Reach 80% to unlock the next ${nextN} words.</div>
     <button class="cta ghost" data-act="learn" data-b="${nb}">Skip ahead: learn the next ${nextN}</button>`;
   else if(hasNext)cta=`<button class="cta" data-act="learn" data-b="${nb}">Learn the next ${nextN} words</button><div class="meta">Batch ${nb} is secure. Ready for batch ${nb+1}.</div>
@@ -494,7 +574,7 @@ function viewHome(){
     return `<div class="bcard ${done?'':'next'}"><div class="bnum">${b+1}</div>
       <div class="bmid"><div class="bhz hz">${esc(ids.slice(0,5).map(i=>WORDS[i].h).join(' '))}</div>
       ${done?`<div class="meter j"><i style="width:${pct}%"></i></div><div class="bst">${pct>=80?'Secure':pct+'% secure'}</div>`:`<div class="bst">${LEARNED===0||b===nb?(lockedNext?'Unlocks at 80% on batch '+nb:'Ready to learn'):''}</div>`}</div>
-      <div class="bbtn">${done?`<button class="mini" data-act="prac" data-b="${b}">Practise</button><button class="mini" data-act="review" data-b="${b}">Words</button>`:`<button class="mini" data-act="learn" data-b="${b}">${lockedNext?'Skip ahead':'Learn'}</button>`}</div></div>`};
+      <div class="bbtn">${done?`<button class="mini" data-act="pracv" data-b="${b}">Practise</button><button class="mini" data-act="review" data-b="${b}">Words</button>`:`<button class="mini" data-act="learn" data-b="${b}">${lockedNext?'Skip ahead':'Learn'}</button>`}</div></div>`};
   const shown=Math.min(NB,nb+(hasNext?1:0));
   $app.innerHTML=`<div class="wrap">
   <header class="top">
@@ -514,7 +594,7 @@ function viewHome(){
   <section class="sec"><h2>Pick a game</h2>
     ${LEARNED?`<div class="scope" role="group" aria-label="Practise scope"><button class="mini" data-act="scope" data-s="all" aria-pressed="${scopeNow()==='all'}">All levels</button>${learnedLevels().map(n=>`<button class="mini" data-act="scope" data-s="${n}" aria-pressed="${scopeNow()===n}">Level ${n}</button>`).join('')}</div>
     <button class="cta ghost" data-act="mixp">Mixed practice: ${scopeName(scopeNow()).replace(/^./,c=>c.toUpperCase())}</button>
-    <div class="games">${GAMES.map(g=>`<button class="game" data-act="start" data-mode="${g.m}"><span class="g" aria-hidden="true">${g.g}</span><b>${g.n}</b><span>${g.m==='blitz'?g.d+(BEST?`. Best: ${BEST}`:''):g.d}</span></button>`).join('')}</div><p class="meta" style="margin:0;font-size:14px;color:var(--muted)">Practice uses the ${scopeIds(scopeNow()).length} words you have learned in ${scopeName(scopeNow())}, and favours the ones you find hard.</p>`
+    <div class="games">${GAMES.filter(g=>!(SKIPL&&g.m==='listen')).map(g=>`<button class="game" data-act="start" data-mode="${g.m}"><span class="g" aria-hidden="true">${g.g}</span><b>${g.n}</b><span>${g.m==='blitz'?g.d+(BEST?`. Best: ${BEST}`:''):g.d}</span></button>`).join('')}</div><p class="meta" style="margin:0;font-size:14px;color:var(--muted)">Practice uses the ${scopeIds(scopeNow()).length} words you have learned in ${scopeName(scopeNow())}, and favours the ones you find hard.</p>`
     :`<div class="card dex"><p class="eyebrow">Locked</p><p>Learn your first ${BATCH} words and all six games open up, plus sentence ordering.</p></div>`}
   </section>
   <section class="sec"><h2>Your path</h2>
@@ -530,6 +610,8 @@ function viewHome(){
   <footer class="foot">
     <button class="link pylink" data-act="py" aria-pressed="${PY}">Pinyin under characters: ${PY?'on':'off'}</button>
     <button class="link" data-act="snd">Sound effects: ${SOUND?'on':'off'}</button>
+    <button class="link" data-act="skipl" aria-pressed="${SKIPL}">Listening exercises: ${SKIPL?'off':'on'}</button>
+    <button class="link" data-act="theme">Dark mode: ${effTheme()==='dark'?'on':'off'}</button>
     ${SYNC_ON?`<button class="link" data-act="sync">Cloud sync: ${SS?'on':'off'}</button>`:''}
     <button class="link" data-act="reset" id="reset">Reset progress</button>
   </footer>
@@ -538,8 +620,31 @@ function viewHome(){
 }
 /* ---------- meeting new words ---------- */
 let IN=null;
-function viewIntro(b,review){IN={b,k:0,ids:batchIds(b),review};drawIntro()}
+function viewIntro(b,review){IN={b,k:0,ids:batchIds(b),review,gs:gramOf(b),gk:-1};drawIntro()}
+/* one grammar point on its own, from a batch's practice screen */
+function viewGrammarOnly(b,id){IN={b,k:0,ids:[],review:true,solo:true,gs:[gById[id]],gk:0};drawIntro()}
+function exHtml(p,e){
+  const hz=e.g?`${esc(e.pre)}<span class="gk">${esc(e.g)}</span>${esc(e.post)}`:esc(e.h);
+  return `<div class="ex"><div class="hz">${hz}</div><div class="pinyin-line">${esc(e.py)}</div><p class="en">${esc(e.en)}</p></div>`;
+}
+function drawGram(){
+  const p=IN.gs[IN.gk],n=IN.gs.length,last=IN.gk===n-1;
+  $app.innerHTML=`<div class="wrap"><header class="lhead" style="padding-inline:0">
+    <button class="icon-btn" data-act="${IN.solo?'pracback':'home'}" aria-label="${IN.solo?'Back to practice':'Back to home'}">${I.close}</button>
+    <div class="pbar"><i style="width:${(IN.gk+1)/n*100}%"></i></div><div class="hud" style="color:var(--muted)">${IN.gk+1}/${n}</div></header>
+    <p class="eyebrow">Grammar · level ${p.lv} · batch ${IN.b+1}</p>
+    <section class="icard gcard">
+      <h2>${esc(p.t)}</h2>
+      <div class="gpat">${esc(p.p)}</div>
+      <p class="gnote">${esc(p.n)}</p>
+      <div class="gex">${p.x.map(e=>exHtml(p,e)).join('')}</div>
+    </section>
+    <div class="row"><button class="cta ghost" style="flex:1 1 130px" data-act="iprev" ${(IN.gk||IN.ids.length)?'':'disabled'}>Back</button>
+      <button class="cta" style="flex:2 1 200px" data-act="inext">${last?(IN.review?'Done':'Practise these words'):'Next: grammar'}</button></div></div>`;
+  window.scrollTo(0,0);
+}
 function drawIntro(){
+  if(IN.gk>=0)return drawGram();
   const w=WORDS[IN.ids[IN.k]],n=IN.ids.length,last=IN.k===n-1;
   $app.innerHTML=`<div class="wrap"><header class="lhead" style="padding-inline:0">
     <button class="icon-btn" data-act="home" aria-label="Back to home">${I.close}</button>
@@ -555,17 +660,29 @@ function drawIntro(){
         <button class="speak" data-act="play" data-wi="${w.i}" data-k="s">${I.speak} Hear the sentence</button></div>
     </section>
     <div class="row"><button class="cta ghost" style="flex:1 1 130px" data-act="iprev" ${IN.k?'':'disabled'}>Back</button>
-      <button class="cta" style="flex:2 1 200px" data-act="inext">${last?(IN.review?'Done':'Practise these words'):'Next word'}</button></div></div>`;
+      <button class="cta" style="flex:2 1 200px" data-act="inext">${last?(IN.gs.length?'Next: grammar':(IN.review?'Done':'Practise these words')):'Next word'}</button></div></div>`;
   window.scrollTo(0,0);
   const id=w.i,k=IN.k;setTimeout(()=>{if(IN&&IN.k===k&&document.querySelector('.icard'))play(id,'w')},300);
 }
 function introNext(){
-  if(IN.k<IN.ids.length-1){IN.k++;return drawIntro()}
-  if(IN.review){IN=null;return viewHome()}
+  if(IN.gk<0){
+    if(IN.k<IN.ids.length-1){IN.k++;return drawIntro()}
+    if(IN.gs.length){IN.gk=0;return drawIntro()}
+  }else if(IN.gk<IN.gs.length-1){IN.gk++;return drawIntro()}
+  if(IN.review){const b=IN.b,solo=IN.solo;IN=null;return solo?viewPrac(b):viewHome()}
   LEARNED=Math.max(LEARNED,IN.ids[IN.ids.length-1]+1);FOCUS=IN.b;
   store.set('ha_learned',LEARNED);store.set('ha_focus',FOCUS);
+  const gids=IN.gs.map(p=>p.id);
   addXP(10);touchStreak();IN=null;syncSoon();
-  startLesson('mixed',{firstPass:true});
+  startLesson('mixed',{firstPass:true,grammar:gids});
+}
+function introPrev(){
+  if(!IN)return;
+  if(IN.gk>0)IN.gk--;
+  else if(IN.gk===0&&IN.ids.length)IN.gk=-1;
+  else if(IN.gk<0&&IN.k>0)IN.k--;
+  else return;
+  drawIntro();
 }
 function renderDex(){
   const el=document.getElementById('dex');if(!el)return;
@@ -576,23 +693,50 @@ function renderDex(){
   <div class="row"><button class="mini" data-act="play" data-wi="${w.i}" data-k="w">${I.speak} Word</button><button class="mini" data-act="play" data-wi="${w.i}" data-k="s">${I.speak} Sentence</button></div>`;
 }
 
+/* ---------- practice screen: choose how to practise one batch of ten words ---------- */
+let PRB=0;
+function viewPrac(b){
+  L&&L.timer&&clearInterval(L.timer);L=null;PRB=b;
+  const lv=BATCHES[b].lv,ids=batchIds(b),gs=gramOf(b),gl=gramSoFar(b);
+  const games=GAMES.filter(g=>g.m!=='blitz'&&!(SKIPL&&g.m==='listen'));
+  const tn=['New','Seen','Getting there','Mastered'];
+  $app.innerHTML=`<div class="wrap"><header class="lhead" style="padding-inline:0">
+    <button class="icon-btn" data-act="home" aria-label="Back to home">${I.close}</button>
+    <div style="flex:1;min-width:0"><p class="eyebrow">Level ${lv} · batch ${b+1}</p><h2>Practise</h2></div></header>
+    <p class="hz" style="margin:0 0 16px;font-size:22px;font-weight:600;overflow-wrap:anywhere">${esc(ids.map(i=>WORDS[i].h).join(' '))}</p>
+    <section class="hero-cta"><button class="cta" data-act="prac" data-b="${b}">Mixed practice</button>
+      <div class="meta">A bit of everything, favouring the words you find hard.</div></section>
+    <section class="sec"><h2>Pick a game</h2>
+      <div class="games">${games.map(g=>`<button class="game" data-act="bgame" data-mode="${g.m}" data-b="${b}"><span class="g" aria-hidden="true">${g.g}</span><b>${g.n}</b><span>${g.d}</span></button>`).join('')}</div>
+      <p class="meta" style="margin:0;text-align:left">Games on this screen use only the ${ids.length} words in this batch.</p></section>
+    ${gl.length?`<section class="sec gsec"><h2>Grammar</h2>
+      ${gs.length?gs.map(p=>`<div class="grow"><div class="gm"><b>${esc(p.t)}</b><span>${esc(tn[tierOf(GP[p.id])])}</span></div><button class="mini" data-act="gread" data-b="${b}" data-g="${esc(p.id)}">Read</button></div>`).join(''):`<p class="meta" style="margin:0;text-align:left">No new grammar in this batch.</p>`}
+      <div class="row">${gs.length?`<button class="cta ghost" style="flex:1 1 200px" data-act="gprac" data-b="${b}" data-s="batch">Practise this batch's grammar</button>`:''}${gl.length>gs.length?`<button class="cta ghost" style="flex:1 1 200px" data-act="gprac" data-b="${b}" data-s="level">Practise level ${lv} grammar so far</button>`:''}</div></section>`:''}
+  </div>`;
+  window.scrollTo(0,0);
+}
+
 /* ---------- lessons ---------- */
 function startLesson(mode,opts={}){
-  const ids=opts.scope!==undefined?scopeIds(opts.scope):pool();
-  L={ids,mode,hearts:5,xp:0,combo:0,best:0,right:0,wrong:0,missed:[],start:Date.now(),locked:false,blitz:mode==='blitz',queue:[],timer:null,score:0,lvBefore:levelOf(XP),firstPass:!!opts.firstPass};
+  const ids=opts.batch!==undefined?batchIds(opts.batch).filter(i=>i<LEARNED):opts.scope!==undefined?scopeIds(opts.scope):pool();
+  L={ids,mode,opts,hearts:5,xp:0,combo:0,best:0,right:0,wrong:0,missed:[],gmissed:[],start:Date.now(),locked:false,blitz:mode==='blitz',queue:[],timer:null,score:0,lvBefore:levelOf(XP),firstPass:!!opts.firstPass};
   if(L.blitz){L.endAt=Date.now()+60000;L.total=0}
   else if(mode==='match'){
     const ws=sample(Math.min(15,Math.floor(ids.length/5)*5),ids);
     for(let r=0;r<ws.length;r+=5)L.queue.push({kind:'match',ids:ws.slice(r,r+5)});
+    if(!L.queue.length)sample(10,ids).forEach(wi=>L.queue.push({kind:'meaning',wi}));
+  }else if(mode==='grammar'){
+    L.queue=gQueue((opts.gids||[]).map(id=>gById[id]).filter(Boolean),12);
   }else if(mode==='mixed'){
     const F=(FOCUS==='all'||opts.scope!==undefined)?[]:batchIds(FOCUS).filter(i=>i<LEARNED),R=ids.filter(i=>!F.includes(i));
     let picks;
     if(L.firstPass)picks=shuffle(F).slice(0,10);
     else if(!F.length||!R.length)picks=sample(9,ids);
     else picks=shuffle([...sample(6,F),...sample(3,R)]);
-    picks.forEach((wi,n)=>L.queue.push({kind:L.firstPass?(n%2?'listen':'meaning'):pickKind(wi),wi}));
+    picks.forEach((wi,n)=>L.queue.push({kind:L.firstPass?(n%2?(SKIPL?'tones':'listen'):'meaning'):pickKind(wi),wi}));
     const base=F.length?F:ids,cand=base.filter(i=>!picks.includes(i));
     L.queue.splice(Math.min(5,L.queue.length),0,{kind:'match',ids:sample(5,cand.length>=5?cand:base)});
+    if(L.firstPass&&opts.grammar)opts.grammar.forEach(id=>gById[id]&&gPair(gById[id]).forEach(it=>L.queue.push(it)));
   }else{
     sample(10,mode==='order'?ids.filter(i=>WORDS[i].ordOK):ids).forEach(wi=>L.queue.push({kind:mode,wi}));
     if(!L.queue.length)sample(10,ids).forEach(wi=>L.queue.push({kind:'meaning',wi}));
@@ -627,8 +771,9 @@ function next(){
   }
   L.locked=false;head();
   if(L.cur.kind==='match')return showMatch();
+  if(L.cur.kind==='gorder')return showGOrder();
   if(L.cur.kind==='order'&&WORDS[L.cur.wi].ordOK)return showOrder();
-  L.q=buildQ(L.cur.kind,L.cur.wi);
+  L.q=L.cur.kind==='gfill'?buildG(L.cur):buildQ(L.cur.kind,L.cur.wi);
   const q=L.q;
   document.getElementById('qmain').innerHTML=`<p class="eyebrow">${q.label}</p><div class="hero">${q.hero}</div>
     <div class="opts">${q.opts.map((o,i)=>`<button class="opt" data-act="opt" data-i="${i}"><kbd>${i+1}</kbd><span>${o.t}</span></button>`).join('')}</div>`;
@@ -638,26 +783,26 @@ function next(){
 function praise(){return pick(['Correct','Nice one','Exactly','Got it','Sharp'])}
 function answer(i){
   if(!L||L.locked)return;L.locked=true;
-  const q=L.q,w=WORDS[q.wi],ok=!!q.opts[i].ok;
+  const q=L.q,w=q.gid!=null?null:WORDS[q.wi],ok=!!q.opts[i].ok;
   document.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(q.opts[j].ok)b.classList.add('ok');else if(j===i)b.classList.add('no')});
-  const bl=document.getElementById('blank');if(bl)bl.textContent=w.h;
+  const bl=document.getElementById('blank');if(bl)bl.textContent=w?w.h:q.core;
   const pg=document.getElementById('pygap');if(pg)pg.textContent=pg.dataset.a;
   grade(q,ok);
 }
 function grade(q,ok){
-  const w=WORDS[q.wi];
-  record(q.wi,ok);
+  const G=q.gid!=null,w=G?null:WORDS[q.wi],ex=G?gById[q.gid].x[q.e]:null;
+  if(G)recordG(q.gid,ok);else record(q.wi,ok);
   let gain=0;
   if(ok){L.combo++;L.best=Math.max(L.best,L.combo);gain=L.blitz?3:10+(L.combo>=3?5:0);L.xp+=gain;L.right++;L.score++;sfx.ok()}
-  else{L.combo=0;L.wrong++;if(!L.blitz){L.hearts--;if(L.queue.length<30)L.queue.push({kind:q.kind,wi:q.wi,retry:1})}if(!L.missed.includes(q.wi))L.missed.push(q.wi);sfx.bad()}
+  else{L.combo=0;L.wrong++;if(!L.blitz){L.hearts--;if(L.queue.length<30)L.queue.push(G?{kind:q.kind,gid:q.gid,e:q.e,retry:1}:{kind:q.kind,wi:q.wi,retry:1})}if(G){if(!L.gmissed.includes(q.gid))L.gmissed.push(q.gid)}else if(!L.missed.includes(q.wi))L.missed.push(q.wi);sfx.bad()}
   head();
-  setTimeout(()=>play(q.wi,q.kind==='gap'||q.kind==='order'?'s':'w'),ok?300:150);
+  if(!G)setTimeout(()=>play(q.wi,q.kind==='gap'||q.kind==='order'?'s':'w'),ok?300:150);
   if(L.blitz){setTimeout(()=>{if(L&&L.blitz&&!L.done)Date.now()<L.endAt?next():finish(true)},ok?450:1100);return}
   const fb=document.getElementById('fb');
   fb.className='fb '+(ok?'good':'bad');fb.hidden=false;
-  const last=!L.hearts&&!ok,sent=q.kind==='gap'||q.kind==='order';
+  const last=!L.hearts&&!ok,sent=G||q.kind==='gap'||q.kind==='order';
   fb.innerHTML=`<div class="fb-in"><div class="fb-t"><strong>${ok?praise():(L.hearts?'Not quite':'Out of hearts')}</strong>${ok?`<small>+${gain} XP${L.combo>=3?' · '+L.combo+' in a row':''}</small>`:''}</div>
-   <div class="fb-w">${sent?`<span class="hz">${esc(w.sh)}</span><span class="sm">${esc(w.spy)}<br>${esc(w.sen)}</span>`:`<span class="hz">${esc(w.h)}</span><b>${esc(w.syl?sylStr(w.syl):w.py)}</b><span>${esc(w.en)}</span>`}</div>
+   <div class="fb-w">${sent?(G?`<span class="hz">${esc(ex.h)}</span><span class="sm">${esc(ex.py)}<br>${esc(ex.en)}</span>`:`<span class="hz">${esc(w.sh)}</span><span class="sm">${esc(w.spy)}<br>${esc(w.sen)}</span>`):`<span class="hz">${esc(w.h)}</span><b>${esc(w.syl?sylStr(w.syl):w.py)}</b><span>${esc(w.en)}</span>`}</div>
    <button class="cta ${ok?'':'bad'}" id="next" data-act="next">${last?'See results':'Continue'}</button></div>`;
   document.getElementById('next').focus({preventScroll:true});
 }
@@ -668,7 +813,7 @@ function showOrder(){
   const wi=L.cur.wi,w=WORDS[wi];
   let bank=shuffle(w.ch.map((_,i)=>i));
   for(let n=0;n<5&&bank.every((v,i)=>v===i);n++)bank=shuffle(bank);
-  O={wi,bank,placed:[]};
+  O={wi,bank,placed:[],tok:w.ch,chp:w.chp,target:w.sh.replace(/\s+/g,'')};
   L.q={kind:'order',wi};
   document.getElementById('qmain').innerHTML=`<p class="eyebrow">Put the words in order</p>
     <div class="hero"><p class="en" style="font-size:20px;color:var(--ink)">${esc(w.sen)}</p><button class="speak" data-act="play" data-wi="${wi}" data-k="s">${I.speak} Hear the sentence</button></div>
@@ -678,24 +823,38 @@ function showOrder(){
   drawOrder();window.scrollTo(0,0);
 }
 function drawOrder(){
-  const w=WORDS[O.wi],tile=(i,act,cls='')=>`<button class="otile ${cls}" data-act="${act}" data-t="${i}">${esc(w.ch[i])}${w.chp?pyl(w.chp[i]):''}</button>`;
+  const tile=(i,act,cls='')=>`<button class="otile ${cls}" data-act="${act}" data-t="${i}">${esc(O.tok[i])}${O.chp?pyl(O.chp[i]):''}</button>`;
   document.getElementById('oline').innerHTML=O.placed.map(i=>tile(i,'op')).join('')||'<span class="ph">Tap words below</span>';
-  document.getElementById('obank').innerHTML=O.bank.map(i=>O.placed.includes(i)?`<span class="otile gone" aria-hidden="true">${esc(w.ch[i])}${w.chp?pyl(w.chp[i]):''}</span>`:tile(i,'ob')).join('');
-  const c=document.getElementById('chk');if(c)c.disabled=O.placed.length!==w.ch.length;
+  document.getElementById('obank').innerHTML=O.bank.map(i=>O.placed.includes(i)?`<span class="otile gone" aria-hidden="true">${esc(O.tok[i])}${O.chp?pyl(O.chp[i]):''}</span>`:tile(i,'ob')).join('');
+  const c=document.getElementById('chk');if(c)c.disabled=O.placed.length!==O.tok.length;
 }
 function orderCheck(){
-  if(!L||L.locked||!O||O.placed.length!==WORDS[O.wi].ch.length)return;
+  if(!L||L.locked||!O||O.placed.length!==O.tok.length)return;
   L.locked=true;
-  const w=WORDS[O.wi],ok=O.placed.map(i=>w.ch[i]).join('')===w.sh.replace(/\s+/g,'');
+  const ok=O.placed.map(i=>O.tok[i]).join('')===O.target;
   document.querySelectorAll('#oline .otile').forEach(b=>{b.disabled=true;b.classList.add(ok?'ok':'no')});
   grade(L.q,ok);
+}
+
+function showGOrder(){
+  const p=gById[L.cur.gid],e=p.x[L.cur.e];
+  let bank=shuffle(e.ch.map((_,i)=>i));
+  for(let n=0;n<5&&bank.every((v,i)=>v===i);n++)bank=shuffle(bank);
+  O={bank,placed:[],tok:e.ch,chp:e.chp,target:e.h};
+  L.q={kind:'gorder',gid:p.id,e:L.cur.e};
+  document.getElementById('qmain').innerHTML=`<p class="eyebrow">Put the words in order</p>
+    <div class="hero"><p class="en" style="font-size:20px;color:var(--ink)">${esc(e.en)}</p></div>
+    <div class="line" id="oline" aria-label="Your sentence"></div><div class="bank" id="obank"></div>`;
+  const fb=document.getElementById('fb');fb.className='fb';fb.hidden=false;
+  fb.innerHTML=`<div class="fb-in"><button class="cta" id="chk" data-act="check" disabled>Check</button></div>`;
+  drawOrder();window.scrollTo(0,0);
 }
 
 /* match pairs */
 let M=null;
 function showMatch(){
   const ids=L.cur.ids;
-  M={ids,left:shuffle(ids),right:shuffle(ids),sel:null,done:new Set(),miss:0};
+  M={ids,left:shuffle(ids),right:shuffle(ids),sel:null,done:new Set(),miss:0,bad:new Set()};
   document.getElementById('qmain').innerHTML=`<p class="eyebrow">Match each word with its meaning</p><div class="mgrid" id="mg"></div>`;
   drawMatch();window.scrollTo(0,0);
 }
@@ -709,7 +868,7 @@ function matchPick(side,i,btn){
   if(side==='l'){M.sel=i;play(i,'w');drawMatch();return}
   if(M.sel==null)return;
   if(M.sel===i){
-    M.done.add(i);record(i,M.miss===0);M.sel=null;sfx.ok();drawMatch();
+    M.done.add(i);if(!M.bad.has(i))record(i,true);M.sel=null;sfx.ok();drawMatch();
     if(M.done.size===M.ids.length){
       L.locked=true;const flawless=M.miss===0,gain=flawless?10:5;L.xp+=gain;L.right++;
       if(flawless){L.combo++;L.best=Math.max(L.best,L.combo)}
@@ -720,7 +879,7 @@ function matchPick(side,i,btn){
       document.getElementById('next').focus({preventScroll:true});
     }
   }else{
-    M.miss++;L.wrong++;L.combo=0;sfx.bad();record(M.sel,false);
+    M.miss++;L.wrong++;L.combo=0;sfx.bad();if(!M.bad.has(M.sel)){M.bad.add(M.sel);record(M.sel,false)}
     if(!L.missed.includes(M.sel))L.missed.push(M.sel);
     const l=document.querySelector(`[data-act="ml"][data-wi="${M.sel}"]`);
     l&&l.classList.add('wrong');btn.classList.add('wrong');M.sel=null;
@@ -740,7 +899,8 @@ function finish(win){
   else if(win){title=L.wrong?'Lesson complete':'Flawless';glyph='好'}
   else{title='Out of hearts';glyph='再';sub='Review the words below and try again.'}
   const lvUp=levelOf(XP)>L.lvBefore;
-  const miss=L.missed.map(i=>WORDS[i]);
+  const miss=L.missed.map(i=>WORDS[i]),gmiss=L.gmissed.map(id=>gById[id]);
+  const again=L.opts&&(L.opts.batch!==undefined||L.opts.gids)?'again':'start';
   $app.innerHTML=`<div class="wrap"><section class="res">
     <div class="hz-big ${win?'w':''}" aria-hidden="true">${glyph}</div>
     <div><h1>${title}</h1>${sub?`<p style="margin:8px 0 0;color:var(--muted)">${sub}</p>`:''}${lvUp?`<p style="margin:8px 0 0;font-weight:800;color:var(--gold-ink)">Level ${levelOf(XP)} reached</p>`:''}</div>
@@ -749,7 +909,8 @@ function finish(win){
       <div class="rs c"><b>${L.best}</b><span>Best combo</span></div></div>
     ${!L.blitz?`<p class="eyebrow">${secs}s · ${L.hearts} of 5 hearts left</p>`:''}
     ${miss.length?`<div class="rev"><h2>Words to review</h2>${miss.map(w=>`<div class="rev-i"><span class="hz">${esc(w.h)}</span><b>${esc(w.syl?sylStr(w.syl):w.py)}</b><span>${esc(w.en)}</span><button class="mini" data-act="play" data-wi="${w.i}" data-k="w" aria-label="Hear ${esc(w.h)}">${I.speak}</button></div>`).join('')}</div>`:''}
-    <div class="row" style="justify-content:center"><button class="cta" style="flex:1 1 200px" data-act="start" data-mode="${L.mode}">Play again</button><button class="cta ghost" style="flex:1 1 200px" data-act="home">Home</button></div>
+    ${gmiss.length?`<div class="rev"><h2>Grammar to review</h2>${gmiss.map(g=>`<div class="rev-i"><b>${esc(g.t)}</b><span class="hz">${esc(g.p)}</span></div>`).join('')}</div>`:''}
+    <div class="row" style="justify-content:center"><button class="cta" style="flex:1 1 200px" data-act="${again}" data-mode="${L.mode}">Play again</button><button class="cta ghost" style="flex:1 1 200px" data-act="home">Home</button></div>
   </section></div>`;
   window.scrollTo(0,0);
   if(win&&(L.blitz||acc>=80)){sfx.win();confetti()}
@@ -792,15 +953,23 @@ document.addEventListener('click',e=>{
   else if(a==='prac'){FOCUS=+b.dataset.b;store.set('ha_focus',FOCUS);startLesson('mixed')}
   else if(a==='rall'){FOCUS='all';store.set('ha_focus',FOCUS);startLesson('mixed')}
   else if(a==='inext')introNext();
-  else if(a==='iprev'){if(IN&&IN.k>0){IN.k--;drawIntro()}}
+  else if(a==='iprev')introPrev();
   else if(a==='dex'){dexI=wi;document.querySelectorAll('.tile').forEach(t=>t.setAttribute('aria-pressed',String(+t.dataset.wi===wi)));renderDex();play(wi,'w')}
+  else if(a==='pracv')viewPrac(+b.dataset.b);
+  else if(a==='pracback')viewPrac(IN?IN.b:PRB);
+  else if(a==='bgame')startLesson(b.dataset.mode,{batch:+b.dataset.b});
+  else if(a==='again'){const o=L.opts,m=L.mode;startLesson(m,o)}
+  else if(a==='gread')viewGrammarOnly(+b.dataset.b,b.dataset.g);
+  else if(a==='gprac'){const bb=+b.dataset.b,pts=b.dataset.s==='batch'?gramOf(bb):gramSoFar(bb);startLesson('grammar',{gids:pts.map(p=>p.id),batch:bb})}
+  else if(a==='skipl'){SKIPL=!SKIPL;store.set('ha_skipl',SKIPL);viewHome()}
+  else if(a==='theme'){THEME=effTheme()==='dark'?'light':'dark';store.set('ha_theme',THEME);applyTheme();b.textContent='Dark mode: '+(THEME==='dark'?'on':'off')}
   else if(a==='snd'){SOUND=!SOUND;store.set('ha_snd',SOUND);b.textContent='Sound effects: '+(SOUND?'on':'off')}
   else if(a==='quit'){
     if(Date.now()-quitArm<2500){if(L&&L.timer)clearInterval(L.timer);viewHome()}
     else{quitArm=Date.now();toast('Tap again to quit. Progress in this lesson is lost.')}
   }
   else if(a==='reset'){
-    if(Date.now()-resetArm<3000){P={};XP=0;DAY={d:today(),xp:0};STREAK={last:'',n:0};BEST=0;LEARNED=0;FOCUS=0;SCOPE='all';store.set('ha_scope','all');store.set('ha_p',P);store.set('ha_xp',0);store.set('ha_day',DAY);store.set('ha_streak',STREAK);store.set('ha_blitz',0);store.set('ha_learned',0);store.set('ha_focus',0);dexI=null;viewHome();toast('Progress reset');if(SYNC_ON&&SS)pushOnly().catch(()=>{})}
+    if(Date.now()-resetArm<3000){P={};GP={};store.set('ha_g',GP);XP=0;DAY={d:today(),xp:0};STREAK={last:'',n:0};BEST=0;LEARNED=0;FOCUS=0;SCOPE='all';store.set('ha_scope','all');store.set('ha_p',P);store.set('ha_xp',0);store.set('ha_day',DAY);store.set('ha_streak',STREAK);store.set('ha_blitz',0);store.set('ha_learned',0);store.set('ha_focus',0);dexI=null;viewHome();toast('Progress reset');if(SYNC_ON&&SS)pushOnly().catch(()=>{})}
     else{resetArm=Date.now();b.textContent='Tap again to erase all progress'}
   }
 });
