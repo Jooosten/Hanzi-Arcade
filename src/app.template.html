@@ -167,6 +167,7 @@ svg.s{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke
 .bmid{flex:1 1 140px;min-width:0;display:grid;gap:5px}
 .bhz{font-size:20px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bmid .meter{height:8px}.bst{font-size:13px;color:var(--muted);font-weight:600}
+.bgr{font-size:13px;color:var(--jade-t);font-weight:700;line-height:1.3}
 .bbtn{display:flex;gap:8px}
 .icard{display:grid;gap:10px;justify-items:center;text-align:center;padding:22px 16px;border:2px solid var(--line);border-radius:18px;background:var(--surface);box-shadow:0 4px 0 var(--line);margin-block:10px 22px}
 .ipy{font-family:var(--f-display);font-weight:800;font-size:32px;color:var(--jade-t)}
@@ -253,7 +254,7 @@ button{touch-action:manipulation}
   .desk .games{grid-template-columns:repeat(3,minmax(0,1fr))}
   .desk .game{padding:16px}.desk .game .g{font-size:46px}.desk .game b{font-size:19px}.desk .game span{font-size:14px}
   .desk .tiles{grid-template-columns:repeat(auto-fill,minmax(64px,1fr))}.desk .tile{font-size:25px;padding:10px 0}
-  .desk .bhz{font-size:23px}.desk .bst{font-size:14px}.desk .mini{font-size:15px;padding:7px 14px}
+  .desk .bhz{font-size:23px}.desk .bst,.desk .bgr{font-size:14px}.desk .mini{font-size:15px;padding:7px 14px}
   .desk .dex .big .hz{font-size:56px}.desk .dex .py{font-size:24px}.desk .dex .sm{font-size:16px}
   .desk .lvl>summary{font-size:19px}.desk .lvl>summary small{font-size:14px}
   .desk .foot{font-size:16px;gap:10px 24px;justify-content:flex-start}
@@ -649,7 +650,7 @@ function viewHome(){
     const ids=batchIds(b),pct=Math.round(batchPct(b)*100),done=b<nb;
     return `<div class="bcard ${done?'':'next'}"><div class="bnum">${b+1}</div>
       <div class="bmid"><div class="bhz hz">${esc(ids.slice(0,5).map(i=>WORDS[i].h).join(' '))}</div>
-      ${done?`<div class="meter j"><i style="width:${pct}%"></i></div><div class="bst">${pct>=80?'Secure':pct+'% secure'}</div>`:`<div class="bst">${LEARNED===0||b===nb?(lockedNext?'Unlocks at 80% on batch '+nb:'Ready to learn'):''}</div>`}</div>
+      ${done?`<div class="meter j"><i style="width:${pct}%"></i></div><div class="bst">${pct>=80?'Secure':pct+'% secure'}</div>${gramOf(b).length?`<div class="bgr">Grammar: ${gramOf(b).map(p=>esc(p.t)).join(' · ')}</div>`:''}`:`<div class="bst">${LEARNED===0||b===nb?(lockedNext?'Unlocks at 80% on batch '+nb:'Ready to learn'):''}</div>`}</div>
       <div class="bbtn">${done?`<button class="mini" data-act="pracv" data-b="${b}">Practise</button><button class="mini" data-act="review" data-b="${b}">Words</button>`:`<button class="mini" data-act="learn" data-b="${b}">${lockedNext?'Skip ahead':'Learn'}</button>`}</div></div>`};
   const shown=Math.min(NB,nb+(hasNext?1:0));
   $app.innerHTML=`<div class="wrap home"><div class="hcols"><div class="hl">
