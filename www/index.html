@@ -167,6 +167,7 @@ svg.s{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke
 .bmid{flex:1 1 140px;min-width:0;display:grid;gap:5px}
 .bhz{font-size:20px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bmid .meter{height:8px}.bst{font-size:13px;color:var(--muted);font-weight:600}
+.bgr{font-size:13px;color:var(--jade-t);font-weight:700;line-height:1.3}
 .bbtn{display:flex;gap:8px}
 .icard{display:grid;gap:10px;justify-items:center;text-align:center;padding:22px 16px;border:2px solid var(--line);border-radius:18px;background:var(--surface);box-shadow:0 4px 0 var(--line);margin-block:10px 22px}
 .ipy{font-family:var(--f-display);font-weight:800;font-size:32px;color:var(--jade-t)}
@@ -234,6 +235,10 @@ button{touch-action:manipulation}
 .grow .gm b{font-family:var(--f-display)}
 .grow .gm span{font-size:13px;color:var(--muted);font-weight:600}
 .gsec{display:grid;gap:10px}
+/* quit-lesson dialog (phone back button) */
+.qdlg{position:fixed;inset:0;z-index:30;background:rgba(8,16,12,.55);display:grid;place-items:center;padding:20px}
+.qbox{width:100%;max-width:380px;background:var(--surface);border:2px solid var(--line);border-radius:18px;box-shadow:0 6px 0 var(--line);padding:22px 20px;display:grid;gap:12px}
+.qbox h2{font-size:24px;font-weight:800}.qbox p{margin:0;color:var(--muted)}
 /* desktop app (Electron) on a wide window: use the width instead of one narrow column. Phones and small windows are unchanged. */
 @media (min-width:1000px){
   .desk body{font-size:18px;padding-inline:36px}
@@ -249,7 +254,7 @@ button{touch-action:manipulation}
   .desk .games{grid-template-columns:repeat(3,minmax(0,1fr))}
   .desk .game{padding:16px}.desk .game .g{font-size:46px}.desk .game b{font-size:19px}.desk .game span{font-size:14px}
   .desk .tiles{grid-template-columns:repeat(auto-fill,minmax(64px,1fr))}.desk .tile{font-size:25px;padding:10px 0}
-  .desk .bhz{font-size:23px}.desk .bst{font-size:14px}.desk .mini{font-size:15px;padding:7px 14px}
+  .desk .bhz{font-size:23px}.desk .bst,.desk .bgr{font-size:14px}.desk .mini{font-size:15px;padding:7px 14px}
   .desk .dex .big .hz{font-size:56px}.desk .dex .py{font-size:24px}.desk .dex .sm{font-size:16px}
   .desk .lvl>summary{font-size:19px}.desk .lvl>summary small{font-size:14px}
   .desk .foot{font-size:16px;gap:10px 24px;justify-content:flex-start}
@@ -328,13 +333,19 @@ applyTheme();
 if(/Electron/i.test(navigator.userAgent))document.documentElement.classList.add('desk');
 /* screen history: every screen except Home sits one step above Home in the browser history, so the phone's back button
    (Android's WebView walks this history) steps back a screen instead of closing the app. Back on Home still exits. */
-let SCREEN='home',SKIPPOP=0;
+let SCREEN='home',HOMEBACK=0;
+const depth=()=>{try{return(history.state&&history.state.d)|0}catch(e){return 0}};
+/* Home sits at depth 0, other screens at 1, and a lesson at 2 (the extra step lets the first back press open the "Quit?" dialog without the page having to add history during the press) */
+const wantDepth=n=>n==='home'?0:n==='lesson'?2:1;
+function fixDepth(to){try{for(let d=depth()+1;d<=(to||wantDepth(SCREEN));d++)history.pushState({d},'')}catch(e){}}
 function scr(name){
   SCREEN=name;
+  const qd=document.getElementById('qdlg');if(qd)qd.remove();
   try{
-    const d=!!(history.state&&history.state.d);
-    if(name==='home'){if(d){SKIPPOP++;history.back()}}
-    else if(!d)history.pushState({d:1},'');
+    const cur=depth();
+    /* going Home from a button: unwind the extra history entries once (HOMEBACK also lets the popstate handler ignore that pop) */
+    if(name==='home'){if(cur>0&&Date.now()-HOMEBACK>700){HOMEBACK=Date.now();history.go(-cur)}}
+    else fixDepth();
   }catch(e){}
 }
 if(store.get('ha_v',0)<2){P={};store.set('ha_p',P);store.set('ha_v',2)}
@@ -645,7 +656,7 @@ function viewHome(){
     const ids=batchIds(b),pct=Math.round(batchPct(b)*100),done=b<nb;
     return `<div class="bcard ${done?'':'next'}"><div class="bnum">${b+1}</div>
       <div class="bmid"><div class="bhz hz">${esc(ids.slice(0,5).map(i=>WORDS[i].h).join(' '))}</div>
-      ${done?`<div class="meter j"><i style="width:${pct}%"></i></div><div class="bst">${pct>=80?'Secure':pct+'% secure'}</div>`:`<div class="bst">${LEARNED===0||b===nb?(lockedNext?'Unlocks at 80% on batch '+nb:'Ready to learn'):''}</div>`}</div>
+      ${done?`<div class="meter j"><i style="width:${pct}%"></i></div><div class="bst">${pct>=80?'Secure':pct+'% secure'}</div>${gramOf(b).length?`<div class="bgr">Grammar: ${gramOf(b).map(p=>esc(p.t)).join(' · ')}</div>`:''}`:`<div class="bst">${LEARNED===0||b===nb?(lockedNext?'Unlocks at 80% on batch '+nb:'Ready to learn'):''}</div>`}</div>
       <div class="bbtn">${done?`<button class="mini" data-act="pracv" data-b="${b}">Practise</button><button class="mini" data-act="review" data-b="${b}">Words</button>`:`<button class="mini" data-act="learn" data-b="${b}">${lockedNext?'Skip ahead':'Learn'}</button>`}</div></div>`};
   const shown=Math.min(NB,nb+(hasNext?1:0));
   $app.innerHTML=`<div class="wrap home"><div class="hcols"><div class="hl">
@@ -1027,7 +1038,7 @@ document.addEventListener('click',e=>{
   else if(a==='py'){PY=!PY;store.set('ha_py',PY);document.body.classList.toggle('py-on',PY);document.querySelectorAll('[data-act=py]').forEach(x=>{x.setAttribute('aria-pressed',String(PY));if(x.classList.contains('pylink'))x.textContent='Pinyin under characters: '+(PY?'on':'off')})}
   else if(a==='learn')viewIntro(+b.dataset.b,false);
   else if(a==='review')viewIntro(+b.dataset.b,true);
-  else if(a==='prac'){FOCUS=+b.dataset.b;store.set('ha_focus',FOCUS);startLesson('mixed')}
+  else if(a==='prac'){FOCUS=+b.dataset.b;store.set('ha_focus',FOCUS);startLesson('mixed',{from:+b.dataset.b})}
   else if(a==='rall'){FOCUS='all';store.set('ha_focus',FOCUS);startLesson('mixed')}
   else if(a==='inext')introNext();
   else if(a==='iprev')introPrev();
@@ -1041,6 +1052,8 @@ document.addEventListener('click',e=>{
   else if(a==='skipl'){SKIPL=!SKIPL;store.set('ha_skipl',SKIPL);viewHome()}
   else if(a==='theme'){THEME=effTheme()==='dark'?'light':'dark';store.set('ha_theme',THEME);applyTheme();b.textContent='Dark mode: '+(THEME==='dark'?'on':'off')}
   else if(a==='snd'){SOUND=!SOUND;store.set('ha_snd',SOUND);b.textContent='Sound effects: '+(SOUND?'on':'off')}
+  else if(a==='qkeep'){const d=document.getElementById('qdlg');if(d)d.remove();fixDepth(2)}
+  else if(a==='qyes')quitLesson();
   else if(a==='quit'){
     if(Date.now()-quitArm<2500){if(L&&L.timer)clearInterval(L.timer);viewHome()}
     else{quitArm=Date.now();toast('Tap again to quit. Progress in this lesson is lost.')}
@@ -1050,14 +1063,25 @@ document.addEventListener('click',e=>{
     else{resetArm=Date.now();b.textContent='Tap again to erase all progress'}
   }
 });
-/* phone back button: one screen back. In a lesson it asks twice (like the close button) so progress isn't lost by accident. */
+/* phone back button: one screen back. In a lesson it first asks "Quit this lesson?" (back again, or the Quit button, leaves) so progress isn't lost by accident. */
+function askQuit(){
+  if(document.getElementById('qdlg'))return;
+  const d=document.createElement('div');d.id='qdlg';d.className='qdlg';
+  d.innerHTML=`<div class="qbox" role="alertdialog" aria-modal="true" aria-labelledby="qt"><h2 id="qt">Quit this lesson?</h2><p>Progress in this lesson is lost. Press back again to quit.</p>
+    <div class="row"><button class="cta ghost" style="flex:1 1 130px" data-act="qkeep">Keep going</button><button class="cta bad" style="flex:1 1 130px" data-act="qyes">Quit</button></div></div>`;
+  document.body.appendChild(d);
+}
+/* leaving a lesson (or its results) by the back button goes back to the Practise screen it was started from, else Home */
+function lessonParent(){const o=L&&L.opts,f=o?(o.batch!==undefined?o.batch:o.from):undefined;if(L&&L.timer)clearInterval(L.timer);if(f!==undefined)viewPrac(f);else viewHome()}
+function quitLesson(){const d=document.getElementById('qdlg');if(d)d.remove();lessonParent()}
 window.addEventListener('popstate',()=>{
-  if(SKIPPOP>0){SKIPPOP--;try{if(SCREEN!=='home'&&!(history.state&&history.state.d))history.pushState({d:1},'')}catch(e){}return}
+  if(Date.now()-HOMEBACK<700){fixDepth();return}
   if(SCREEN==='home')return;
   if(SCREEN==='lesson'){
-    if(Date.now()-quitArm<2500){if(L&&L.timer)clearInterval(L.timer);viewHome()}
-    else{quitArm=Date.now();toast('Press back again to quit. Progress in this lesson is lost.');try{history.pushState({d:1},'')}catch(e){}}
+    if(document.getElementById('qdlg'))quitLesson();
+    else{askQuit();fixDepth(1)}
   }
+  else if(SCREEN==='res')lessonParent();
   else if(SCREEN==='intro'&&IN&&IN.solo)viewPrac(IN.b);
   else viewHome();
 });
