@@ -234,6 +234,10 @@ button{touch-action:manipulation}
 .grow .gm b{font-family:var(--f-display)}
 .grow .gm span{font-size:13px;color:var(--muted);font-weight:600}
 .gsec{display:grid;gap:10px}
+/* quit-lesson dialog (phone back button) */
+.qdlg{position:fixed;inset:0;z-index:30;background:rgba(8,16,12,.55);display:grid;place-items:center;padding:20px}
+.qbox{width:100%;max-width:380px;background:var(--surface);border:2px solid var(--line);border-radius:18px;box-shadow:0 6px 0 var(--line);padding:22px 20px;display:grid;gap:12px}
+.qbox h2{font-size:24px;font-weight:800}.qbox p{margin:0;color:var(--muted)}
 /* desktop app (Electron) on a wide window: use the width instead of one narrow column. Phones and small windows are unchanged. */
 @media (min-width:1000px){
   .desk body{font-size:18px;padding-inline:36px}
@@ -328,13 +332,19 @@ applyTheme();
 if(/Electron/i.test(navigator.userAgent))document.documentElement.classList.add('desk');
 /* screen history: every screen except Home sits one step above Home in the browser history, so the phone's back button
    (Android's WebView walks this history) steps back a screen instead of closing the app. Back on Home still exits. */
-let SCREEN='home',SKIPPOP=0;
+let SCREEN='home',HOMEBACK=0;
+const depth=()=>{try{return(history.state&&history.state.d)|0}catch(e){return 0}};
+/* Home sits at depth 0, other screens at 1, and a lesson at 2 (the extra step lets the first back press open the "Quit?" dialog without the page having to add history during the press) */
+const wantDepth=n=>n==='home'?0:n==='lesson'?2:1;
+function fixDepth(to){try{for(let d=depth()+1;d<=(to||wantDepth(SCREEN));d++)history.pushState({d},'')}catch(e){}}
 function scr(name){
   SCREEN=name;
+  const qd=document.getElementById('qdlg');if(qd)qd.remove();
   try{
-    const d=!!(history.state&&history.state.d);
-    if(name==='home'){if(d){SKIPPOP++;history.back()}}
-    else if(!d)history.pushState({d:1},'');
+    const cur=depth();
+    /* going Home from a button: unwind the extra history entries once (HOMEBACK also lets the popstate handler ignore that pop) */
+    if(name==='home'){if(cur>0&&Date.now()-HOMEBACK>700){HOMEBACK=Date.now();history.go(-cur)}}
+    else fixDepth();
   }catch(e){}
 }
 if(store.get('ha_v',0)<2){P={};store.set('ha_p',P);store.set('ha_v',2)}
@@ -1027,7 +1037,7 @@ document.addEventListener('click',e=>{
   else if(a==='py'){PY=!PY;store.set('ha_py',PY);document.body.classList.toggle('py-on',PY);document.querySelectorAll('[data-act=py]').forEach(x=>{x.setAttribute('aria-pressed',String(PY));if(x.classList.contains('pylink'))x.textContent='Pinyin under characters: '+(PY?'on':'off')})}
   else if(a==='learn')viewIntro(+b.dataset.b,false);
   else if(a==='review')viewIntro(+b.dataset.b,true);
-  else if(a==='prac'){FOCUS=+b.dataset.b;store.set('ha_focus',FOCUS);startLesson('mixed')}
+  else if(a==='prac'){FOCUS=+b.dataset.b;store.set('ha_focus',FOCUS);startLesson('mixed',{from:+b.dataset.b})}
   else if(a==='rall'){FOCUS='all';store.set('ha_focus',FOCUS);startLesson('mixed')}
   else if(a==='inext')introNext();
   else if(a==='iprev')introPrev();
@@ -1041,6 +1051,8 @@ document.addEventListener('click',e=>{
   else if(a==='skipl'){SKIPL=!SKIPL;store.set('ha_skipl',SKIPL);viewHome()}
   else if(a==='theme'){THEME=effTheme()==='dark'?'light':'dark';store.set('ha_theme',THEME);applyTheme();b.textContent='Dark mode: '+(THEME==='dark'?'on':'off')}
   else if(a==='snd'){SOUND=!SOUND;store.set('ha_snd',SOUND);b.textContent='Sound effects: '+(SOUND?'on':'off')}
+  else if(a==='qkeep'){const d=document.getElementById('qdlg');if(d)d.remove();fixDepth(2)}
+  else if(a==='qyes')quitLesson();
   else if(a==='quit'){
     if(Date.now()-quitArm<2500){if(L&&L.timer)clearInterval(L.timer);viewHome()}
     else{quitArm=Date.now();toast('Tap again to quit. Progress in this lesson is lost.')}
@@ -1050,14 +1062,25 @@ document.addEventListener('click',e=>{
     else{resetArm=Date.now();b.textContent='Tap again to erase all progress'}
   }
 });
-/* phone back button: one screen back. In a lesson it asks twice (like the close button) so progress isn't lost by accident. */
+/* phone back button: one screen back. In a lesson it first asks "Quit this lesson?" (back again, or the Quit button, leaves) so progress isn't lost by accident. */
+function askQuit(){
+  if(document.getElementById('qdlg'))return;
+  const d=document.createElement('div');d.id='qdlg';d.className='qdlg';
+  d.innerHTML=`<div class="qbox" role="alertdialog" aria-modal="true" aria-labelledby="qt"><h2 id="qt">Quit this lesson?</h2><p>Progress in this lesson is lost. Press back again to quit.</p>
+    <div class="row"><button class="cta ghost" style="flex:1 1 130px" data-act="qkeep">Keep going</button><button class="cta bad" style="flex:1 1 130px" data-act="qyes">Quit</button></div></div>`;
+  document.body.appendChild(d);
+}
+/* leaving a lesson (or its results) by the back button goes back to the Practise screen it was started from, else Home */
+function lessonParent(){const o=L&&L.opts,f=o?(o.batch!==undefined?o.batch:o.from):undefined;if(L&&L.timer)clearInterval(L.timer);if(f!==undefined)viewPrac(f);else viewHome()}
+function quitLesson(){const d=document.getElementById('qdlg');if(d)d.remove();lessonParent()}
 window.addEventListener('popstate',()=>{
-  if(SKIPPOP>0){SKIPPOP--;try{if(SCREEN!=='home'&&!(history.state&&history.state.d))history.pushState({d:1},'')}catch(e){}return}
+  if(Date.now()-HOMEBACK<700){fixDepth();return}
   if(SCREEN==='home')return;
   if(SCREEN==='lesson'){
-    if(Date.now()-quitArm<2500){if(L&&L.timer)clearInterval(L.timer);viewHome()}
-    else{quitArm=Date.now();toast('Press back again to quit. Progress in this lesson is lost.');try{history.pushState({d:1},'')}catch(e){}}
+    if(document.getElementById('qdlg'))quitLesson();
+    else{askQuit();fixDepth(1)}
   }
+  else if(SCREEN==='res')lessonParent();
   else if(SCREEN==='intro'&&IN&&IN.solo)viewPrac(IN.b);
   else viewHome();
 });
