@@ -168,6 +168,11 @@ svg.s{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke
 .bhz{font-size:20px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bmid .meter{height:8px}.bst{font-size:13px;color:var(--muted);font-weight:600}
 .bgr{font-size:13px;color:var(--jade-t);font-weight:700;line-height:1.3}
+.lrow{display:flex;align-items:center;gap:8px 10px;flex-wrap:wrap}.lrow p{margin:0}
+.selgo{padding:3px 10px;font-size:13px;color:var(--jade-t);border-color:var(--jade);background:var(--jade-soft)}
+.bsel{flex:none;width:32px;height:32px;border-radius:9px;border:2px solid var(--line);background:var(--surface);display:grid;place-items:center;color:transparent;padding:0}
+.bsel svg{width:20px;height:20px}
+.bsel[aria-checked="true"]{background:var(--jade);border-color:var(--jade);color:var(--on-jade)}
 .bbtn{display:flex;gap:8px}
 .icard{display:grid;gap:10px;justify-items:center;text-align:center;padding:22px 16px;border:2px solid var(--line);border-radius:18px;background:var(--surface);box-shadow:0 4px 0 var(--line);margin-block:10px 22px}
 .ipy{font-family:var(--f-display);font-weight:800;font-size:32px;color:var(--jade-t)}
@@ -254,6 +259,7 @@ button{touch-action:manipulation}
   .desk .games{grid-template-columns:repeat(3,minmax(0,1fr))}
   .desk .game{padding:16px}.desk .game .g{font-size:46px}.desk .game b{font-size:19px}.desk .game span{font-size:14px}
   .desk .tiles{grid-template-columns:repeat(auto-fill,minmax(64px,1fr))}.desk .tile{font-size:25px;padding:10px 0}
+  .desk .bsel{width:38px;height:38px}.desk .bsel svg{width:24px;height:24px}.desk .selgo{font-size:15px;padding:5px 14px}
   .desk .bhz{font-size:23px}.desk .bst,.desk .bgr{font-size:14px}.desk .mini{font-size:15px;padding:7px 14px}
   .desk .dex .big .hz{font-size:56px}.desk .dex .py{font-size:24px}.desk .dex .sm{font-size:16px}
   .desk .lvl>summary{font-size:19px}.desk .lvl>summary small{font-size:14px}
@@ -404,7 +410,8 @@ const I={
  flame:'<svg class="i" viewBox="0 0 24 24"><path d="M12.500 2c.6 3.600-3 5.400-3 9 0 1 .4 1.800 1 2.300C10.400 11.500 12 9.500 12 9.500c2.800 1.800 5 4.300 5 7.300A5.500 5.500 0 0 1 11.500 22 5.500 5.500 0 0 1 6 16.500C6 12.500 10.800 10 12.500 2z"/></svg>',
  bolt:'<svg class="i" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>',
  speak:'<svg class="i s" viewBox="0 0 24 24"><path d="M3 10v4h4l5 4V6L7 10H3z" fill="currentColor"/><path d="M15.500 8.500a5 5 0 0 1 0 7M18 6a8.500 8.500 0 0 1 0 12"/></svg>',
- close:'<svg class="i s" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>'
+ close:'<svg class="i s" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>',
+ check:'<svg class="i s" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7"/></svg>'
 };
 
 /* ---------- pinyin ---------- */
@@ -630,12 +637,20 @@ const GAMES=[
  {m:'blitz',g:'快',n:'60s Blitz',d:'As many as you can before time is up'}
 ];
 let dexI=null, resetArm=0;
+/* batches ticked on the home screen for a combined practice session (in memory only) */
+let SEL=[];
+const selIds=()=>SEL.slice().sort((a,b)=>a-b).flatMap(b=>batchIds(b)).filter(i=>i<LEARNED);
+function updateSel(){
+  document.querySelectorAll('.bsel').forEach(x=>x.setAttribute('aria-checked',String(SEL.includes(+x.dataset.b))));
+  const g=document.getElementById('selgo');if(g){g.hidden=!SEL.length;g.textContent='Practise selected ('+SEL.length+')'}
+}
 
 function viewHome(){
   L&&L.timer&&clearInterval(L.timer);L=null;scr('home');
   const lv=levelOf(XP),lvPct=(XP%150)/150*100,gp=Math.min(100,DAY.xp/GOAL*100);
   const mastered=WORDS.slice(0,LEARNED).filter(w=>level(w.i)===3).length;
   const nb=nbOf(),latest=nb-1,hasNext=LEARNED<WORDS.length;
+  SEL=SEL.filter(b=>b<nb);
   const lockedNext=hasNext&&LEARNED>0&&!secured(latest);
   const nextN=hasNext?BATCHES[nb].ids.length:0;
   let cta;
@@ -648,14 +663,14 @@ function viewHome(){
   else cta=`<button class="cta" data-act="rall">Review all ${WORDS.length} words</button><div class="meta">You have learned the whole deck.</div>`;
   const card=b=>{
     const ids=batchIds(b),pct=Math.round(batchPct(b)*100),done=b<nb;
-    return `<div class="bcard ${done?'':'next'}"><div class="bnum">${b+1}</div>
+    return `<div class="bcard ${done?'':'next'}">${done?`<button class="bsel" data-act="bsel" data-b="${b}" role="checkbox" aria-checked="${SEL.includes(b)}" aria-label="Select batch ${b+1} to practise with other batches" title="Select to practise with other batches">${I.check}</button>`:''}<div class="bnum">${b+1}</div>
       <div class="bmid"><div class="bhz hz">${esc(ids.slice(0,5).map(i=>WORDS[i].h).join(' '))}</div>
       ${done?`<div class="meter j"><i style="width:${pct}%"></i></div><div class="bst">${pct>=80?'Secure':pct+'% secure'}</div>${gramOf(b).length?`<div class="bgr">Grammar: ${gramOf(b).map(p=>esc(p.t)).join(' · ')}</div>`:''}`:`<div class="bst">${LEARNED===0||b===nb?(lockedNext?'Unlocks at 80% on batch '+nb:'Ready to learn'):''}</div>`}</div>
       <div class="bbtn">${done?`<button class="mini" data-act="pracv" data-b="${b}">Practise</button><button class="mini" data-act="review" data-b="${b}">Words</button>`:`<button class="mini" data-act="learn" data-b="${b}">${lockedNext?'Skip ahead':'Learn'}</button>`}</div></div>`};
   const shown=Math.min(NB,nb+(hasNext?1:0));
   $app.innerHTML=`<div class="wrap home"><div class="hcols"><div class="hl">
   <header class="top">
-    <div class="brand"><div class="seal" aria-hidden="true">字</div><div><h1>Hanzi Arcade</h1><p>${LEARNED} of ${WORDS.length} words learned</p></div></div>
+    <div class="brand"><div class="seal" aria-hidden="true">字</div><div><h1>Hanzi Arcade</h1><div class="lrow"><p>${LEARNED} of ${WORDS.length} words learned</p><button class="mini selgo" id="selgo" data-act="selgo" ${SEL.length?'':'hidden'}>Practise selected (${SEL.length})</button></div></div></div>
     <div class="stats" aria-label="Your stats">
       <span class="stat fire" title="Day streak">${I.flame}${streakNow()}</span>
       <span class="stat xp" title="Total XP">${I.bolt}${XP}</span>
@@ -796,9 +811,30 @@ function viewPrac(b){
   window.scrollTo(0,0);
 }
 
+/* ---------- practice screen for several ticked batches ---------- */
+function viewPracSel(){
+  L&&L.timer&&clearInterval(L.timer);L=null;
+  SEL=SEL.filter(b=>b<nbOf());
+  if(!SEL.length)return viewHome();
+  scr('prac');
+  const bs=SEL.slice().sort((a,b)=>a-b),ids=selIds();
+  const games=GAMES.filter(g=>g.m!=='blitz'&&!(SKIPL&&g.m==='listen'));
+  $app.innerHTML=`<div class="wrap"><header class="lhead" style="padding-inline:0">
+    <button class="icon-btn" data-act="home" aria-label="Back to home">${I.close}</button>
+    <div style="flex:1;min-width:0"><p class="eyebrow">${bs.length} ${bs.length===1?'batch':'batches'} · ${ids.length} words</p><h2>Practise selected</h2></div></header>
+    <p class="meta" style="margin:0 0 16px;text-align:left">${bs.length===1?'Batch':'Batches'} ${bs.map(b=>b+1).join(', ')}</p>
+    <section class="hero-cta"><button class="cta" data-act="smix">Mixed practice</button>
+      <div class="meta">A bit of everything from the ticked batches, favouring the words you find hard.</div></section>
+    <section class="sec"><h2>Pick a game</h2>
+      <div class="games">${games.map(g=>`<button class="game" data-act="sgame" data-mode="${g.m}"><span class="g" aria-hidden="true">${g.g}</span><b>${g.n}</b><span>${g.d}</span></button>`).join('')}</div>
+      <p class="meta" style="margin:0;text-align:left">Practice on this screen uses only the ${ids.length} words in the ticked batches.</p></section>
+  </div>`;
+  window.scrollTo(0,0);
+}
+
 /* ---------- lessons ---------- */
 function startLesson(mode,opts={}){
-  const ids=opts.batch!==undefined?batchIds(opts.batch).filter(i=>i<LEARNED):opts.scope!==undefined?scopeIds(opts.scope):pool();
+  const ids=opts.batches!==undefined?opts.batches.slice().sort((a,b)=>a-b).flatMap(b=>batchIds(b)).filter(i=>i<LEARNED):opts.batch!==undefined?batchIds(opts.batch).filter(i=>i<LEARNED):opts.scope!==undefined?scopeIds(opts.scope):pool();
   L={ids,mode,opts,hearts:5,xp:0,combo:0,best:0,right:0,wrong:0,missed:[],gmissed:[],start:Date.now(),locked:false,blitz:mode==='blitz',queue:[],timer:null,score:0,lvBefore:levelOf(XP),firstPass:!!opts.firstPass};
   if(L.blitz){L.endAt=Date.now()+60000;L.total=0}
   else if(mode==='match'){
@@ -808,7 +844,7 @@ function startLesson(mode,opts={}){
   }else if(mode==='grammar'){
     L.queue=gQueue((opts.gids||[]).map(id=>gById[id]).filter(Boolean),12);
   }else if(mode==='mixed'){
-    const F=(FOCUS==='all'||opts.scope!==undefined)?[]:batchIds(FOCUS).filter(i=>i<LEARNED),R=ids.filter(i=>!F.includes(i));
+    const F=(FOCUS==='all'||opts.scope!==undefined||opts.batches!==undefined)?[]:batchIds(FOCUS).filter(i=>i<LEARNED),R=ids.filter(i=>!F.includes(i));
     let picks;
     if(L.firstPass)picks=shuffle(F).slice(0,10);
     else if(!F.length||!R.length)picks=sample(9,ids);
@@ -982,7 +1018,7 @@ function finish(win){
   else{title='Out of hearts';glyph='再';sub='Review the words below and try again.'}
   const lvUp=levelOf(XP)>L.lvBefore;
   const miss=L.missed.map(i=>WORDS[i]),gmiss=L.gmissed.map(id=>gById[id]);
-  const again=L.opts&&(L.opts.batch!==undefined||L.opts.gids)?'again':'start';
+  const again=L.opts&&(L.opts.batch!==undefined||L.opts.gids||L.opts.batches)?'again':'start';
   $app.innerHTML=`<div class="wrap"><section class="res">
     <div class="hz-big ${win?'w':''}" aria-hidden="true">${glyph}</div>
     <div><h1>${title}</h1>${sub?`<p style="margin:8px 0 0;color:var(--muted)">${sub}</p>`:''}${lvUp?`<p style="margin:8px 0 0;font-weight:800;color:var(--gold-ink)">Level ${levelOf(XP)} reached</p>`:''}</div>
@@ -1037,6 +1073,10 @@ document.addEventListener('click',e=>{
   else if(a==='inext')introNext();
   else if(a==='iprev')introPrev();
   else if(a==='dex'){dexI=wi;document.querySelectorAll('.tile').forEach(t=>t.setAttribute('aria-pressed',String(+t.dataset.wi===wi)));renderDex();play(wi,'w')}
+  else if(a==='bsel'){const k=+b.dataset.b;SEL=SEL.includes(k)?SEL.filter(x=>x!==k):[...SEL,k];updateSel()}
+  else if(a==='selgo')viewPracSel();
+  else if(a==='smix')startLesson('mixed',{batches:SEL.slice()});
+  else if(a==='sgame')startLesson(b.dataset.mode,{batches:SEL.slice()});
   else if(a==='pracv')viewPrac(+b.dataset.b);
   else if(a==='pracback')viewPrac(IN?IN.b:PRB);
   else if(a==='bgame')startLesson(b.dataset.mode,{batch:+b.dataset.b});
@@ -1053,7 +1093,7 @@ document.addEventListener('click',e=>{
     else{quitArm=Date.now();toast('Tap again to quit. Progress in this lesson is lost.')}
   }
   else if(a==='reset'){
-    if(Date.now()-resetArm<3000){P={};GP={};store.set('ha_g',GP);XP=0;DAY={d:today(),xp:0};STREAK={last:'',n:0};BEST=0;LEARNED=0;FOCUS=0;SCOPE='all';store.set('ha_scope','all');store.set('ha_p',P);store.set('ha_xp',0);store.set('ha_day',DAY);store.set('ha_streak',STREAK);store.set('ha_blitz',0);store.set('ha_learned',0);store.set('ha_focus',0);dexI=null;viewHome();toast('Progress reset');if(SYNC_ON&&SS)pushOnly().catch(()=>{})}
+    if(Date.now()-resetArm<3000){SEL=[];P={};GP={};store.set('ha_g',GP);XP=0;DAY={d:today(),xp:0};STREAK={last:'',n:0};BEST=0;LEARNED=0;FOCUS=0;SCOPE='all';store.set('ha_scope','all');store.set('ha_p',P);store.set('ha_xp',0);store.set('ha_day',DAY);store.set('ha_streak',STREAK);store.set('ha_blitz',0);store.set('ha_learned',0);store.set('ha_focus',0);dexI=null;viewHome();toast('Progress reset');if(SYNC_ON&&SS)pushOnly().catch(()=>{})}
     else{resetArm=Date.now();b.textContent='Tap again to erase all progress'}
   }
 });
@@ -1066,7 +1106,7 @@ function askQuit(){
   document.body.appendChild(d);
 }
 /* leaving a lesson (or its results) by the back button goes back to the Practise screen it was started from, else Home */
-function lessonParent(){const o=L&&L.opts,f=o?(o.batch!==undefined?o.batch:o.from):undefined;if(L&&L.timer)clearInterval(L.timer);if(f!==undefined)viewPrac(f);else viewHome()}
+function lessonParent(){const o=L&&L.opts;if(o&&o.batches){if(L.timer)clearInterval(L.timer);return viewPracSel()}const f=o?(o.batch!==undefined?o.batch:o.from):undefined;if(L&&L.timer)clearInterval(L.timer);if(f!==undefined)viewPrac(f);else viewHome()}
 function quitLesson(){const d=document.getElementById('qdlg');if(d)d.remove();lessonParent()}
 window.addEventListener('popstate',()=>{
   if(Date.now()-HOMEBACK<700){fixDepth();return}
