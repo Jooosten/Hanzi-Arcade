@@ -168,6 +168,14 @@ svg.s{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke
 .bhz{font-size:20px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bmid .meter{height:8px}.bst{font-size:13px;color:var(--muted);font-weight:600}
 .bgr{font-size:13px;color:var(--jade-t);font-weight:700;line-height:1.3}
+.csearch{width:100%;border:2px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--surface);color:var(--ink);font:inherit}
+.csearch::placeholder{color:var(--muted)}
+.csr{text-align:left;margin:0}
+.cgroups{display:grid;gap:10px}
+.cb{display:grid;gap:8px}
+.cbh{font-family:var(--f-display);font-size:15px;font-weight:800;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.cbh span{font-family:var(--f-body);font-size:12px;font-weight:600;color:var(--muted)}
+.clv .cgrp{gap:16px;padding-top:2px}
 .lrow{display:flex;align-items:center;gap:8px 10px;flex-wrap:wrap}.lrow p{margin:0}
 .selgo{padding:3px 10px;font-size:13px;color:var(--jade-t);border-color:var(--jade);background:var(--jade-soft)}
 .bsel{flex:none;width:32px;height:32px;border-radius:9px;border:2px solid var(--line);background:var(--surface);display:grid;place-items:center;color:transparent;padding:0}
@@ -259,6 +267,7 @@ button{touch-action:manipulation}
   .desk .games{grid-template-columns:repeat(3,minmax(0,1fr))}
   .desk .game{padding:16px}.desk .game .g{font-size:46px}.desk .game b{font-size:19px}.desk .game span{font-size:14px}
   .desk .tiles{grid-template-columns:repeat(auto-fill,minmax(64px,1fr))}.desk .tile{font-size:25px;padding:10px 0}
+  .desk .csearch{font-size:18px;padding:14px 16px}.desk .cbh{font-size:18px}.desk .cbh span{font-size:14px}
   .desk .bsel{width:38px;height:38px}.desk .bsel svg{width:24px;height:24px}.desk .selgo{font-size:15px;padding:5px 14px}
   .desk .bhz{font-size:23px}.desk .bst,.desk .bgr{font-size:14px}.desk .mini{font-size:15px;padding:7px 14px}
   .desk .dex .big .hz{font-size:56px}.desk .dex .py{font-size:24px}.desk .dex .sm{font-size:16px}
@@ -439,6 +448,38 @@ function parsePn(pn){
 }
 const sylStr=syl=>syl.map(([s,t])=>mark(s,t)).join('');
 const wpy=w=>w.syl?sylStr(w.syl):w.py;
+/* ---------- character search (by pinyin) ----------
+   Each word is indexed in three spellings: plain (hui), with tone marks (huí) and with tone numbers (hui2).
+   A query matches when it is the start of the word or of any later syllable, so "hui" finds hui2 and hui4,
+   "zhong1guo2" / "zhongguo" / "zhōngguó" find 中国, and "guo" finds 中国 too. ü can be typed as ü, v or u. */
+const TONEMARK=/[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]/;
+const cnorm=t=>String(t).normalize('NFC').toLowerCase().replace(/[\s'’\-·.,，、]/g,'');
+function cidx(w){
+  if(w._s)return w._s;
+  const mk=parts=>{let t='';const b=[];parts.forEach(x=>{b.push(t.length);t+=x});return {t,b}};
+  const S=w.syl||parsePn(String(w.pn).replace(/[^a-zA-Z0-9üv]/g,'')),o={};
+  if(S){
+    o.Tv=mk(S.map(x=>x[0].replace(/ü/g,'v')));o.Tu=mk(S.map(x=>x[0].replace(/ü/g,'u')));
+    o.M=mk(S.map(([a,t])=>mark(a,t)));
+    o.Nv=mk(S.map(([a,t])=>a.replace(/ü/g,'v')+t));o.Nu=mk(S.map(([a,t])=>a.replace(/ü/g,'u')+t));
+  }else{ /* a few oddly written entries: match anywhere in the text */
+    const any=t=>({t,b:[...t].map((_,i)=>i)}),m=cnorm(w.py),pl=m.replace(/[ǖǘǚǜü]/g,'v').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    o.M=any(m);o.Tv=o.Tu=any(pl);o.Nv=o.Nu=any(cnorm(w.pn));
+  }
+  return w._s=o;
+}
+const sat=(f,q)=>!!f&&f.b.some(i=>f.t.startsWith(q,i));
+/* with tone numbers: a tone number is optional anywhere, so zhong1guo2, zhongguo2 and zhong1guo all find 中国 */
+const isD=c=>c>='0'&&c<='9';
+const satN=(f,q)=>!!f&&f.b.some(i=>{let a=i,b=0;const T=f.t;while(b<q.length){if(a>=T.length)return false;const c=q[b],t=T[a];if(isD(t)&&!isD(c)){a++;continue}if(c!==t)return false;a++;b++}return true});
+function searcher(raw){
+  const q=cnorm(raw);if(!q)return null;
+  const qv=q.replace(/ü/g,'v'),qu=q.replace(/ü/g,'u');
+  if(/[\u4e00-\u9fff]/.test(q))return w=>w.h.includes(q);
+  if(/\d/.test(q))return w=>{const o=cidx(w);return satN(o.Nv,qv)||satN(o.Nu,qu)};
+  if(TONEMARK.test(q))return w=>sat(cidx(w).M,q);
+  return w=>{const o=cidx(w);return sat(o.Tv,qv)||sat(o.Tu,qu)};
+}
 const pyl=s=>`<span class="pyl">${esc(s)}</span>`;
 const ho=x=>`<span class="han-o">${esc(x.h)}</span>${pyl(wpy(x))}`;
 /* Fill-the-gap sentence pinyin: same as w.spy but the answer's syllables are replaced by a gap (nothing shown if it can't be located safely) */
@@ -645,6 +686,8 @@ const GAMES=[
 let dexI=null, resetArm=0;
 /* batches ticked on the home screen for a combined practice session (in memory only) */
 let SEL=[];
+/* what is typed in the characters search box (kept across home re-renders) */
+let CQ='';
 const selIds=()=>SEL.slice().sort((a,b)=>a-b).flatMap(b=>batchIds(b)).filter(i=>i<LEARNED);
 function updateSel(){
   document.querySelectorAll('.bsel').forEach(x=>x.setAttribute('aria-checked',String(SEL.includes(+x.dataset.b))));
@@ -702,8 +745,16 @@ function viewHome(){
       return `<details class="lvl" ${vis.includes(shown-1)?'open':''}><summary><span>Level ${lv}</span><small>${got} of ${lw.length} words learned</small><div class="meter j"><i style="width:${pc}%"></i></div></summary><div class="path">${vis.map(card).join('')}</div></details>`}).join('')}
   </section>
   ${LEARNED?`<section class="sec"><h2>Your characters <span style="font-size:14px;color:var(--muted);font-family:var(--f-body);font-weight:600">${mastered} of ${LEARNED} mastered</span></h2>
+    <input class="csearch" id="csearch" type="search" placeholder="Search by pinyin: hui, hui2, huí, zhong1guo2" aria-label="Search your characters by pinyin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="search">
+    <p class="meta csr" id="cres" hidden></p>
     <div class="card dex" id="dex"></div>
-    <div class="tiles">${WORDS.slice(0,LEARNED).map(w=>`<button class="tile lv${level(w.i)}" data-act="dex" data-wi="${w.i}" aria-pressed="${dexI===w.i}" aria-label="${esc(w.h)}, ${esc(w.en)}">${esc(w.h)}</button>`).join('')}</div>
+    <div id="cgroups" class="cgroups">${LEVELS.map((lw,li)=>{
+      const lv=li+1,bs=BATCHES.map((b,k)=>k).filter(k=>BATCHES[k].lv===lv&&BATCHES[k].ids[0]<LEARNED);
+      if(!bs.length)return '';
+      const lids=bs.flatMap(k=>batchIds(k).filter(i=>i<LEARNED)),lm=lids.filter(i=>level(i)===3).length,cur=lv===BATCHES[nb-1].lv;
+      return `<details class="lvl clv" data-open="${cur?1:0}" ${cur?'open':''}><summary><span>Level ${lv}</span><small>${lids.length} words · ${lm} mastered</small></summary><div class="path cgrp">${bs.map(k=>{
+        const ids=batchIds(k).filter(i=>i<LEARNED),m=ids.filter(i=>level(i)===3).length;
+        return `<div class="cb" data-b="${k}"><h3 class="cbh">Batch ${k+1}<span>${m} of ${ids.length} mastered</span></h3><div class="tiles">${ids.map(i=>{const w=WORDS[i];return `<button class="tile lv${level(i)}" data-act="dex" data-wi="${i}" aria-pressed="${dexI===i}" aria-label="${esc(w.h)}, ${esc(w.en)}">${esc(w.h)}</button>`}).join('')}</div></div>`}).join('')}</div></details>`}).join('')}</div>
     <div class="legend"><span><i></i>New</span><span><i class="l1"></i>Seen</span><span><i class="l2"></i>Getting there</span><span><i class="l3"></i>Mastered</span></div>
   </section>`:''}
   </div></div>
@@ -717,6 +768,20 @@ function viewHome(){
   </footer>
   </div>`;
   renderDex();
+  const ci=document.getElementById('csearch');if(ci){ci.value=CQ;applySearch()}
+}
+/* show only the characters that match the search box; levels and batches with no match are hidden and matching levels open */
+function applySearch(){
+  const g=document.getElementById('cgroups');if(!g)return;
+  const q=CQ.trim(),match=searcher(q),res=document.getElementById('cres');
+  let n=0;
+  g.querySelectorAll('.tile').forEach(t=>{const ok=!match||match(WORDS[+t.dataset.wi]);t.hidden=!ok;if(ok)n++});
+  g.querySelectorAll('.cb').forEach(c=>{c.hidden=!!match&&!c.querySelector('.tile:not([hidden])')});
+  const lvls=g.querySelectorAll('details.clv');
+  if(match&&!g.dataset.searching){g.dataset.searching='1';lvls.forEach(d=>{d.dataset.prev=d.open?'1':'0'})}
+  lvls.forEach(d=>{d.hidden=!!match&&!d.querySelector('.tile:not([hidden])');if(match)d.open=true;else if(g.dataset.searching)d.open=d.dataset.prev==='1'});
+  if(!match)delete g.dataset.searching;
+  if(res){res.hidden=!match;res.textContent=n?`${n} ${n===1?'character':'characters'} found`:`No characters match "${q}". Try the pinyin with or without tones, e.g. hui, hui2 or huí.`}
 }
 /* ---------- meeting new words ---------- */
 let IN=null;
@@ -1125,6 +1190,7 @@ window.addEventListener('popstate',()=>{
   else if(SCREEN==='intro'&&IN&&IN.solo)viewPrac(IN.b);
   else viewHome();
 });
+document.addEventListener('input',e=>{if(e.target&&e.target.id==='csearch'){CQ=e.target.value;applySearch()}});
 document.addEventListener('keydown',e=>{
   if(!L||e.metaKey||e.ctrlKey)return;
   if(/^[1-4]$/.test(e.key)&&L.q&&L.q.opts&&!L.locked&&L.cur&&L.cur.kind!=='match'){const o=document.querySelectorAll('.opt')[+e.key-1];o&&answer(+e.key-1)}
