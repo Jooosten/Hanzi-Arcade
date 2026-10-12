@@ -3960,6 +3960,375 @@
   ]
  },
  {
+  "id": "h3-yiqian",
+  "lv": 3,
+  "k": [
+   "以前"
+  ],
+  "t": "Before and after: 以前 / 以后",
+  "p": "Time or event + 以前 / 以后",
+  "n": "以前 means \"before\" or \"in the past\" and 以后 means \"after\". Put the time or the event in front of them: 吃饭以前 \"before eating\", 下课以后 \"after class\".",
+  "x": [
+   {
+    "h": "吃饭以前，请洗手。",
+    "py": "Chīfàn yǐqián, qǐng xǐshǒu.",
+    "en": "Please wash your hands before eating.",
+    "ch": [
+     "吃饭",
+     "以前，",
+     "请",
+     "洗手。"
+    ],
+    "chp": [
+     "chīfàn",
+     "yǐqián",
+     "qǐng",
+     "xǐshǒu"
+    ],
+    "g": "以前",
+    "gp": "yǐqián"
+   },
+   {
+    "h": "他以前住在北京。",
+    "py": "Tā yǐqián zhù zài Běijīng.",
+    "en": "He used to live in Beijing.",
+    "ch": [
+     "他",
+     "以前",
+     "住",
+     "在",
+     "北京。"
+    ],
+    "chp": [
+     "tā",
+     "yǐqián",
+     "zhù",
+     "zài",
+     "běijīng"
+    ],
+    "g": "以前",
+    "gp": "yǐqián"
+   },
+   {
+    "h": "下课以后，我们去公园。",
+    "py": "Xiàkè yǐhòu, wǒmen qù gōngyuán.",
+    "en": "After class we go to the park.",
+    "ch": [
+     "下课",
+     "以后，",
+     "我们",
+     "去",
+     "公园。"
+    ],
+    "chp": [
+     "xiàkè",
+     "yǐhòu",
+     "wǒmen",
+     "qù",
+     "gōngyuán"
+    ],
+    "g": "以后",
+    "gp": "yǐhòu"
+   }
+  ],
+  "d": [
+   [
+    "以后",
+    "yǐhòu"
+   ],
+   [
+    "后来",
+    "hòulái"
+   ],
+   [
+    "最后",
+    "zuìhòu"
+   ],
+   [
+    "刚才",
+    "gāngcái"
+   ]
+  ]
+ },
+ {
+  "id": "h3-dasuan",
+  "lv": 3,
+  "k": [
+   "打算"
+  ],
+  "t": "Plans with 打算",
+  "p": "Subject + 打算 + verb",
+  "n": "打算 + verb says what someone plans to do. To say they have no plans to, put 不 before 打算.",
+  "x": [
+   {
+    "h": "我打算明年去中国。",
+    "py": "Wǒ dǎsuàn míngnián qù Zhōngguó.",
+    "en": "I plan to go to China next year.",
+    "ch": [
+     "我",
+     "打算",
+     "明年",
+     "去",
+     "中国。"
+    ],
+    "chp": [
+     "wǒ",
+     "dǎsuàn",
+     "míngnián",
+     "qù",
+     "zhōngguó"
+    ],
+    "g": "打算",
+    "gp": "dǎsuàn"
+   },
+   {
+    "h": "你打算什么时候结婚？",
+    "py": "Nǐ dǎsuàn shénme shíhou jiéhūn?",
+    "en": "When do you plan to get married?",
+    "ch": [
+     "你",
+     "打算",
+     "什么",
+     "时候",
+     "结婚？"
+    ],
+    "chp": [
+     "nǐ",
+     "dǎsuàn",
+     "shénme",
+     "shíhou",
+     "jiéhūn"
+    ],
+    "g": "打算",
+    "gp": "dǎsuàn"
+   },
+   {
+    "h": "他不打算换工作。",
+    "py": "Tā bù dǎsuàn huàn gōngzuò.",
+    "en": "He does not plan to change jobs.",
+    "ch": [
+     "他",
+     "不",
+     "打算",
+     "换",
+     "工作。"
+    ],
+    "chp": [
+     "tā",
+     "bù",
+     "dǎsuàn",
+     "huàn",
+     "gōngzuò"
+    ],
+    "g": "打算",
+    "gp": "dǎsuàn"
+   }
+  ],
+  "d": [
+   [
+    "愿意",
+    "yuànyì"
+   ],
+   [
+    "应该",
+    "yīnggāi"
+   ],
+   [
+    "准备",
+    "zhǔnbèi"
+   ],
+   [
+    "希望",
+    "xīwàng"
+   ]
+  ]
+ },
+ {
+  "id": "h3-jingchang",
+  "lv": 3,
+  "k": [
+   "总是",
+   "经常"
+  ],
+  "t": "How often: 经常 and 总是",
+  "p": "Subject + 经常 / 总是 + verb",
+  "n": "Frequency words go before the verb. 经常 means \"often\" and 总是 means \"always\". For \"not often\" use 不常, and for \"rarely\" use 很少.",
+  "x": [
+   {
+    "h": "他经常在公园跑步。",
+    "py": "Tā jīngcháng zài gōngyuán pǎobù.",
+    "en": "He often jogs in the park.",
+    "ch": [
+     "他",
+     "经常",
+     "在",
+     "公园",
+     "跑步。"
+    ],
+    "chp": [
+     "tā",
+     "jīngcháng",
+     "zài",
+     "gōngyuán",
+     "pǎobù"
+    ],
+    "g": "经常",
+    "gp": "jīngcháng"
+   },
+   {
+    "h": "她总是很早起床。",
+    "py": "Tā zǒngshì hěn zǎo qǐchuáng.",
+    "en": "She always gets up very early.",
+    "ch": [
+     "她",
+     "总是",
+     "很",
+     "早",
+     "起床。"
+    ],
+    "chp": [
+     "tā",
+     "zǒngshì",
+     "hěn",
+     "zǎo",
+     "qǐchuáng"
+    ],
+    "g": "总是",
+    "gp": "zǒngshì"
+   },
+   {
+    "h": "我们周末经常一起吃饭。",
+    "py": "Wǒmen zhōumò jīngcháng yìqǐ chīfàn.",
+    "en": "We often eat together at the weekend.",
+    "ch": [
+     "我们",
+     "周末",
+     "经常",
+     "一起",
+     "吃饭。"
+    ],
+    "chp": [
+     "wǒmen",
+     "zhōumò",
+     "jīngcháng",
+     "yìqǐ",
+     "chīfàn"
+    ],
+    "g": "经常",
+    "gp": "jīngcháng"
+   }
+  ],
+  "d": [
+   [
+    "一直",
+    "yìzhí"
+   ],
+   [
+    "马上",
+    "mǎshàng"
+   ],
+   [
+    "已经",
+    "yǐjīng"
+   ],
+   [
+    "突然",
+    "tūrán"
+   ]
+  ]
+ },
+ {
+  "id": "h3-turan",
+  "lv": 3,
+  "k": [
+   "突然"
+  ],
+  "t": "Suddenly with 突然",
+  "p": "突然 + verb / 突然，+ sentence",
+  "n": "突然 means \"suddenly\". It goes before the verb, or at the start of the sentence with a comma. For a sudden change, add 了 at the end.",
+  "x": [
+   {
+    "h": "天气突然变冷了。",
+    "py": "Tiānqì tūrán biàn lěng le.",
+    "en": "The weather suddenly turned cold.",
+    "ch": [
+     "天气",
+     "突然",
+     "变",
+     "冷",
+     "了。"
+    ],
+    "chp": [
+     "tiānqì",
+     "tūrán",
+     "biàn",
+     "lěng",
+     "le"
+    ],
+    "g": "突然",
+    "gp": "tūrán"
+   },
+   {
+    "h": "突然，他笑了。",
+    "py": "Tūrán, tā xiào le.",
+    "en": "Suddenly, he laughed.",
+    "ch": [
+     "突然，",
+     "他",
+     "笑",
+     "了。"
+    ],
+    "chp": [
+     "tūrán",
+     "tā",
+     "xiào",
+     "le"
+    ],
+    "g": "突然",
+    "gp": "tūrán"
+   },
+   {
+    "h": "我突然想起来了。",
+    "py": "Wǒ tūrán xiǎng qǐlái le.",
+    "en": "I suddenly remembered.",
+    "ch": [
+     "我",
+     "突然",
+     "想",
+     "起来",
+     "了。"
+    ],
+    "chp": [
+     "wǒ",
+     "tūrán",
+     "xiǎng",
+     "qǐlái",
+     "le"
+    ],
+    "g": "突然",
+    "gp": "tūrán"
+   }
+  ],
+  "d": [
+   [
+    "马上",
+    "mǎshàng"
+   ],
+   [
+    "终于",
+    "zhōngyú"
+   ],
+   [
+    "刚才",
+    "gāngcái"
+   ],
+   [
+    "一直",
+    "yìzhí"
+   ]
+  ]
+ },
+ {
   "id": "h4-ba",
   "lv": 4,
   "k": [
@@ -4512,109 +4881,6 @@
   ]
  },
  {
-  "id": "h4-guanyu",
-  "lv": 4,
-  "k": [
-   "关于"
-  ],
-  "t": "About with 关于",
-  "p": "关于 + topic",
-  "n": "关于 introduces the topic that something is about. The phrase goes before the noun it describes (with 的) or at the start of the sentence.",
-  "x": [
-   {
-    "h": "这是关于中国的书。",
-    "py": "Zhè shì guānyú Zhōngguó de shū.",
-    "en": "This is a book about China.",
-    "ch": [
-     "这",
-     "是",
-     "关于",
-     "中国",
-     "的",
-     "书。"
-    ],
-    "chp": [
-     "zhè",
-     "shì",
-     "guānyú",
-     "Zhōngguó",
-     "de",
-     "shū"
-    ],
-    "g": "关于",
-    "gp": "guānyú"
-   },
-   {
-    "h": "关于这个问题，我不知道。",
-    "py": "Guānyú zhè ge wèntí, wǒ bù zhīdao.",
-    "en": "About this question, I don't know.",
-    "ch": [
-     "关于",
-     "这",
-     "个",
-     "问题，",
-     "我",
-     "不",
-     "知道。"
-    ],
-    "chp": [
-     "guānyú",
-     "zhè",
-     "ge",
-     "wèntí",
-     "wǒ",
-     "bù",
-     "zhīdao"
-    ],
-    "g": "关于",
-    "gp": "guānyú"
-   },
-   {
-    "h": "他写了一本关于北京的书。",
-    "py": "Tā xiě le yì běn guānyú Běijīng de shū.",
-    "en": "He wrote a book about Beijing.",
-    "ch": [
-     "他",
-     "写",
-     "了",
-     "一",
-     "本",
-     "关于",
-     "北京",
-     "的",
-     "书。"
-    ],
-    "chp": [
-     "tā",
-     "xiě",
-     "le",
-     "yì",
-     "běn",
-     "guānyú",
-     "Běijīng",
-     "de",
-     "shū"
-    ],
-    "g": "关于",
-    "gp": "guānyú"
-   }
-  ],
-  "d": [
-   [
-    "为了",
-    "wèile"
-   ],
-   [
-    "除了",
-    "chúle"
-   ],
-   [
-    "根据",
-    "gēnjù"
-   ]
-  ]
- },
- {
   "id": "h4-qishi",
   "lv": 4,
   "k": [
@@ -5086,190 +5352,6 @@
   ]
  },
  {
-  "id": "h4-jihu",
-  "lv": 4,
-  "k": [
-   "几乎"
-  ],
-  "t": "Almost with 几乎",
-  "p": "几乎 + verb / 没有",
-  "n": "几乎 means \"almost\" or \"nearly\". With a negative it means \"hardly any\".",
-  "x": [
-   {
-    "h": "我几乎每天都去公园。",
-    "py": "Wǒ jīhū měitiān dōu qù gōngyuán.",
-    "en": "I go to the park almost every day.",
-    "ch": [
-     "我",
-     "几乎",
-     "每天",
-     "都",
-     "去",
-     "公园。"
-    ],
-    "chp": [
-     "wǒ",
-     "jīhū",
-     "měitiān",
-     "dōu",
-     "qù",
-     "gōngyuán"
-    ],
-    "g": "几乎",
-    "gp": "jīhū"
-   },
-   {
-    "h": "他几乎没吃东西。",
-    "py": "Tā jīhū méi chī dōngxi.",
-    "en": "He hardly ate anything.",
-    "ch": [
-     "他",
-     "几乎",
-     "没",
-     "吃",
-     "东西。"
-    ],
-    "chp": [
-     "tā",
-     "jīhū",
-     "méi",
-     "chī",
-     "dōngxi"
-    ],
-    "g": "几乎",
-    "gp": "jīhū"
-   },
-   {
-    "h": "教室里几乎没有人。",
-    "py": "Jiàoshì lǐ jīhū méiyǒu rén.",
-    "en": "There is almost nobody in the classroom.",
-    "ch": [
-     "教室",
-     "里",
-     "几乎",
-     "没有",
-     "人。"
-    ],
-    "chp": [
-     "jiàoshì",
-     "lǐ",
-     "jīhū",
-     "méiyǒu",
-     "rén"
-    ],
-    "g": "几乎",
-    "gp": "jīhū"
-   }
-  ],
-  "d": [
-   [
-    "已经",
-    "yǐjīng"
-   ],
-   [
-    "马上",
-    "mǎshàng"
-   ],
-   [
-    "终于",
-    "zhōngyú"
-   ]
-  ]
- },
- {
-  "id": "h4-gengju",
-  "lv": 4,
-  "k": [
-   "根据"
-  ],
-  "t": "According to with 根据",
-  "p": "根据 + source，+ statement",
-  "n": "根据 introduces the source or evidence behind a statement: \"according to / based on\".",
-  "x": [
-   {
-    "h": "根据天气预报，明天会下雨。",
-    "py": "Gēnjù tiānqì yùbào, míngtiān huì xiàyǔ.",
-    "en": "According to the weather forecast, it will rain tomorrow.",
-    "ch": [
-     "根据",
-     "天气",
-     "预报，",
-     "明天",
-     "会",
-     "下雨。"
-    ],
-    "chp": [
-     "gēnjù",
-     "tiānqì",
-     "yùbào",
-     "míngtiān",
-     "huì",
-     "xiàyǔ"
-    ],
-    "g": "根据",
-    "gp": "gēnjù"
-   },
-   {
-    "h": "根据老师说的，明天考试。",
-    "py": "Gēnjù lǎoshī shuō de, míngtiān kǎoshì.",
-    "en": "According to the teacher, there is an exam tomorrow.",
-    "ch": [
-     "根据",
-     "老师",
-     "说",
-     "的，",
-     "明天",
-     "考试。"
-    ],
-    "chp": [
-     "gēnjù",
-     "lǎoshī",
-     "shuō",
-     "de",
-     "míngtiān",
-     "kǎoshì"
-    ],
-    "g": "根据",
-    "gp": "gēnjù"
-   },
-   {
-    "h": "根据地图，银行在左边。",
-    "py": "Gēnjù dìtú, yínháng zài zuǒbiān.",
-    "en": "According to the map, the bank is on the left.",
-    "ch": [
-     "根据",
-     "地图，",
-     "银行",
-     "在",
-     "左边。"
-    ],
-    "chp": [
-     "gēnjù",
-     "dìtú",
-     "yínháng",
-     "zài",
-     "zuǒbiān"
-    ],
-    "g": "根据",
-    "gp": "gēnjù"
-   }
-  ],
-  "d": [
-   [
-    "关于",
-    "guānyú"
-   ],
-   [
-    "除了",
-    "chúle"
-   ],
-   [
-    "为了",
-    "wèile"
-   ]
-  ]
- },
- {
   "id": "h4-xiang",
   "lv": 4,
   "k": [
@@ -5442,8 +5524,876 @@
   ]
  },
  {
-  "id": "h4-lian",
+  "id": "h4-renwei",
   "lv": 4,
+  "k": [
+   "认为"
+  ],
+  "t": "Opinions with 认为 and 觉得",
+  "p": "Subject + 认为 / 觉得 + opinion",
+  "n": "认为 \"to think, to consider\" sounds a little firmer than 觉得 \"to feel, to think\". Both are followed straight away by the whole opinion, with no linking word.",
+  "x": [
+   {
+    "h": "我认为这个办法很好。",
+    "py": "Wǒ rènwéi zhège bànfǎ hěn hǎo.",
+    "en": "I think this way is very good.",
+    "ch": [
+     "我",
+     "认为",
+     "这个",
+     "办法",
+     "很",
+     "好。"
+    ],
+    "chp": [
+     "wǒ",
+     "rènwéi",
+     "zhège",
+     "bànfǎ",
+     "hěn",
+     "hǎo"
+    ],
+    "g": "认为",
+    "gp": "rènwéi"
+   },
+   {
+    "h": "你觉得他怎么样？",
+    "py": "Nǐ juéde tā zěnmeyàng?",
+    "en": "What do you think of him?",
+    "ch": [
+     "你",
+     "觉得",
+     "他",
+     "怎么样？"
+    ],
+    "chp": [
+     "nǐ",
+     "juéde",
+     "tā",
+     "zěnmeyàng"
+    ],
+    "g": "觉得",
+    "gp": "juéde"
+   },
+   {
+    "h": "大家都认为他是对的。",
+    "py": "Dàjiā dōu rènwéi tā shì duì de.",
+    "en": "Everyone thinks he is right.",
+    "ch": [
+     "大家",
+     "都",
+     "认为",
+     "他",
+     "是",
+     "对",
+     "的。"
+    ],
+    "chp": [
+     "dàjiā",
+     "dōu",
+     "rènwéi",
+     "tā",
+     "shì",
+     "duì",
+     "de"
+    ],
+    "g": "认为",
+    "gp": "rènwéi"
+   }
+  ],
+  "d": [
+   [
+    "希望",
+    "xīwàng"
+   ],
+   [
+    "相信",
+    "xiāngxìn"
+   ],
+   [
+    "同意",
+    "tóngyì"
+   ],
+   [
+    "知道",
+    "zhīdào"
+   ]
+  ]
+ },
+ {
+  "id": "h4-yizhi",
+  "lv": 4,
+  "k": [
+   "一直"
+  ],
+  "t": "All along with 一直",
+  "p": "一直 + verb",
+  "n": "一直 means \"all the time\" or \"without stopping\". With 没 it means \"never, the whole time\". Before a direction, 一直走 means \"keep going straight\".",
+  "x": [
+   {
+    "h": "我一直在等你。",
+    "py": "Wǒ yìzhí zài děng nǐ.",
+    "en": "I have been waiting for you all along.",
+    "ch": [
+     "我",
+     "一直",
+     "在",
+     "等",
+     "你。"
+    ],
+    "chp": [
+     "wǒ",
+     "yìzhí",
+     "zài",
+     "děng",
+     "nǐ"
+    ],
+    "g": "一直",
+    "gp": "yìzhí"
+   },
+   {
+    "h": "外面一直在下雨。",
+    "py": "Wàimiàn yìzhí zài xiàyǔ.",
+    "en": "It has been raining the whole time outside.",
+    "ch": [
+     "外面",
+     "一直",
+     "在",
+     "下雨。"
+    ],
+    "chp": [
+     "wàimiàn",
+     "yìzhí",
+     "zài",
+     "xiàyǔ"
+    ],
+    "g": "一直",
+    "gp": "yìzhí"
+   },
+   {
+    "h": "一直往前走，就到了。",
+    "py": "Yìzhí wǎng qián zǒu, jiù dào le.",
+    "en": "Keep going straight and you will be there.",
+    "ch": [
+     "一直",
+     "往",
+     "前",
+     "走，",
+     "就",
+     "到",
+     "了。"
+    ],
+    "chp": [
+     "yìzhí",
+     "wǎng",
+     "qián",
+     "zǒu",
+     "jiù",
+     "dào",
+     "le"
+    ],
+    "g": "一直",
+    "gp": "yìzhí"
+   }
+  ],
+  "d": [
+   [
+    "总是",
+    "zǒngshì"
+   ],
+   [
+    "经常",
+    "jīngcháng"
+   ],
+   [
+    "马上",
+    "mǎshàng"
+   ],
+   [
+    "终于",
+    "zhōngyú"
+   ]
+  ]
+ },
+ {
+  "id": "h4-xiangxiang",
+  "lv": 4,
+  "k": [
+   "像"
+  ],
+  "t": "Resembling with 像",
+  "p": "A 像 B (一样 + adjective)",
+  "n": "像 means \"to be like\". Add 一样 to say \"just like\", and an adjective after it to say in what way: 像 B 一样 + adjective.",
+  "x": [
+   {
+    "h": "他长得像他爸爸。",
+    "py": "Tā zhǎng de xiàng tā bàba.",
+    "en": "He looks like his dad.",
+    "ch": [
+     "他",
+     "长",
+     "得",
+     "像",
+     "他",
+     "爸爸。"
+    ],
+    "chp": [
+     "tā",
+     "zhǎng",
+     "de",
+     "xiàng",
+     "tā",
+     "bàba"
+    ],
+    "g": "像",
+    "gp": "xiàng"
+   },
+   {
+    "h": "她唱歌像鸟一样好听。",
+    "py": "Tā chànggē xiàng niǎo yíyàng hǎotīng.",
+    "en": "She sings as sweetly as a bird.",
+    "ch": [
+     "她",
+     "唱歌",
+     "像",
+     "鸟",
+     "一样",
+     "好听。"
+    ],
+    "chp": [
+     "tā",
+     "chànggē",
+     "xiàng",
+     "niǎo",
+     "yíyàng",
+     "hǎotīng"
+    ],
+    "g": "像",
+    "gp": "xiàng"
+   },
+   {
+    "h": "今天像春天一样暖和。",
+    "py": "Jīntiān xiàng chūntiān yíyàng nuǎnhuo.",
+    "en": "Today is as warm as spring.",
+    "ch": [
+     "今天",
+     "像",
+     "春天",
+     "一样",
+     "暖和。"
+    ],
+    "chp": [
+     "jīntiān",
+     "xiàng",
+     "chūntiān",
+     "yíyàng",
+     "nuǎnhuo"
+    ],
+    "g": "像",
+    "gp": "xiàng"
+   }
+  ],
+  "d": [
+   [
+    "一样",
+    "yíyàng"
+   ],
+   [
+    "比",
+    "bǐ"
+   ],
+   [
+    "跟",
+    "gēn"
+   ],
+   [
+    "好像",
+    "hǎoxiàng"
+   ]
+  ]
+ },
+ {
+  "id": "h4-ziji",
+  "lv": 4,
+  "k": [
+   "自己"
+  ],
+  "t": "Oneself with 自己",
+  "p": "Subject + 自己 + verb",
+  "n": "自己 means \"oneself\" and matches the subject. It stresses doing something alone or in person. 自己的 + noun means \"one's own\".",
+  "x": [
+   {
+    "h": "我自己做饭。",
+    "py": "Wǒ zìjǐ zuòfàn.",
+    "en": "I cook for myself.",
+    "ch": [
+     "我",
+     "自己",
+     "做饭。"
+    ],
+    "chp": [
+     "wǒ",
+     "zìjǐ",
+     "zuòfàn"
+    ],
+    "g": "自己",
+    "gp": "zìjǐ"
+   },
+   {
+    "h": "你可以自己去吗？",
+    "py": "Nǐ kěyǐ zìjǐ qù ma?",
+    "en": "Can you go by yourself?",
+    "ch": [
+     "你",
+     "可以",
+     "自己",
+     "去",
+     "吗？"
+    ],
+    "chp": [
+     "nǐ",
+     "kěyǐ",
+     "zìjǐ",
+     "qù",
+     "ma"
+    ],
+    "g": "自己",
+    "gp": "zìjǐ"
+   },
+   {
+    "h": "他有自己的房间。",
+    "py": "Tā yǒu zìjǐ de fángjiān.",
+    "en": "He has his own room.",
+    "ch": [
+     "他",
+     "有",
+     "自己",
+     "的",
+     "房间。"
+    ],
+    "chp": [
+     "tā",
+     "yǒu",
+     "zìjǐ",
+     "de",
+     "fángjiān"
+    ],
+    "g": "自己",
+    "gp": "zìjǐ"
+   }
+  ],
+  "d": [
+   [
+    "别人",
+    "biéren"
+   ],
+   [
+    "大家",
+    "dàjiā"
+   ],
+   [
+    "我们",
+    "wǒmen"
+   ],
+   [
+    "一起",
+    "yìqǐ"
+   ]
+  ]
+ },
+ {
+  "id": "h4-gangcai",
+  "lv": 4,
+  "k": [
+   "刚才"
+  ],
+  "t": "Just now with 刚才 and 刚",
+  "p": "刚才 + verb / 刚 + verb",
+  "n": "刚才 means \"a moment ago\" and is a time word, so it can go before or after the subject. 刚 is an adverb that goes straight before the verb and means \"only just\".",
+  "x": [
+   {
+    "h": "刚才谁打电话来了？",
+    "py": "Gāngcái shéi dǎ diànhuà lái le?",
+    "en": "Who called just now?",
+    "ch": [
+     "刚才",
+     "谁",
+     "打",
+     "电话",
+     "来",
+     "了？"
+    ],
+    "chp": [
+     "gāngcái",
+     "shéi",
+     "dǎ",
+     "diànhuà",
+     "lái",
+     "le"
+    ],
+    "g": "刚才",
+    "gp": "gāngcái"
+   },
+   {
+    "h": "我刚才在开会。",
+    "py": "Wǒ gāngcái zài kāihuì.",
+    "en": "I was in a meeting just now.",
+    "ch": [
+     "我",
+     "刚才",
+     "在",
+     "开会。"
+    ],
+    "chp": [
+     "wǒ",
+     "gāngcái",
+     "zài",
+     "kāihuì"
+    ],
+    "g": "刚才",
+    "gp": "gāngcái"
+   },
+   {
+    "h": "他刚到家。",
+    "py": "Tā gāng dào jiā.",
+    "en": "He has only just got home.",
+    "ch": [
+     "他",
+     "刚",
+     "到",
+     "家。"
+    ],
+    "chp": [
+     "tā",
+     "gāng",
+     "dào",
+     "jiā"
+    ],
+    "g": "刚",
+    "gp": "gāng"
+   }
+  ],
+  "d": [
+   [
+    "马上",
+    "mǎshàng"
+   ],
+   [
+    "以前",
+    "yǐqián"
+   ],
+   [
+    "一会儿",
+    "yíhuìr"
+   ],
+   [
+    "已经",
+    "yǐjīng"
+   ]
+  ]
+ },
+ {
+  "id": "h4-houlai",
+  "lv": 4,
+  "k": [
+   "后来"
+  ],
+  "t": "Afterwards with 后来",
+  "p": "Past event，后来 + what happened next",
+  "n": "后来 tells what happened after a past event. Unlike 以后 or 然后 it is only for the past, never for the future or for instructions, and it cannot follow a time word.",
+  "x": [
+   {
+    "h": "他以前住在上海，后来搬到了北京。",
+    "py": "Tā yǐqián zhù zài Shànghǎi, hòulái bān dào le Běijīng.",
+    "en": "He used to live in Shanghai and later moved to Beijing.",
+    "ch": [
+     "他",
+     "以前",
+     "住",
+     "在",
+     "上海，",
+     "后来",
+     "搬",
+     "到",
+     "了",
+     "北京。"
+    ],
+    "chp": [
+     "tā",
+     "yǐqián",
+     "zhù",
+     "zài",
+     "shànghǎi",
+     "hòulái",
+     "bān",
+     "dào",
+     "le",
+     "běijīng"
+    ],
+    "g": "后来",
+    "gp": "hòulái"
+   },
+   {
+    "h": "刚开始很难，后来就容易了。",
+    "py": "Gāng kāishǐ hěn nán, hòulái jiù róngyì le.",
+    "en": "It was hard at first, but later it got easy.",
+    "ch": [
+     "刚开始",
+     "很",
+     "难，",
+     "后来",
+     "就",
+     "容易",
+     "了。"
+    ],
+    "chp": [
+     "gāng kāishǐ",
+     "hěn",
+     "nán",
+     "hòulái",
+     "jiù",
+     "róngyì",
+     "le"
+    ],
+    "g": "后来",
+    "gp": "hòulái"
+   },
+   {
+    "h": "后来，他再也没来过。",
+    "py": "Hòulái, tā zài yě méi lái guo.",
+    "en": "After that, he never came again.",
+    "ch": [
+     "后来，",
+     "他",
+     "再也",
+     "没",
+     "来",
+     "过。"
+    ],
+    "chp": [
+     "hòulái",
+     "tā",
+     "zàiyě",
+     "méi",
+     "lái",
+     "guo"
+    ],
+    "g": "后来",
+    "gp": "hòulái"
+   }
+  ],
+  "d": [
+   [
+    "然后",
+    "ránhòu"
+   ],
+   [
+    "以后",
+    "yǐhòu"
+   ],
+   [
+    "最后",
+    "zuìhòu"
+   ],
+   [
+    "以前",
+    "yǐqián"
+   ]
+  ]
+ },
+ {
+  "id": "h4-guanyu",
+  "lv": 5,
+  "k": [
+   "关于"
+  ],
+  "t": "About with 关于",
+  "p": "关于 + topic",
+  "n": "关于 introduces the topic that something is about. The phrase goes before the noun it describes (with 的) or at the start of the sentence.",
+  "x": [
+   {
+    "h": "这是关于中国的书。",
+    "py": "Zhè shì guānyú Zhōngguó de shū.",
+    "en": "This is a book about China.",
+    "ch": [
+     "这",
+     "是",
+     "关于",
+     "中国",
+     "的",
+     "书。"
+    ],
+    "chp": [
+     "zhè",
+     "shì",
+     "guānyú",
+     "Zhōngguó",
+     "de",
+     "shū"
+    ],
+    "g": "关于",
+    "gp": "guānyú"
+   },
+   {
+    "h": "关于这个问题，我不知道。",
+    "py": "Guānyú zhè ge wèntí, wǒ bù zhīdao.",
+    "en": "About this question, I don't know.",
+    "ch": [
+     "关于",
+     "这",
+     "个",
+     "问题，",
+     "我",
+     "不",
+     "知道。"
+    ],
+    "chp": [
+     "guānyú",
+     "zhè",
+     "ge",
+     "wèntí",
+     "wǒ",
+     "bù",
+     "zhīdao"
+    ],
+    "g": "关于",
+    "gp": "guānyú"
+   },
+   {
+    "h": "他写了一本关于北京的书。",
+    "py": "Tā xiě le yì běn guānyú Běijīng de shū.",
+    "en": "He wrote a book about Beijing.",
+    "ch": [
+     "他",
+     "写",
+     "了",
+     "一",
+     "本",
+     "关于",
+     "北京",
+     "的",
+     "书。"
+    ],
+    "chp": [
+     "tā",
+     "xiě",
+     "le",
+     "yì",
+     "běn",
+     "guānyú",
+     "Běijīng",
+     "de",
+     "shū"
+    ],
+    "g": "关于",
+    "gp": "guānyú"
+   }
+  ],
+  "d": [
+   [
+    "为了",
+    "wèile"
+   ],
+   [
+    "除了",
+    "chúle"
+   ],
+   [
+    "根据",
+    "gēnjù"
+   ]
+  ],
+  "ext": "HSK 4"
+ },
+ {
+  "id": "h4-jihu",
+  "lv": 5,
+  "k": [
+   "几乎"
+  ],
+  "t": "Almost with 几乎",
+  "p": "几乎 + verb / 没有",
+  "n": "几乎 means \"almost\" or \"nearly\". With a negative it means \"hardly any\".",
+  "x": [
+   {
+    "h": "我几乎每天都去公园。",
+    "py": "Wǒ jīhū měitiān dōu qù gōngyuán.",
+    "en": "I go to the park almost every day.",
+    "ch": [
+     "我",
+     "几乎",
+     "每天",
+     "都",
+     "去",
+     "公园。"
+    ],
+    "chp": [
+     "wǒ",
+     "jīhū",
+     "měitiān",
+     "dōu",
+     "qù",
+     "gōngyuán"
+    ],
+    "g": "几乎",
+    "gp": "jīhū"
+   },
+   {
+    "h": "他几乎没吃东西。",
+    "py": "Tā jīhū méi chī dōngxi.",
+    "en": "He hardly ate anything.",
+    "ch": [
+     "他",
+     "几乎",
+     "没",
+     "吃",
+     "东西。"
+    ],
+    "chp": [
+     "tā",
+     "jīhū",
+     "méi",
+     "chī",
+     "dōngxi"
+    ],
+    "g": "几乎",
+    "gp": "jīhū"
+   },
+   {
+    "h": "教室里几乎没有人。",
+    "py": "Jiàoshì lǐ jīhū méiyǒu rén.",
+    "en": "There is almost nobody in the classroom.",
+    "ch": [
+     "教室",
+     "里",
+     "几乎",
+     "没有",
+     "人。"
+    ],
+    "chp": [
+     "jiàoshì",
+     "lǐ",
+     "jīhū",
+     "méiyǒu",
+     "rén"
+    ],
+    "g": "几乎",
+    "gp": "jīhū"
+   }
+  ],
+  "d": [
+   [
+    "已经",
+    "yǐjīng"
+   ],
+   [
+    "马上",
+    "mǎshàng"
+   ],
+   [
+    "终于",
+    "zhōngyú"
+   ]
+  ],
+  "ext": "HSK 4"
+ },
+ {
+  "id": "h4-gengju",
+  "lv": 5,
+  "k": [
+   "根据"
+  ],
+  "t": "According to with 根据",
+  "p": "根据 + source，+ statement",
+  "n": "根据 introduces the source or evidence behind a statement: \"according to / based on\".",
+  "x": [
+   {
+    "h": "根据天气预报，明天会下雨。",
+    "py": "Gēnjù tiānqì yùbào, míngtiān huì xiàyǔ.",
+    "en": "According to the weather forecast, it will rain tomorrow.",
+    "ch": [
+     "根据",
+     "天气",
+     "预报，",
+     "明天",
+     "会",
+     "下雨。"
+    ],
+    "chp": [
+     "gēnjù",
+     "tiānqì",
+     "yùbào",
+     "míngtiān",
+     "huì",
+     "xiàyǔ"
+    ],
+    "g": "根据",
+    "gp": "gēnjù"
+   },
+   {
+    "h": "根据老师说的，明天考试。",
+    "py": "Gēnjù lǎoshī shuō de, míngtiān kǎoshì.",
+    "en": "According to the teacher, there is an exam tomorrow.",
+    "ch": [
+     "根据",
+     "老师",
+     "说",
+     "的，",
+     "明天",
+     "考试。"
+    ],
+    "chp": [
+     "gēnjù",
+     "lǎoshī",
+     "shuō",
+     "de",
+     "míngtiān",
+     "kǎoshì"
+    ],
+    "g": "根据",
+    "gp": "gēnjù"
+   },
+   {
+    "h": "根据地图，银行在左边。",
+    "py": "Gēnjù dìtú, yínháng zài zuǒbiān.",
+    "en": "According to the map, the bank is on the left.",
+    "ch": [
+     "根据",
+     "地图，",
+     "银行",
+     "在",
+     "左边。"
+    ],
+    "chp": [
+     "gēnjù",
+     "dìtú",
+     "yínháng",
+     "zài",
+     "zuǒbiān"
+    ],
+    "g": "根据",
+    "gp": "gēnjù"
+   }
+  ],
+  "d": [
+   [
+    "关于",
+    "guānyú"
+   ],
+   [
+    "除了",
+    "chúle"
+   ],
+   [
+    "为了",
+    "wèile"
+   ]
+  ],
+  "ext": "HSK 4"
+ },
+ {
+  "id": "h4-lian",
+  "lv": 5,
   "k": [
    "连"
   ],
@@ -5536,11 +6486,12 @@
     "也",
     "yě"
    ]
-  ]
+  ],
+  "ext": "HSK 4"
  },
  {
   "id": "h4-kenengbuyu",
-  "lv": 4,
+  "lv": 5,
   "k": [
    "得"
   ],
@@ -5643,6 +6594,7 @@
     "地",
     "de"
    ]
-  ]
+  ],
+  "ext": "HSK 4"
  }
 ]

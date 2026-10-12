@@ -527,8 +527,9 @@ LEVELS.forEach((lw,li)=>{
     p.d0=d;
   });
   const cnt=bs.map(()=>0),cap=Math.max(1,Math.ceil(pts.length/bs.length));
-  pts.slice().sort((a,b)=>a.d0-b.d0).forEach(p=>{
-    let x=p.d0;while(x<bs.length&&cnt[x]>=cap)x++;
+  /* levels 3 and 4 (HSK 3 spread over two levels): after the anchor, also space the points out evenly instead of piling them into the first batches */
+  pts.slice().sort((a,b)=>a.d0-b.d0).forEach((p,r)=>{
+    let x=li>=2?Math.max(p.d0,Math.floor(r*bs.length/pts.length)):p.d0;while(x<bs.length&&cnt[x]>=cap)x++;
     if(x>=bs.length){x=bs.length-1;while(x>0&&cnt[x]>=cap)x--}
     cnt[x]++;GB[bs[x]].push(p);
   });
@@ -540,6 +541,7 @@ GR.forEach(p=>{
     if(e.g){const at=e.ch.findIndex(c=>c.includes(e.g));e.gi=at;if(at>=0){const c=e.ch[at],a=c.indexOf(e.g);e.pre=e.ch.slice(0,at).join('')+c.slice(0,a);e.post=c.slice(a+e.g.length)+e.ch.slice(at+1).join('')}else delete e.g}
   });
 });
+const GX=GR.filter(p=>p.lv>LEVELS.length);/* HSK 4 extras: not part of the level path */
 const gramOf=b=>GB[b];
 const gramSoFar=b=>BATCHES.map((_,k)=>k).filter(k=>BATCHES[k].lv===BATCHES[b].lv&&k<=b).flatMap(k=>GB[k]);
 
@@ -738,6 +740,7 @@ function viewHome(){
       if(!vis.length)return `<div class="lvl locked"><span>Level ${lv}</span><small>${lw.length} words · finish level ${lv-1} to unlock</small></div>`;
       return `<details class="lvl" ${vis.includes(shown-1)?'open':''}><summary><span>Level ${lv}</span><small>${got} of ${lw.length} words learned</small><div class="meter j"><i style="width:${pc}%"></i></div></summary><div class="path">${vis.map(card).join('')}</div></details>`}).join('')}
   </section>
+  ${LEARNED&&GX.length?`<section class="sec"><button class="cta ghost" data-act="extras">HSK 4 grammar extras (${GX.length})</button><div class="meta">Optional: HSK 4 patterns to try early. They are not part of the level path.</div></section>`:''}
   ${LEARNED?`<section class="sec"><h2>Your characters <span style="font-size:14px;color:var(--muted);font-family:var(--f-body);font-weight:600">${mastered} of ${LEARNED} mastered</span></h2>
     <input class="csearch" id="csearch" type="search" placeholder="Search by pinyin: hui, hui2, huí, zhong1guo2" aria-label="Search your characters by pinyin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="search">
     <p class="meta csr" id="cres" hidden></p>
@@ -782,6 +785,7 @@ let IN=null;
 function viewIntro(b,review){IN={b,k:0,ids:batchIds(b),review,gs:gramOf(b),gk:-1};drawIntro()}
 /* one grammar point on its own, from a batch's practice screen */
 function viewGrammarOnly(b,id){IN={b,k:0,ids:[],review:true,solo:true,gs:[gById[id]],gk:0};drawIntro()}
+function viewExtraRead(id){IN={b:-1,k:0,ids:[],review:true,solo:true,ext:true,gs:[gById[id]],gk:0};drawIntro()}
 function exHtml(p,e){
   const hz=e.g?`${esc(e.pre)}<span class="gk">${esc(e.g)}</span>${esc(e.post)}`:esc(e.h);
   return `<div class="ex"><div class="hz">${hz}</div><div class="pinyin-line">${esc(e.py)}</div><p class="en">${esc(e.en)}</p></div>`;
@@ -789,9 +793,9 @@ function exHtml(p,e){
 function drawGram(){
   const p=IN.gs[IN.gk],n=IN.gs.length,last=IN.gk===n-1;
   $app.innerHTML=`<div class="wrap"><header class="lhead" style="padding-inline:0">
-    <button class="icon-btn" data-act="${IN.solo?'pracback':'home'}" aria-label="${IN.solo?'Back to practice':'Back to home'}">${I.close}</button>
+    <button class="icon-btn" data-act="${IN.ext?'extback':IN.solo?'pracback':'home'}" aria-label="${IN.ext?'Back to HSK 4 extras':IN.solo?'Back to practice':'Back to home'}">${I.close}</button>
     <div class="pbar"><i style="width:${(IN.gk+1)/n*100}%"></i></div><div class="hud" style="color:var(--muted)">${IN.gk+1}/${n}</div></header>
-    <p class="eyebrow">Grammar · level ${p.lv} · batch ${IN.b+1}</p>
+    <p class="eyebrow">${IN.ext?'Grammar · '+esc(p.ext||'Extra')+' extra':'Grammar · level '+p.lv+' · batch '+(IN.b+1)}</p>
     <section class="icard gcard">
       <h2>${esc(p.t)}</h2>
       <div class="gpat">${esc(p.p)}</div>
@@ -829,7 +833,7 @@ function introNext(){
     if(IN.k<IN.ids.length-1){IN.k++;return drawIntro()}
     if(IN.gs.length){IN.gk=0;return drawIntro()}
   }else if(IN.gk<IN.gs.length-1){IN.gk++;return drawIntro()}
-  if(IN.review){const b=IN.b,solo=IN.solo;IN=null;return solo?viewPrac(b):viewHome()}
+  if(IN.review){const b=IN.b,solo=IN.solo,ext=IN.ext;IN=null;return ext?viewExtras():solo?viewPrac(b):viewHome()}
   LEARNED=Math.max(LEARNED,IN.ids[IN.ids.length-1]+1);FOCUS=IN.b;
   store.set('ha_learned',LEARNED);store.set('ha_focus',FOCUS);
   const gids=IN.gs.map(p=>p.id);
@@ -872,6 +876,21 @@ function viewPrac(b){
     ${gl.length?`<section class="sec gsec"><h2>Grammar</h2>
       ${gs.length?gs.map(p=>`<div class="grow"><div class="gm"><b>${esc(p.t)}</b><span>${esc(tn[tierOf(GP[p.id])])}</span></div><button class="mini" data-act="gread" data-b="${b}" data-g="${esc(p.id)}">Read</button></div>`).join(''):`<p class="meta" style="margin:0;text-align:left">No new grammar in this batch.</p>`}
       <div class="row">${gs.length?`<button class="cta ghost" style="flex:1 1 200px" data-act="gprac" data-b="${b}" data-s="batch">Practise this batch's grammar</button>`:''}${gl.length>gs.length?`<button class="cta ghost" style="flex:1 1 200px" data-act="gprac" data-b="${b}" data-s="level">Practise level ${lv} grammar so far</button>`:''}</div></section>`:''}
+  </div>`;
+  window.scrollTo(0,0);
+}
+
+/* ---------- HSK 4 grammar extras (optional; not tied to any batch) ---------- */
+function viewExtras(){
+  L&&L.timer&&clearInterval(L.timer);L=null;IN=null;scr('prac');
+  const tn=['New','Seen','Getting there','Mastered'];
+  $app.innerHTML=`<div class="wrap"><header class="lhead" style="padding-inline:0">
+    <button class="icon-btn" data-act="home" aria-label="Back to home">${I.close}</button>
+    <div style="flex:1;min-width:0"><p class="eyebrow">Optional</p><h2>HSK 4 grammar extras</h2></div></header>
+    <p class="meta" style="margin:0 0 16px;text-align:left">These patterns go a little beyond HSK 3. Read them whenever you like and practise them as a set. They will move into the later levels once those are added.</p>
+    <section class="sec gsec">
+      ${GX.map(p=>`<div class="grow"><div class="gm"><b>${esc(p.t)}</b><span>${esc(tn[tierOf(GP[p.id])])}</span></div><button class="mini" data-act="xread" data-g="${esc(p.id)}">Read</button></div>`).join('')}
+      <div class="row"><button class="cta" style="flex:1 1 200px" data-act="xprac">Practise all ${GX.length}</button></div></section>
   </div>`;
   window.scrollTo(0,0);
 }
@@ -1144,6 +1163,10 @@ document.addEventListener('click',e=>{
   else if(a==='sgame')startLesson(b.dataset.mode,{batches:SEL.slice()});
   else if(a==='pracv')viewPrac(+b.dataset.b);
   else if(a==='pracback')viewPrac(IN?IN.b:PRB);
+  else if(a==='extras')viewExtras();
+  else if(a==='extback')viewExtras();
+  else if(a==='xread')viewExtraRead(b.dataset.g);
+  else if(a==='xprac')startLesson('grammar',{gids:GX.map(p=>p.id),extras:true});
   else if(a==='bgame')startLesson(b.dataset.mode,{batch:+b.dataset.b});
   else if(a==='again'){const o=L.opts,m=L.mode;startLesson(m,o)}
   else if(a==='gread')viewGrammarOnly(+b.dataset.b,b.dataset.g);
@@ -1171,7 +1194,7 @@ function askQuit(){
   document.body.appendChild(d);
 }
 /* leaving a lesson (or its results) by the back button goes back to the Practise screen it was started from, else Home */
-function lessonParent(){const o=L&&L.opts;if(o&&o.batches){if(L.timer)clearInterval(L.timer);return viewPracSel()}const f=o?(o.batch!==undefined?o.batch:o.from):undefined;if(L&&L.timer)clearInterval(L.timer);if(f!==undefined)viewPrac(f);else viewHome()}
+function lessonParent(){const o=L&&L.opts;if(o&&o.extras){if(L.timer)clearInterval(L.timer);return viewExtras()}if(o&&o.batches){if(L.timer)clearInterval(L.timer);return viewPracSel()}const f=o?(o.batch!==undefined?o.batch:o.from):undefined;if(L&&L.timer)clearInterval(L.timer);if(f!==undefined)viewPrac(f);else viewHome()}
 function quitLesson(){const d=document.getElementById('qdlg');if(d)d.remove();lessonParent()}
 window.addEventListener('popstate',()=>{
   if(Date.now()-HOMEBACK<700){fixDepth();return}
@@ -1181,6 +1204,7 @@ window.addEventListener('popstate',()=>{
     else{askQuit();fixDepth(1)}
   }
   else if(SCREEN==='res')lessonParent();
+  else if(SCREEN==='intro'&&IN&&IN.ext)viewExtras();
   else if(SCREEN==='intro'&&IN&&IN.solo)viewPrac(IN.b);
   else viewHome();
 });
